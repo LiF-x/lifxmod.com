@@ -2,7 +2,7 @@
 layout: default
 nav_order: 1
 parent: Home
-title: Test
+title: Server framework
 nav_exclude: false
 has_children: false
 has_toc: true
