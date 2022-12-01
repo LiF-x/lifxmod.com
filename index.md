@@ -1,7 +1,6 @@
 ---
 title: Home
 layout: default
-parent: ''
 nav_order: 
 nav_exclude: false
 has_children: false
