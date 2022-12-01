@@ -27,4 +27,5 @@ fields:
     required: false
   label: parent
 pages:
+- Docs/server-framework.md
 - test.md
