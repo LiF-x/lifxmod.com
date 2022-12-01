@@ -6,6 +6,8 @@ fields:
 - type: text
   name: layout
   label: layout
+  default: default
+  hidden: true
 - type: number
   name: nav_order
   label: nav_order
