@@ -47,4 +47,5 @@ fields:
   label: has_toc
   default: false
 pages:
+- index.md
 - test.md
