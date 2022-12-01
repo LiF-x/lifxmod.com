@@ -30,18 +30,6 @@ fields:
 - name: has_children
   type: boolean
   label: has_children
-- name: parent
-  type: select
-  default: []
-  config:
-    required: false
-    options: []
-    source:
-      type: pages
-      section: jekyll-pages
-      file: 
-      path: 
-  label: parent
 - name: has_toc
   type: boolean
   label: has_toc
