@@ -35,5 +35,4 @@ fields:
   label: has_toc
   default: false
 pages:
-- Docs/documentation.md
 - index.md
