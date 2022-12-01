@@ -1,6 +1,6 @@
 ---
 layout: default
-nav_order: 
+nav_order: 1
 parent: Home
 title: Test
 nav_exclude: false
