@@ -1,7 +1,7 @@
 ---
 title: Home
 layout: default
-nav_order: 
+nav_order: 1
 nav_exclude: false
 has_children: true
 has_toc: false
