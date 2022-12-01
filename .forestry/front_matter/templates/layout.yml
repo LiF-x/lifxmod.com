@@ -35,11 +35,6 @@ fields:
   type: boolean
   label: has_toc
   default: false
-- name: parent
-  type: text
-  config:
-    required: false
-  label: parent
 - name: content
   type: textarea
   default: ''
