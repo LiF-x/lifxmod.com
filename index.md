@@ -3,7 +3,7 @@ title: Home
 layout: default
 nav_order: 1
 nav_exclude: false
-has_children: true
+has_children: false
 has_toc: false
 content: ''
 
