@@ -1,0 +1,25 @@
+---
+label: Child
+hide_body: true
+fields:
+- type: text
+  name: layout
+  label: layout
+- type: number
+  name: nav_order
+  label: nav_order
+- type: text
+  name: parent
+  label: parent
+- type: text
+  name: title
+  label: title
+- type: boolean
+  name: nav_exclude
+  label: nav_exclude
+- type: boolean
+  name: has_children
+  label: has_children
+- type: boolean
+  name: has_toc
+  label: has_toc
