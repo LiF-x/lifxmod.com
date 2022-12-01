@@ -9,9 +9,6 @@ fields:
   name: nav_order
   label: nav_order
 - type: text
-  name: parent
-  label: parent
-- type: text
   name: title
   label: title
 - type: boolean
@@ -23,3 +20,15 @@ fields:
 - type: boolean
   name: has_toc
   label: has_toc
+- name: parent
+  type: select
+  default: []
+  config:
+    required: false
+    options: []
+    source:
+      type: pages
+      section: jekyll-pages
+      file: 
+      path: 
+  label: parent
