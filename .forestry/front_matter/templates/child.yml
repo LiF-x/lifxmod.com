@@ -8,12 +8,12 @@ fields:
   label: layout
   default: default
   hidden: true
-- type: number
-  name: nav_order
-  label: nav_order
 - type: text
   name: title
   label: title
+- type: number
+  name: nav_order
+  label: nav_order
 - type: boolean
   name: nav_exclude
   label: nav_exclude
