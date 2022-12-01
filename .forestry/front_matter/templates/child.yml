@@ -17,17 +17,17 @@ fields:
 - type: boolean
   name: nav_exclude
   label: nav_exclude
+- name: parent
+  type: text
+  config:
+    required: false
+  label: parent
 - type: boolean
   name: has_children
   label: has_children
 - type: boolean
   name: has_toc
   label: has_toc
-- name: parent
-  type: text
-  config:
-    required: false
-  label: parent
 pages:
 - Docs/server-framework.md
 - test.md
