@@ -1,7 +1,7 @@
 ---
 layout: default
 nav_order: 0
-parent: []
+parent: ''
 title: Test
 nav_exclude: false
 has_children: false
