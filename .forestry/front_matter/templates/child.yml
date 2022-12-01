@@ -1,6 +1,6 @@
 ---
 label: Child
-hide_body: true
+hide_body: false
 fields:
 - type: text
   name: layout
@@ -21,14 +21,16 @@ fields:
   name: has_toc
   label: has_toc
 - name: parent
-  type: select
-  default: []
+  type: text
   config:
     required: false
-    options: []
-    source:
-      type: pages
-      section: jekyll-pages
-      file: 
-      path: 
   label: parent
+- name: content
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: content
