@@ -1,7 +1,7 @@
 ---
 layout: default
 nav_order: 
-parent: home
+parent: Home
 title: Test
 nav_exclude: false
 has_children: false
