@@ -73,7 +73,7 @@ You can also use the public example starting point which you can find on in [thi
 
 #### Example structure
 
-#### Example file
+#### Example mod.cs file
 
     /**
     * <author></author>
