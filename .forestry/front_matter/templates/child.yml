@@ -30,7 +30,7 @@ fields:
   label: has_toc
 - name: last_modified_date
   type: datetime
-  label: last_modified_Date
+  label: last_modified_date
   description: ''
   config:
     required: false
