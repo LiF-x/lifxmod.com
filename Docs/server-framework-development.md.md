@@ -48,7 +48,8 @@ published: false
 An example of server framework compatible mod.  
 Each server mod has to be named mod.cs for the framework to find it and execute it.
 
-You can also use the public example starting point which you can find on in [this public repository.](https://github.com/LiF-x/ExampleServerMod){: .btn .fs-5 .mb-4 .mb-md-0 .mr-2 }
+You can also use the public example starting point which you can find on in the public repository.   
+[Server Mod Boilerplate](https://github.com/LiF-x/ExampleServerMod){: .btn .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
 ### Example structure of the server
 
