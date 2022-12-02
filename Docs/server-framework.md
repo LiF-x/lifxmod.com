@@ -40,7 +40,7 @@ You are now set to download install and use compatible mods to the server framew
 | 20.12.2020 | v1.0.1 | Added onPostInit call |
 | 19.12.2020 | v1.0.0 | The initial release of our server-side mod, it introduces our LiFx Mod Framework structure |
 
-## Documentation
+## Mod development documentation
 
 ### Hooks
 
