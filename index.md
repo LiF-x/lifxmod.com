@@ -9,7 +9,10 @@ content: ''
 last_modified_date: 2022-12-01 23:00:00 +0000
 
 ---
-# Life is Feudal: Extended (LiFx)  
+![](/uploads/lifx-lightgrey-logo.png)
+
+# Life is Feudal: Extended (LiFx)
+
 {: .fs-9 }
 
 All the documentation you need to make your mods compatible with the LiFx framework. Made to be easy both for developers and users  
