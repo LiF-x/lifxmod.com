@@ -10,13 +10,15 @@ last_modified_date:
 
 ---
 # Server framework
+
 {: .no_toc }
 
 ## Table of contents
+
 {: .no_toc .text-delta }
 
 1. TOC  
-{:toc}
+   {:toc}
 
 ## Installation instructions
 
@@ -72,6 +74,14 @@ Each server mod has to be named mod.cs for the framework to find it and execute 
 You can also use the public example starting point which you can find on in [this public repository.](https://github.com/LiF-x/ExampleServerMod)
 
 #### Example structure
+
+    +-- ..
+    |-- Life is Feudal: Your Own dedicated server root
+    |
+    |-- mods
+    |   |-- ExampleMod
+    |   |   |-- mod.cs
+    +-- ..
 
 #### Example mod.cs file
 
