@@ -6,6 +6,7 @@ nav_exclude: false
 has_children: false
 has_toc: false
 content: ''
+last_modified_date: 2022-12-01 23:00:00 +0000
 
 ---
 # Life is Feudal: Extended (LiFx)  
