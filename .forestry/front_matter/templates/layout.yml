@@ -34,6 +34,16 @@ fields:
   type: boolean
   label: has_toc
   default: false
+- name: last_modified_date
+  type: datetime
+  label: last_modified_Date
+  description: ''
+  config:
+    required: false
+    date_format: 
+    time_format: 
+    display_utc: false
+  default: now
 pages:
 - Docs/index.md
 - index.md
