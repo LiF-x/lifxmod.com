@@ -71,12 +71,19 @@ You are now set to download install and use compatible mods to the server framew
 
 ### Example
 
+An example of server framework compatible mod.  
+Each server mod has to be named mod.cs for the framework to find it and execute it.
+
+#### Example structure
+
+#### Example file
+
     /**
-    * &lt;author&gt;&lt;/author&gt;
-    * &lt;url&gt;lifxmod.com&lt;/url&gt;
-    * &lt;credits&gt;&lt;/credits&gt;
-    * &lt;description&gt;&lt;/description&gt;
-    * &lt;license&gt;GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007&lt;/license&gt;
+    * <author></author>
+    * <ur>lifxmod.com</url>
+    * <credits></credits>
+    * <description></description>
+    * <license>GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007</license>
     */
     // ---------------- hook overview
     // $LiFx::hooks::onSpawnCallbacks =  JettisonArray("onSpawnCallbacks");
