@@ -116,33 +116,33 @@ You can also use the public example starting point which you can find on in the 
     	// Each of the variables in the object, corrosponds to the column value in the database
         return new ScriptObject(ObjectsTypesExampleBuilding : ObjectsTypes)
         {
-          id = 2420;
-          ObjectName = "ExampleBuilding";
-          ParentID = 61;
-          IsContainer = 0;
-          IsMovableObject = 0;
-          IsUnmovableobject = 1;
-          IsTool = 0;
-          IsDevice = 0;
-          IsDoor = 0;
-          IsPremium = 0;
-          MaxContSize = 0;
-          Length = 0; 
-          MaxStackSize = 0;
-          UnitWeight = 5000;
-          BackgrndImage = "";
+          id = 2420; // *UNIQUE INT* Has to be a unique id
+          ObjectName = "ExampleBuilding"; // *STRING* Name of your object
+          ParentID = 61; // *INT* ParentID decides what type of object you have, think of it as class inheritance
+          IsContainer = 0; // *BOOL* 1 (true) or 0 (false) - If your object is supposed to have a container referenced
+          IsMovableObject = 0; // *BOOL* 1 (true) or 0 (false) - If your object is supposed to be movable
+          IsUnmovableobject = 1; // *BOOL* 1 (true) or 0 (false) - If your object is supposed to be unmovable
+          IsTool = 0; // *BOOL* 1 (true) or 0 (false) - If your object is supposed to be a tool to cut down trees or build buildings
+          IsDevice = 0; // *BOOL* 1 (true) or 0 (false) - If your object is a device used in crafting or other interactions
+          IsDoor = 0; // *BOOL* 1 (true) or 0 (false) - If your object has a door
+          IsPremium = 0; // *BOOL* 1 (true) or 0 (false) - Premium defintion currently is not in use for Your Own.
+          MaxContSize = 0; // *INT* The Max size of the container, if IsContainer is true
+          Length = 0;  // *INT* Length of your object, used to decide if your object fits in a particular container
+          MaxStackSize = 0; // *INT* Max number of items in a stack of your item in the inventory
+          UnitWeight = 5000; // *INT* The weight of your object, used in calculation of encumbarance
+          BackgrndImage = ""; // *STRING* Image reference to your inventory background, must be set if your object has a container
           WorkAreaTop = 0;
           WorkAreaLeft = 0;
           WorkAreaWidth = 0;
           WorkAreaHeight = 0;
           BtnCloseTop = 0;
           BtnCloseLeft = 0;
-          FaceImage = "mods/ExampleMod/BuildingImages/Example.png";
-          Description = "";
-          BasePrice = 0;
-          OwnerTimeout = 0;
-          AllowExportFromRed = 0;
-          AllowExportFromGreen = 0;
+          FaceImage = "mods/ExampleMod/BuildingImages/Example.png"; // *STRING* Reference to png that will be displayed in crafting menu
+          Description = ""; // *STRING* Used in crafting and skill to describe your object 
+          BasePrice = 0; // *INT* Used as price for sacrificing to monuments, high value gives more maintenance points
+          OwnerTimeout = 0; // *INT* Used to set a timer on the object when made or dropped.
+          AllowExportFromRed = 0; // Not in use
+          AllowExportFromGreen = 0; // Not in use
         };
       }
     };
