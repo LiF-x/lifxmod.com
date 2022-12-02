@@ -6,12 +6,13 @@ nav_exclude: false
 has_children: false
 has_toc: false
 content: ''
-last_modified_date: 2022-12-01 23:00:00 +0000
+last_modified_date: 
 
 ---
 ![Life is Feudal: Extended](/uploads/lifx-lightgrey-logo.png)
 
 # Life is Feudal: Extended (LiFx)
+
 {: .fs-9 }
 
 All the documentation you need to make your mods compatible with the LiFx framework. Made to be easy both for developers and users
@@ -52,16 +53,20 @@ The server framework is standalone.
 Life is Feudal: Extended (LiFx) is distributed by an GPL 3.0 license.
 
 ### Credits
+
 Mjoed
 
 #### Notable contributors
-Ebhe
-Ulrik
-Johnny
-Ibun
-Nyuton
-Basil
-Skunk
-Kurai Seraph
 
-The community overall
+* Ebhe (our moderator)
+* Ulrik (of RPCLiF)
+* Johnny (of RPCLiF)
+* Ibun (of Viking Gaming)
+* Nyuton of feudal.tools and join venture YoLauncher
+* Basil of BasilMod
+* Skunk of SF Mod
+* Kurai Seraph
+* Joseantime for old site contributions
+* Pabluuz for old site contributions
+
+**The community overall**
