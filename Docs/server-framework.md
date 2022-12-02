@@ -46,10 +46,9 @@ You are now set to download install and use compatible mods to the server framew
 
 ### Hooks
 
-| Hook array | Arguments | Description |
+| Hook array | Parameters | Description |
 | --- | --- | --- |
-| $LiFx::hooks::mods |  | This is the mod entrypoint, you have to register your mod and the setup function to this hook for it to load, see example below. |
-|  |  |  |
+| $LiFx::hooks::mods |  | This is the mod entrypoint, you have to register your mod and the "setup" function to this hook for it to load, see example below. It is only used for registering your setup functionality not to execute any game altering code directly |
 | $LiFx::hooks::onStartCallbacks | %this | Executes when onStart is called by the server code and should be your main entry point for your mod to execute and load configuration. |
 | $LiFx::hooks::onConnectRequestCallbacks | %this, %gameConnection, %netaddress, %name |  |
 | $LiFx::hooks::onPostConnectRoutineCallbacks | %this, %gameConnection, %netaddress, %name |  |
