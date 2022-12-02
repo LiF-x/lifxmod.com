@@ -1,7 +1,7 @@
 ---
 layout: default
 nav_order: 2
-title: server-framework development.md
+title: Server framework development
 nav_exclude: false
 has_children: false
 has_toc: true
