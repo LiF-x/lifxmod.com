@@ -9,7 +9,7 @@ content: ''
 last_modified_date: 2022-12-01 23:00:00 +0000
 
 ---
-![](/uploads/lifx-lightgrey-logo.png)
+![Life is Feudal: Extended](/uploads/lifx-lightgrey-logo.png)
 
 # Life is Feudal: Extended (LiFx)
 {: .fs-9 }
