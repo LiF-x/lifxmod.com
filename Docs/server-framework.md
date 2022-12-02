@@ -135,6 +135,7 @@ You can also use the public example starting point which you can find on in [thi
     
         // this returns and writes to the dump.sql file for ease of distribution
 		// The name of the object should be the same as the function name it registers
+  		// Each of the variables in the object, corrosponds to the column value in the database
         return new ScriptObject(ObjectsTypesExampleBuilding : ObjectsTypes)
         {
           id = 2420;
