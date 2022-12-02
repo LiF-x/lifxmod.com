@@ -11,14 +11,15 @@ published: false
 
 ---
 # Mod development documentation
+
 {: .no_toc }
 
 ## Table of contents
+
 {: .no_toc .text-delta }
 
 1. TOC  
-{:toc}
-
+   {:toc}
 
 ## Hooks
 
@@ -47,7 +48,7 @@ published: false
 An example of server framework compatible mod.  
 Each server mod has to be named mod.cs for the framework to find it and execute it.
 
-You can also use the public example starting point which you can find on in [this public repository.](https://github.com/LiF-x/ExampleServerMod)
+You can also use the public example starting point which you can find on in [this public repository.](https://github.com/LiF-x/ExampleServerMod){: .btn .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
 ### Example structure of the server
 
@@ -112,8 +113,8 @@ You can also use the public example starting point which you can find on in [thi
       function ExampleMod::ObjectsTypesExampleBuilding() {
     
         // this returns and writes to the dump.sql file for ease of distribution
-		// The name of the object should be the same as the function name it registers
-  		// Each of the variables in the object, corrosponds to the column value in the database
+    	// The name of the object should be the same as the function name it registers
+    	// Each of the variables in the object, corrosponds to the column value in the database
         return new ScriptObject(ObjectsTypesExampleBuilding : ObjectsTypes)
         {
           id = 2420;
