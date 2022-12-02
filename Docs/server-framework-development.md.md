@@ -11,15 +11,13 @@ published: false
 
 ---
 # Mod development documentation
-
 {: .no_toc }
 
 ## Table of contents
-
 {: .no_toc .text-delta }
 
 1. TOC  
-   {:toc}
+{:toc}
 
 ## Hooks
 
@@ -140,7 +138,7 @@ You can also use the public example starting point which you can find on in the 
           BtnCloseTop = 0;
           BtnCloseLeft = 0;
           FaceImage = "mods/ExampleMod/BuildingImages/Example.png";
-          Description = "Bazaar tent";
+          Description = "";
           BasePrice = 0;
           OwnerTimeout = 0;
           AllowExportFromRed = 0;
