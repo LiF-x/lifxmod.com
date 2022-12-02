@@ -46,7 +46,6 @@ You are now set to download install and use compatible mods to the server framew
 
 ### Hooks
 
-
 | Hook array | Arguments | Description |
 | --- | --- | --- |
 | $LiFx::hooks::mods |  | This is the mod entrypoint, you have to register your mod and the setup function to this hook for it to load, see example below. |
@@ -75,41 +74,21 @@ You are now set to download install and use compatible mods to the server framew
 An example of server framework compatible mod.  
 Each server mod has to be named mod.cs for the framework to find it and execute it.
 
+You can also use the public example starting point which you can find on in [this public repository.](https://github.com/LiF-x/ExampleServerMod)
+
 #### Example structure
 
 #### Example file
 
     /**
     * <author></author>
-    * <ur>lifxmod.com</url>
+    * <url>lifxmod.com</url>
     * <credits></credits>
     * <description></description>
     * <license>GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007</license>
     */
-    // ---------------- hook overview
-    // $LiFx::hooks::onSpawnCallbacks =  JettisonArray("onSpawnCallbacks");
-    // $LiFx::hooks::onConnectCallbacks =  JettisonArray("onConnectCallbacks");
-    // $LiFx::hooks::onConnectRequestCallbacks =  JettisonArray("onConnectRequestCallbacks");
-    // $LiFx::hooks::onPostConnectRoutineCallbacks =  JettisonArray("onPostConnectRoutineCallbacks");
-    // $LiFx::hooks::onPreConnectRequestCallbacks =  JettisonArray("onPreConnectRequestCallbacks");
-    // $LiFx::hooks::onDisconnectCallbacks =  JettisonArray("onDisconnectCallbacks");
     
-    // $LiFx::hooks::onDeathCallbacks =  JettisonArray("onDeathCallbacks");
-    // $LiFx::hooks::onKillCallbacks =  JettisonArray("onKillCallbacks");
-    // $LiFx::hooks::onSuicideCallbacks =  JettisonArray("onSuicideCallbacks");
-    
-    // $LiFx::hooks::onJHStartCallbacks =  JettisonArray("onJHStartCallbacks");
-    // $LiFx::hooks::onJHEndCallbacks =  JettisonArray("onJHEndCallbacks");
-    // $LiFx::hooks::onCharacterCreateCallbacks =  JettisonArray("onCharacterCreateCallbacks");
-    
-    // $LiFx::hooks::onStartCallbacks =  JettisonArray("onStartCallbacks");
-    // $LiFx::hooks::onPostInitCallbacks  =  JettisonArray("onPostInitCallbacks");
-    // $LiFx::hooks::onInitServerCallbacks  =  JettisonArray("onInitServerCallbacks");
-    // $LiFx::hooks::onInitServerDBChangesCallbacks  =  JettisonArray("onInitServerDBChangesCallbacks");
-    
-    // --------------- objects_types db manipulation
-    // LiFx::registerObjectsTypes(ExampleMod::ObjectsTypesBazaar(), ExampleMod);
-    
+    // Register your mod as an object in the game engine, important for loading and unloading a package (mod)
     if (!isObject(ExampleMod))
     {
         new ScriptObject(ExampleMod)
@@ -118,70 +97,33 @@ Each server mod has to be named mod.cs for the framework to find it and execute 
     }
     
     
+    // LiFx expect each mod to be it's own unique package
     package ExampleMod
     {
+      // The setup method is required, and will be looked for by the framework
+      // This is where you tell the framework, which hooks you use and what object types you have added, so that the framework can call your code at the appropiate time
       function ExampleMod::setup() {
-        // Register callback hooks, do not run any form of code that does anything here, just queue the code
-    
+        // Register callback hooks, do not run any form of code that does anything here, just register the hook
+    	/**
+    	* LiFx::registerCallback is a global framework function, it takes 3 parameters
+        * Parameter 1: The hook to register your function on
+        * Parameter 2: Non scoped name of function in your package
+        * Parameter 3: The package name to scope your function appropiately.
+    	*/
         LiFx::registerCallback($LiFx::hooks::onSpawnCallbacks, onSpawn, ExampleMod);
-        LiFx::registerCallback($LiFx::hooks::onConnectCallbacks, onConnect, ExampleMod);
-        LiFx::registerCallback($LiFx::hooks::onDisconnectCallbacks, onDisconnect, ExampleMod);
-    
-        LiFx::registerCallback($LiFx::hooks::onDeathCallbacks, onPlayerDeath, ExampleMod);
-        LiFx::registerCallback($LiFx::hooks::onKillCallbacks, onPlayerKilled, ExampleMod); 
-        LiFx::registerCallback($LiFx::hooks::SuicideCallbacks , onSuicide, ExampleMod); 
-    
-        LiFx::registerCallback($LiFx::hooks::onJHStartCallbacks, JHStart, ExampleMod);
-        LiFx::registerCallback($LiFx::hooks::onJHEndCallbacks, JHEnd, ExampleMod);
-    
-        LiFx::registerCallback($LiFx::hooks::onStartCallbacks, onServerStarted, ExampleMod);
-        LiFx::registerCallback($LiFx::hooks::onPostInitCallbacks, RegisterBasil, ExampleMod);
-        LiFx::registerCallback($LiFx::hooks::onInitServerCallbacks, onInitServerCallbacks, ExampleMod);
-        LiFx::registerCallback($LiFx::hooks::onInitServerDBChangesCallbacks, DbChanges, ExampleMod);
-    
+        
+    	/**
+    	* LiFx::registerObjectsTypes is a global framework function, it takes 2 parameters
+    	* It is used to write to the dump.sql on start, prior to the server reading it, and is necessary as bitbox wipes the objectstypes table on each start up.
+        * Parameter 1: The function including scope to your objectstypes definition
+        * Parameter 2: The package name of your mod
+    	*/
         LiFx::registerObjectsTypes(ExampleMod::ObjectsTypesBazaar(), ExampleMod);
       }
     
       function ExampleMod::onSpawn(%this, %client) {
         echo(%this.getName() SPC %client.getName());
         
-      }
-      function ExampleMod::onConnect(%this, %obj) {
-        echo(%obj.getName());
-      }
-      function ExampleMod::onDisconnect(%this, %obj)  {
-        echo(%this.getName());
-      }
-      function ExampleMod::onCharacterCreate(%this, %obj)  {
-        echo(%this.getName());
-      }
-      function ExampleMod::onPlayerDeath(%this, %CharID, %isKnockout, %Tombstone) {
-        echo(%this.getName() SPC %sourceObject.getName() SPC %sourceClient.getName() SPC %damageType SPC %damLoc);
-      }
-      function ExampleMod::onPlayerKilled(%this, %CharID, %isKnockout, %Tombstone) {
-        echo(%this.getName() SPC %sourceObject.getName() SPC %sourceClient.getName() SPC %damageType SPC %damLoc);
-        
-      }
-      function ExampleMod::onSuicide(%this, %CharID, %isKnockout, %Tombstone) {
-        echo(%this.getName() SPC %sourceObject.getName() SPC %sourceClient.getName() SPC %damageType SPC %damLoc);
-        
-      }
-      function ExampleMod::JHStart() {
-        echo("JH Started");
-      }
-      function ExampleMod::JHEnd() {
-        echo("JH Ended");
-      }
-      function ExampleMod::onServerStarted() {
-        echo("JH Server started");
-      }
-      function ExampleMod::RegisterBasil() {
-        //BasilMod::pack_content("mods/RPClif/2D/StoneGates.png");
-        echo("Pack Basil");
-      }
-    
-      function ExampleMod::DbChanges() {
-        echo("\n\nDB Changes\n\n");
       }
       function ExampleMod::ObjectsTypesBazaar() {
     
@@ -218,5 +160,11 @@ Each server mod has to be named mod.cs for the framework to find it and execute 
         };
       }
     };
+    
+    // This command is from Torque, and activates your package so that the engine can reference it
+    // This is required for your mod to work, and have the code loaded in torque engine.
     activatePackage(ExampleMod);
+    
+    // This registers your setup method, to the framework similar to how you register callbacks otherwise inside your setup function of the package
+    // It is subject to change and may later be removed for automation purposes
     LiFx::registerCallback($LiFx::hooks::mods, setup, ExampleMod);
