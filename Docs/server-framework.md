@@ -130,13 +130,15 @@ You can also use the public example starting point which you can find on in [thi
         echo(%this.getName() SPC %client.getName());
         
       }
-      function ExampleMod::ObjectsTypesBazaar() {
+      // The function name should match the object you create as a return object inside of the function
+      function ExampleMod::ObjectsTypesExampleBuilding() {
     
         // this returns and writes to the dump.sql file for ease of distribution
-        return new ScriptObject(ObjectsTypesBazaar : ObjectsTypes)
+		// The name of the object should be the same as the function name it registers
+        return new ScriptObject(ObjectsTypesExampleBuilding : ObjectsTypes)
         {
           id = 2420;
-          ObjectName = "Bazaar";
+          ObjectName = "ExampleBuilding";
           ParentID = 61;
           IsContainer = 0;
           IsMovableObject = 0;
@@ -156,7 +158,7 @@ You can also use the public example starting point which you can find on in [thi
           WorkAreaHeight = 0;
           BtnCloseTop = 0;
           BtnCloseLeft = 0;
-          FaceImage = "mods\\\\ExampleMod\\\\buildings\\\\construction\\\\misc\\\\BazaarHall\\\\BazaarHall.png";
+          FaceImage = "mods/ExampleMod/BuildingImages/Example.png";
           Description = "Bazaar tent";
           BasePrice = 0;
           OwnerTimeout = 0;
