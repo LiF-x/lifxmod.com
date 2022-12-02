@@ -59,10 +59,8 @@ You are now set to download install and use compatible mods to the server framew
 | $LiFx::hooks::onSpawnCallbacks | %this, %client | Will execute your registered function every time a player spawns |
 | $LiFx::hooks::onConnectCallbacks | %this, %client | Will execute one time per connecting client |
 | $LiFx::hooks::onDisconnectCallbacks | %this, %client | Will execute one time per disconnecting client |
-|  |  |  |
 | $LiFx::hooks::onJHStartCallbacks | %this | Will execute registered function on JH Start event |
 | $LiFx::hooks::onJHEndCallbacks | %this | Will execute registered function on JH End event |
-|  |  |  |
 | $LiFx::hooks::onDeathCallbacks | %this, %CharID, %isKnockout, %Tombstone | Executes on death event |
 | $LiFx::hooks::onKillCallbacks | %this, %CharID, %KillerID, %isKnockout, %Tombstone | Executes on kill event (reverse objects of onDeath) |
 | $LiFx::hooks::onSuicideCallbacks | %this, %CharacterID, %isKnockout, %Tombstone | Executed in case of a suicide |
