@@ -54,10 +54,14 @@ Life is Feudal: Extended (LiFx) is distributed by an GPL 3.0 license.
 ### Credits
 Mjoed
 
-#### Contributors
-Shrewdcrow
+#### Notable contributors
 Ebhe
 Ulrik
 Johnny
 Ibun
 Nyuton
+Basil
+Skunk
+Kurai Seraph
+
+The community overall
