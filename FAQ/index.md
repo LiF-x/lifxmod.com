@@ -24,7 +24,7 @@ published: false
 
    You can cheat using a query changing the "GeoDataID" to your needs
 
-        SELECT * FROM lif_10.objects_patch WHERE GeoDataID = 117521895
+        SELECT * FROM objects_patch WHERE GeoDataID = 117521895
 
  ORDER BY ObjectTypeID ASC LIMIT 1000;
 
