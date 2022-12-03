@@ -40,9 +40,9 @@ Then change the value to the appropriate skill type for 1 second action as shown
 
     <duration const="">1</duration>
 
-> This will remove the calculation-based speed which was intended by BitBox  
-> \- Please take note of the removal of "8 25" to allow it to be ignored it must be deleted  
->   
+This will remove the calculation-based speed which was intended by BitBox  
+\- Please take note of the removal of "8 25" to allow it to be ignored it must be deleted
+
 > **What is the meaning of these numbers?**  
 >   
 > The 8 Resembles the minimum time it would take to complete the action  
