@@ -7,7 +7,6 @@ nav_exclude: false
 parent: ''
 has_children: false
 has_toc: false
-published: false
 
 ---
 ### my mod keeps getting rejected on YoLauncher website
