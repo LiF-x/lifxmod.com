@@ -47,7 +47,7 @@ This will remove the calculation-based speed which was intended by BitBox
 >   
 > The 8 Resembles the minimum time it would take to complete the action  
 >   
-> The 25 resembles a Deminer, This is a division added as your skills raise which in effect reduces the minimum time taken to complete the action.
+> The 25 resembles a Deminer, This is a division added as your skills raise which in effect reduces the minimum time taken to complete the action. 
 
 If Correctly done this will now look like the example Below
 
