@@ -14,7 +14,8 @@ published: false
 
 To change this open up your server console and paste these into the console changing the numbers to whatever you see fit
 
-The Below strings are the Default server settings  
+The Below strings are the Default server settings
+
 Tier 1 Monument
 
     $cm_config::Claims::guildLevel1RadiusTown = 20;
