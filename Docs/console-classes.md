@@ -10,6 +10,8 @@ has_toc: false
 published: false
 
 ---
+# Console classes (reference)
+
     /*!
     @brief Base class for almost all objects involved in the simulation.
     
