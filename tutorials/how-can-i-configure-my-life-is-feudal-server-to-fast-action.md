@@ -7,6 +7,7 @@ nav_exclude: false
 parent: Tutorials
 has_children: false
 has_toc: false
+published: false
 
 ---
 ### How can I configure my Life Is Feudal server to fast action?
