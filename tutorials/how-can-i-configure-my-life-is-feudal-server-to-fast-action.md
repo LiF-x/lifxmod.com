@@ -40,6 +40,9 @@ Then change the value to the appropriate skill type for 1 second action as shown
 
     <duration const="">1</duration>
 
+This will remove the calculation-based speed which was intended by BitBox  
+\- Please take note of the removal of "8 25" to allow it to be ignored it must be deleted  
+  
 If Correctly done this will now look like the example Below
 
     			<ability lvl="60" name="Gold Deposits" type="Look for" id="5">
