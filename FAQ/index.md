@@ -48,7 +48,7 @@ you can confirm you are looking at the correct object as ObjectTypeID for this i
     LIMIT 1000;
 
    SHOW TABLE STATUS LIKE 'containers';
-2.  Goto items table and use your container ID with the following query, any items inside the cart will show up. in this case cart is empty so no need to transfer items to new container.
+2.  Goto the items table and use your container ID with the following query, any items inside the cart will show up. in this case cart is empty so no need to transfer items to new container.
 
 SELECT * FROM items WHERE ContainerID = 72584  
  ORDER BY ObjectTypeID ASC LIMIT 1000;  
