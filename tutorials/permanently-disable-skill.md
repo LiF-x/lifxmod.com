@@ -1,13 +1,12 @@
 ---
 layout: default
-last_modified_date: 2022-12-03 15:35:22 +0000
+last_modified_date: 2022-12-03T15:35:22.000+00:00
 title: Permanently disable skill
 nav_order: 2
 nav_exclude: false
 parent: Tutorials
 has_children: false
 has_toc: false
-published: false
 
 ---
 ### Permanently disable skill
