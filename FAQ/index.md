@@ -24,7 +24,7 @@ $TerrainSelection::debug_drawCellInfo = 1;
 
 4) use the geo id in game to find the cart.
 
-you can cheat using a query changing the geo id to your needs
+you can cheat using a query changing the "GeoDataID" to your needs
 
 SELECT * FROM lif_10.objects_patch WHERE GeoDataID = 117521895
 
@@ -54,7 +54,7 @@ SELECT * FROM lif_10.containers WHERE ID = 72584
 
 SHOW TABLE STATUS LIKE 'containers';
 
-\[14:11\]Server Monitor: 7) Goto items table and use your container ID with the following query, any items inside the cart will show up. in this case cart is empty so no need to transfer items to new container.
+7) Goto items table and use your container ID with the following query, any items inside the cart will show up. in this case cart is empty so no need to transfer items to new container.
 
 SELECT * FROM lif_10.items WHERE ContainerID = 72584
 
