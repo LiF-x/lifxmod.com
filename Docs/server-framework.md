@@ -26,12 +26,11 @@ Copy the art.zip without unpackaging it to your servers root directory
 
     +-- ..
     |-- / Life is Feudal: Your Own dedicated server root
-    |-- art.zip
+    |-- **art.zip**
     |-- config_local.cs
     |-- main.cs
     |-- mods
-    |   |-- ExampleMod
-    |   |   |-- mod.cs
+    |   |-- Mods are installed here
     +-- ..
 
 ### Exam
