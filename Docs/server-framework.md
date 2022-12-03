@@ -10,13 +10,15 @@ last_modified_date:
 
 ---
 # Server framework
+
 {: .no_toc }
 
 ## Table of contents
+
 {: .no_toc .text-delta }
 
 1. TOC  
-{:toc}
+   {:toc}
 
 ## Installation instructions
 
@@ -31,6 +33,8 @@ Copy the art.zip without unpackaging it to your servers root directory
     |-- mods
     |   |-- Mods are installed here
     +-- ..
+
+![](/uploads/lifx-server-setup-guide.png)
 
 ## Changelog
 
