@@ -12,7 +12,7 @@ published: false
 ---
 # Frequently Asked Questions
 
-## How can I remove an invisible cart from my server?
+## How can I remove an invisible cart from my server
 
 **Locating the cart in your Database**
 
