@@ -22,7 +22,18 @@ last_modified_date:
 
 [Download the mod](/assets/images/art.zip){: .btn .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
-Copy the art.zip without unpackaging it to your servers root directory (same directory as ddct_dcm_yoserver.exe, main.cs and config_local.cs)
+Copy the art.zip without unpackaging it to your servers root directory
+
++-- ..
+|-- / Life is Feudal: Your Own dedicated server root
+|-- art.zip
+|-- config_local.cs
+|-- main.cs
+|-- mods
+|   |-- Your mods go here
++-- ..
+
+Exam
 
 You are now set to download install and use compatible mods to the server framework
 
