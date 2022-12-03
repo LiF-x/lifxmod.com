@@ -18,17 +18,13 @@ published: false
 1.  Stand on the cart in game
 2.  Use Below command in server console to gain the geo id of the cart whilst looking down at it
 
-   $TerrainSelection::debug_drawCellInfo = 1;
+       $TerrainSelection::debug_drawCellInfo = 1; 
 3.  Goto table Objects_Patch in database
 4. Use the geo id in game to find the cart.
 
    You can cheat using a query changing the "GeoDataID" to your needs
 
-        SELECT * FROM objects_patch WHERE GeoDataID = 117521895
-
- ORDER BY ObjectTypeID ASC LIMIT 1000;
-
-SHOW TABLE STATUS LIKE 'objects_patch';
+        SELECT * FROM objects_patch WHERE GeoDataID = 117521895 ORDER BY ObjectTypeID ASC LIMIT 1000;SHOW TABLE STATUS LIKE 'objects_patch';
 
 you can confirm you are looking at the correct object as ObjectTypeID for this item as it will be 1497 for horse cart no tent or 1461 for horse cart with tent
 
