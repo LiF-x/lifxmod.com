@@ -61,7 +61,7 @@ Containers
 
 1. AS A PRECAUTION IT IS SMART TO RUN THIS COMMAND IN SERVER CONSOLE AFTER DELETIONS
 
-   stretchedPatchMaintenance();
+       stretchedPatchMaintenance();
 
 WAIT FOR IT TO SAY THE MAINTENANCE IS COMPLETE
 
