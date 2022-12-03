@@ -12,6 +12,8 @@ published: false
 ---
 #### How can I reduce the time for a Tunnel to collapse?
 
+#### 
+
 > **Please note:** This is server wide and not at targeted tunnels  
 > Changing these may make the server crash/restart on game day ticks depending on how many tunnels are on your server.
 
