@@ -11,8 +11,7 @@ published: false
 ---
 # Frequently Asked Questions
 
-##   
-How can I remove an invisible cart from my server?
+## How can I remove an invisible cart from my server?
 
   
 1) stand on the cart in game
