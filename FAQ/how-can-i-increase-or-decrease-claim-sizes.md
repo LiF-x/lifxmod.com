@@ -1,13 +1,12 @@
 ---
 layout: default
-last_modified_date: 2022-12-03 14:13:39 +0000
+last_modified_date: 2022-12-03T14:13:39.000+00:00
 title: How can i increase or decrease claim sizes
 nav_order: 2
 nav_exclude: false
 parent: FAQ
 has_children: false
 has_toc: false
-published: false
 
 ---
 ##### How can I increase or decrease claim sizes?
