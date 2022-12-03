@@ -43,11 +43,11 @@ you can confirm you are looking at the correct object as ObjectTypeID for this i
 
 **Finding the container and ensure Object type id Match using your container ID**
 
-1. SELECT * FROM containers WHERE ID = 72584 
+1. 
 
-    LIMIT 1000;
-
-   SHOW TABLE STATUS LIKE 'containers';
+        SELECT * FROM containers WHERE ID = 72584
+         LIMIT 1000;
+        SHOW TABLE STATUS LIKE 'containers';
 2.  Goto the items table and use your container ID with the following query, any items inside the cart will show up. in this case cart is empty so no need to transfer items to new container.
 
 SELECT * FROM items WHERE ContainerID = 72584  
