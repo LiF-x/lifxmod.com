@@ -3,6 +3,7 @@
 Please submit pull-requests to update the website.
 
 The website uses jekyll and Just The Docs theme.
+
 Learn more about Just The Docs here: https://just-the-docs.github.io/just-the-docs/
 
 [Jekyll]: https://jekyllrb.com
