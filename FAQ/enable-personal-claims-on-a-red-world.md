@@ -18,13 +18,13 @@ The Abilities you will need to edit from
 
 <**req** type="world">green</**req**>
 
-to 
+to
 
 <**req** type="world">red</**req**>
 
 are:
 
-* Worship  
+* Worship
 * Private Land
 * Resize
 * Remove!
