@@ -19,17 +19,19 @@ published: false
 1. TOC  
 {:toc}
 
-
 ## Required contents of your mod
+
 In order to make a compatible mod there are certain requirements:
+
 1. Your mod has to comply with **GPL v3 license** and if you provide your mod publicly, the code has to be shared as per the license.
-1. Your mod has to be a unique package as per Torque 3D Standards.
-1. Your mod's main entry point has to be a file named "**mod.cs**".
-1. In your mod.cs file, you have to register register at least one function to the LiFx hook "**$LiFx::hooks::mods**".
-1. Your package should provide a "**version**" function, specifying the version of your mod.
+2. Your mod has to be a unique package as per Torque 3D Standards.
+3. Your mod's main entry point has to be a file named "**mod.cs**".
+4. In your mod.cs file, you have to register register at least one function to the LiFx hook "**$LiFx::hooks::mods**".
+5. Your package should provide a "**version**" function, specifying the version of your mod.
 
 ## Useful links
-* (Torque 3D documentation)[https://torque-3d.readthedocs.io/en/latest/intro/intro.html]
+
+* [Torque 3D documentation](https://torque-3d.readthedocs.io/en/latest/intro/intro.html "Torque3D Documentation")
 
 ## Hooks
 
