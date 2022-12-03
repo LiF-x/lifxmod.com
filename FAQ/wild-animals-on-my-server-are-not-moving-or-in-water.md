@@ -19,3 +19,4 @@ If this happens this is a result of your navmesh, to resolve this simply turn of
    These are located on your server at
 
        data/navMeshes
+3. Turn the server back on and allow the navmesh to rebuild.
