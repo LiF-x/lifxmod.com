@@ -9,3 +9,8 @@ last_modified_date:
 
 ---
 # Documentation
+
+1. [Server framework](/Docs/server-framework.html)
+2. [Server framework development](/Docs/server-framework-development.md.html)
+3. [(reference) LiF:YO Classes](/Docs/console-classes.html)
+4. [(reference) LiF:YO Functions](/Docs/console-functions.html)
