@@ -11,13 +11,15 @@ published: false
 
 ---
 # Mod development documentation
+
 {: .no_toc }
 
 ## Table of contents
+
 {: .no_toc .text-delta }
 
 1. TOC  
-{:toc}
+   {:toc}
 
 ## Hooks
 
@@ -46,7 +48,7 @@ published: false
 An example of server framework compatible mod.  
 Each server mod has to be named mod.cs for the framework to find it and execute it.
 
-You can also use the public example starting point which you can find on in the public repository.   
+You can also use the public example starting point which you can find on in the public repository.  
 [Server Mod Boilerplate](https://github.com/LiF-x/ExampleServerMod){: .btn .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
 ### Example structure of the server
@@ -83,6 +85,12 @@ You can also use the public example starting point which you can find on in the 
     // LiFx expect each mod to be it's own unique package
     package ExampleMod
     {
+      // Returns a string as a version, LiFx will look for this specific function to output version to new connecting players
+      // Takes no parameters, is a reserved function for LiFx compatability.
+      function ExampleMod::version() {
+        return "v1.0.0" 
+      }
+      
       // The setup method is required, and will be looked for by the framework
       // This is where you tell the framework, which hooks you use and what object types you have added, so that the framework can call your code at the appropiate time
       function ExampleMod::setup() {
@@ -103,7 +111,8 @@ You can also use the public example starting point which you can find on in the 
     	*/
         LiFx::registerObjectsTypes(ExampleMod::ObjectsTypesBazaar(), ExampleMod);
       }
-    
+      
+      // Example function references from setup above, this code will execute when the hook is called by the LiFx framework
       function ExampleMod::onSpawn(%this, %client) {
         echo(%this.getName() SPC %client.getName());
         
