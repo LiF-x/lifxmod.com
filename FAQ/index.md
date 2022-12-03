@@ -26,8 +26,10 @@ published: false
 
         SELECT * FROM objects_patch WHERE GeoDataID = 117521895 ORDER BY ObjectTypeID ASC LIMIT 1000;SHOW TABLE STATUS LIKE 'objects_patch';
 
-   you can confirm you are looking at the correct object as ObjectTypeID for this item as it will be 1497 for horse cart no tent   
-                 1461 for horse cart with tent
+   you can confirm you are looking at the correct object as ObjectTypeID for this item as it will be the following
+
+   1497 for horse cart no tent   
+   1461 for horse cart with tent
 
 **Checking the container to make sure cart is empty**
 
