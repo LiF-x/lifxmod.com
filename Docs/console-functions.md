@@ -10,6 +10,8 @@ has_toc: false
 published: false
 
 ---
+# Console functions (reference)
+
     namespace Global {
        virtual Script quitNoMaintenance(()) {}
        virtual Script quit(()) {}
