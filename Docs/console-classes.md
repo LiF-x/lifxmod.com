@@ -10,7 +10,7 @@ has_toc: false
 published: false
 
 ---
-# LiF:YO classes (reference)
+# LiF:YO Classes (reference)
 
     /*!
     @brief Base class for almost all objects involved in the simulation.
