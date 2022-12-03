@@ -42,11 +42,14 @@ Then change the value to the appropriate skill type for 1 second action as shown
 This will remove the calculation-based speed which was intended by BitBox  
 \- Please take note of the removal of "8 25" to allow it to be ignored it must be deleted
 
-> **What is the meaning of these numbers?**  
+> **What is the meaning of these numbers?**
+>
+> The 8 Resembles the maximum time it would take to complete the action
+>
+> The 25 resembles a Deminer, This is a division added as your skills raise which in effect reduces the minimum time taken to complete the action.  
 >   
-> The 8 Resembles the minimum time it would take to complete the action  
->   
-> The 25 resembles a Deminer, This is a division added as your skills raise which in effect reduces the minimum time taken to complete the action. 
+> More indepth Calculation would be as below  
+> Duration = (Value1 - RealSkillLevel/Value2) * tool quality
 
 If Correctly done this will now look like the example Below
 
