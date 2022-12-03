@@ -12,12 +12,13 @@ last_modified_date:
 ![Life is Feudal: Extended](/uploads/lifx-lightgrey-logo.png)
 
 # Life is Feudal: Extended (LiFx)
+
 {: .fs-9 }
 
 All the documentation you need to make your mods compatible with the LiFx framework. Made to be easy both for developers and users
 {: .fs-6 .fw-300 }
 
-[Download server framework](/docs/Releases/server-mod/){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [Get YoLauncher](https://yolauncher.app){: .btn .fs-5 .mb-4 .mb-md-0 }
+[Download server framework](/mods/server/art.zip){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [Get YoLauncher](https://yolauncher.app){: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ***
 
