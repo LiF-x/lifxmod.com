@@ -21,9 +21,9 @@ to
 
     <req type="world">red</req>
 
-are:  
-Worship
+are:
 
+* Worship
 * Private Land
 * Resize
 * Remove!
