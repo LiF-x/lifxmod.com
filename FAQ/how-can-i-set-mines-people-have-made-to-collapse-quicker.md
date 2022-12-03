@@ -29,3 +29,5 @@ The following string is to collapse a reinforcement using building logs (Default
 For example, purposes we will use the Value of 100 which will collapse a Tunnels after 1 Game Day
 
     $cm_config::Geo::HeavyTimberDecayValue = 100;
+
+These strings should be Edited and pasted into your game server console
