@@ -28,7 +28,8 @@ In order to make a compatible mod there are certain requirements:
 1. In your mod.cs file, you have to register register at least one function to the LiFx hook "**$LiFx::hooks::mods**".
 1. Your package should provide a "**version**" function, specifying the version of your mod.
 
-
+## Useful links
+* (Torque 3D documentation)[https://torque-3d.readthedocs.io/en/latest/intro/intro.html]
 
 ## Hooks
 
