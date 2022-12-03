@@ -11,15 +11,23 @@ published: false
 
 ---
 # Mod development documentation
-
 {: .no_toc }
 
 ## Table of contents
-
 {: .no_toc .text-delta }
 
 1. TOC  
    {:toc}
+
+
+## Required functions
+In order to make a compatible mod there are certain requirements:
+1. Your mod has to be a unique package as per Torque 3D Standards
+2. Your mod's main entry point has to be a file named "mod.cs"
+3. In your mod.cs file, you have to register register at least one function to the LiFx hook "$LiFx::hooks::mods"
+4. Your package should provide a "version" function, specifying the version of your mod
+
+
 
 ## Hooks
 
