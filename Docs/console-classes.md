@@ -1,6 +1,6 @@
 ---
 layout: default
-last_modified_date: 2022-12-03 15:08:18 +0000
+last_modified_date: 2022-12-03T15:08:18.000+00:00
 title: Console classes
 nav_order: 5
 nav_exclude: false
@@ -10,7 +10,7 @@ has_toc: false
 published: false
 
 ---
-# Console classes (reference)
+# LiF:YO lasses (reference)
 
     /*!
     @brief Base class for almost all objects involved in the simulation.
