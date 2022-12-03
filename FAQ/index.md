@@ -23,7 +23,8 @@ published: false
 4. Use the geo id in game to find the cart.
 
    You can cheat using a query changing the "GeoDataID" to your needs
-5.  SELECT * FROM lif_10.objects_patch WHERE GeoDataID = 117521895
+
+        SELECT * FROM lif_10.objects_patch WHERE GeoDataID = 117521895
 
  ORDER BY ObjectTypeID ASC LIMIT 1000;
 
@@ -35,7 +36,7 @@ you can confirm you are looking at the correct object as ObjectTypeID for this i
 
 1.  goto table "moveable_objects" and use the object id from objects patch with this query (replacing "Where ID = 72125" with the ID provided by the last step)
 
-       SELECT * FROM lif_10.movable_objects WHERE ID = 72125 ORDER BY ID DESC LIMIT 1000;SHOW TABLE STATUS LIKE 'movable_objects';
+       SELECT * FROM movable_objects WHERE ID = 72125 ORDER BY ID DESC LIMIT 1000;SHOW TABLE STATUS LIKE 'movable_objects';
 
 **Finding the container and ensure Object type id Match using your container ID**
 
