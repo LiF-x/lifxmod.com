@@ -41,7 +41,7 @@ published: false
 
 1. 
 
-        SELECT * FROM containers WHERE ID = 72584 LIMIT 1000;SHOW TABLE STATUS LIKE 'containers';
+    SELECT * FROM containers WHERE ID = 72584 LIMIT 1000;SHOW TABLE STATUS LIKE 'containers';
 
 1. Goto the items table and use your container ID with the following query, any items inside the cart will show up. in this case cart is empty so no need to transfer items to new container.
 
