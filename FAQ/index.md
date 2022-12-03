@@ -18,7 +18,7 @@ published: false
 1. Stand on the cart in game
 2. Use Below command in server console to gain the geo id of the cart whilst looking down at it
 
-   $TerrainSelection::debug_drawCellInfo = 1;
+       $TerrainSelection::debug_drawCellInfo = 1;
 3. Goto table Objects_Patch in database
 4. Use the geo id in game to find the cart.
 
