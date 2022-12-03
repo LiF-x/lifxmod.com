@@ -25,6 +25,30 @@ to
 are:
 
 * Worship
+
+      <ability lvl="0" name="Worship" type="Special" id="355">
+          <duration const="">1</duration>
+          <ability_skill_mult>0</ability_skill_mult>
+          <entities>
+              <entity type="complex_obj">
+                  <ent_reqs>
+                      <ent_req type="object_type_id">1444</ent_req>
+                      <ent_req type="state">incomplete complete damaged</ent_req>
+                      <ent_req type="claim" usage_type="use"/>
+                  </ent_reqs>
+              </entity>
+          </entities>
+          <requirements>
+              <req type="world">red</req> <!-- Default: green -->
+              <req type="onhorse">allowed</req>
+              <req type="oncart">denied</req>
+          </requirements>
+          <results>
+              <animation>pray</animation>
+              <sound>player_perform</sound>
+              <sstam_spent>10</sstam_spent>
+          </results>
+      </ability>
 * Private Land
 * Resize
 * Remove!
