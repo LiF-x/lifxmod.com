@@ -8,4 +8,3 @@ has_children: true
 has_toc: true
 
 ---
-![](/uploads/lifx-tutorial-logo.png) 
