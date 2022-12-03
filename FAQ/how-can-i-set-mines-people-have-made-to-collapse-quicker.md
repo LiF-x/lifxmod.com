@@ -30,4 +30,4 @@ For example, purposes we will use the Value of 100 which will collapse a Tunnels
 
     $cm_config::Geo::HeavyTimberDecayValue = 100;
 
-These strings should be Edited and pasted into your game server console
+These strings should be Edited with the values of your choice and pasted into your game server console
