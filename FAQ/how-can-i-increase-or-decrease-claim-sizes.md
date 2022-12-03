@@ -10,7 +10,7 @@ has_toc: false
 published: false
 
 ---
-##### How can i increase or decrease claim sizes?
+##### How can I increase or decrease claim sizes?
 
 To change this open up your server console and paste these into the console changing the numbers to whatever you see fit
 
