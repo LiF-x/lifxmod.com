@@ -43,6 +43,7 @@ pages:
 - Docs/console-functions.md
 - Docs/server-framework-development.md.md
 - Docs/server-framework.md
+- FAQ/enable-personal-claims-on-a-red-world.md
 - FAQ/how-can-i-increase-or-decrease-claim-sizes.md
 - FAQ/how-can-i-remove-an-invisible-cart-from-my-server.md
 - FAQ/how-can-i-set-mines-people-have-made-to-collapse-quicker.md
