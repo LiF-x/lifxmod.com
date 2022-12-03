@@ -39,7 +39,7 @@ In order to make a compatible mod there are certain requirements:
 | --- | --- | --- |
 | $LiFx::hooks::mods |  | This is the mod entrypoint, you have to register your mod and the "setup" function to this hook for it to load, see example below. It is only used for registering your setup functionality not to execute any game altering code directly |
 | $LiFx::hooks::onStartCallbacks | %this | Executes when onStart is called by the server code and should be your main entry point for your mod to execute and load configuration. |
-| $LiFx::hooks::onConnectRequestCallbacks | %this, %gameConnection, %netaddress, %name |  |
+| $LiFx::hooks::onConnectRequestCallbacks | %this, %gameConnection, %netaddress, %name | Calls a function when a user is attempting to join |
 | $LiFx::hooks::onPostConnectRoutineCallbacks | %this, %gameConnection, %netaddress, %name |  |
 | $LiFx::hooks::onPreConnectRequestCallbacks | %this, %gameConnection, %netaddress, %name |  |
 | $LiFx::hooks::onPostInitCallbacks | %this | Executes when onInit has ran and is where you need to register BasilMod pack commands to ensure that BasilMod syncs your server files to the client |
@@ -54,6 +54,11 @@ In order to make a compatible mod there are certain requirements:
 | $LiFx::hooks::onKillCallbacks | %this, %CharID, %KillerID, %isKnockout, %Tombstone | Executes on kill event (reverse objects of onDeath) |
 | $LiFx::hooks::onSuicideCallbacks | %this, %CharacterID, %isKnockout, %Tombstone | Executed in case of a suicide |
 | $LiFx::hooks::onTick | %this | Call a mod function every 5 seconds |
+| $LiFx::hooks::onServerCreatedCallbacks | - | Is called when the ServerCreated event is done |
+| $LiFx::hooks::onDestroyServerCallbacks | - | Is called when the DestroyServer event is done |
+| $LiFx::hooks::onStartSwimCallbacks | - | Is called when someone starts swimming |
+| $LiFx::hooks::onStopSwimCallbacks | - | Is called when someone stops swimming |
+
 
 ## Example
 
