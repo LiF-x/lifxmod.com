@@ -39,6 +39,7 @@ fields:
     display_utc: false
   default: now
 pages:
+- Docs/console-classes.md
 - Docs/server-framework-development.md.md
 - Docs/server-framework.md
 - FAQ/how-can-i-increase-or-decrease-claim-sizes.md
