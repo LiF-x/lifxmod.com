@@ -55,9 +55,7 @@ If Correctly done this will now look like the example Below
     					<sound>player_perform</sound>
     					<sstam_spent>10</sstam_spent>
     				</results>
-    			</ability>
-
-				
+    			</ability>	
 
 This is now Correctly Edited, and the same method can be used for all skill types to speed up the skills.  
   
