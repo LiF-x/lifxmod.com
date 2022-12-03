@@ -1,7 +1,7 @@
 ---
 layout: default
 last_modified_date: 2022-12-03 14:05:37 +0000
-title: How can I remove an invisible cart from my server?
+title: How can I remove an invisible cart from my server
 nav_order: 1
 nav_exclude: false
 parent: FAQ
@@ -12,7 +12,7 @@ published: false
 ---
 # Frequently Asked Questions
 
-## How can I remove an invisible cart from my server
+## How can I remove an invisible cart from my server?
 
 **Locating the cart in your Database**
 
