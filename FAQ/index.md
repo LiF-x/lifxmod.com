@@ -13,20 +13,17 @@ published: false
 
 ## How can I remove an invisible cart from my server?
 
-  
-1) stand on the cart in game
+**Locating the cart in your Database**
 
-2) use Below command in server console to gain the geo id of the cart whilst looking down at it
+1.  Stand on the cart in game
+2.  Use Below command in server console to gain the geo id of the cart whilst looking down at it
 
-$TerrainSelection::debug_drawCellInfo = 1;
+   $TerrainSelection::debug_drawCellInfo = 1;
+3.  Goto table Objects_Patch in database
+4. Use the geo id in game to find the cart.
 
-3) Goto table Objects_Patch in database
-
-4) use the geo id in game to find the cart.
-
-you can cheat using a query changing the "GeoDataID" to your needs
-
-SELECT * FROM lif_10.objects_patch WHERE GeoDataID = 117521895
+   You can cheat using a query changing the "GeoDataID" to your needs
+5.  SELECT * FROM lif_10.objects_patch WHERE GeoDataID = 117521895
 
  ORDER BY ObjectTypeID ASC LIMIT 1000;
 
@@ -34,9 +31,9 @@ SHOW TABLE STATUS LIKE 'objects_patch';
 
 you can confirm you are looking at the correct object as ObjectTypeID for this item will be 1497 
 
-5) checking the container to make sure cart is empty
+**Checking the container to make sure cart is empty**
 
-\- Goto table "moveable_objects" and use the object id from objects patch with this query (replacing "Where ID = 72125" with yours)
+1.  Goto sql table "moveable_objects" and use the object id from objects patch with this query (replacing "Where ID = 72125" with yours)
 
 SELECT * FROM lif_10.movable_objects WHERE ID = 72125
 
@@ -46,11 +43,11 @@ SHOW TABLE STATUS LIKE 'movable_objects';
 
 From here you can gain the RootContainerID
 
-6) find the container and ensure Object type id Match using your container ID
+**Finding the container and ensure Object type id Match using your container ID**
 
-SELECT * FROM lif_10.containers WHERE ID = 72584
+1. SELECT * FROM lif_10.containers WHERE ID = 72584
 
- LIMIT 1000;
+LIMIT 1000;
 
 SHOW TABLE STATUS LIKE 'containers';
 
