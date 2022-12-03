@@ -32,6 +32,8 @@ In order to make a compatible mod there are certain requirements:
 
 * [Torque 3D documentation](https://torque-3d.readthedocs.io/en/latest/intro/intro.html "Torque3D Documentation")
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nVpZejuLZEg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Hooks
 
 | Hook array | Parameters | Description |
