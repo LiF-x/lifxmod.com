@@ -1,13 +1,12 @@
 ---
 layout: default
-last_modified_date: 2022-12-03 14:33:51 +0000
+last_modified_date: 2022-12-03T14:33:51.000+00:00
 title: How can I reduce the time for a Tunnel to collapse
 nav_order: 3
 nav_exclude: false
 parent: FAQ
 has_children: false
 has_toc: false
-published: false
 
 ---
 ### How can I reduce the time for a Tunnel to collapse?
