@@ -1,13 +1,12 @@
 ---
 layout: default
-last_modified_date: 2022-12-03 15:41:49 +0000
+last_modified_date: 2022-12-03T15:41:49.000+00:00
 title: Increase Storage/Container Size
 nav_order: 3
 nav_exclude: false
 parent: Tutorials
 has_children: false
 has_toc: false
-published: false
 
 ---
 ### Increase Storage/Container Size
