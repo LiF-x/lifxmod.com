@@ -7,7 +7,6 @@ nav_exclude: false
 parent: FAQ
 has_children: false
 has_toc: false
-published: false
 
 ---
 ### Wild animals on my server are not moving and/or in water?
