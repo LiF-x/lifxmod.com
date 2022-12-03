@@ -15,11 +15,11 @@ In order to activate Personal Claims on a Red World you will need to edit both t
 
 The Abilities you will need to edit from
 
-<**req** type="world">green</**req**>
+    <req type="world">green</req>
 
 to
 
-<**req** type="world">red</**req**>
+    <req type="world">red</req>
 
 are:  
 Worship
@@ -30,8 +30,6 @@ Worship
 * Undo Claim Resize
 
   Information Below is for the changes
-
-
 * Worship
 
       <ability lvl="0" name="Worship" type="Special" id="355">
