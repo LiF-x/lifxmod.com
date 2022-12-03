@@ -2,7 +2,7 @@
 layout: default
 last_modified_date: 2022-12-03 21:27:24 +0000
 title: My mod keeps getting rejected on YoLauncher website
-nav_order: 6
+nav_order: 4
 nav_exclude: false
 parent: ''
 has_children: false
