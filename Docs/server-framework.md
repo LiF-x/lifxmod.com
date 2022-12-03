@@ -10,15 +10,13 @@ last_modified_date:
 
 ---
 # Server framework
-
 {: .no_toc }
 
 ## Table of contents
-
 {: .no_toc .text-delta }
 
 1. TOC  
-   {:toc}
+{:toc}
 
 ## Installation instructions
 
@@ -34,7 +32,9 @@ Copy the art.zip without unpackaging it to your servers root directory
     |   |-- Mods are installed here
     +-- ..
 
-![](/uploads/lifx-server-setup-guide.png)
+![Directory structure](/uploads/lifx-server-setup-guide.png)
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nVpZejuLZEg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Changelog
 
