@@ -12,10 +12,10 @@ published: false
 ---
 ### How can I configure my Life Is Feudal server to fast action?
 
-Find a skill you wish to speed up  
-  
+Find a skill you wish to speed up
+
 For the purposes of this tutorial, we will look at speeding up searching for Gold Deposits  
-find the line with the following in your xml
+find the line with the following in your skill_types.xml
 
     <duration const="8 25"/>
 
@@ -57,6 +57,6 @@ If Correctly done this will now look like the example Below
     				</results>
     			</ability>	
 
-This is now Correctly Edited, and the same method can be used for all skill types to speed up the skills.  
-  
+This is now Correctly Edited, and the same method can be used for all skill types to speed up the skills.
+
 Skill speed is determined by the server and not the client therefore only the servers skilltypes.xml needs editing which is located in the Servers data folder
