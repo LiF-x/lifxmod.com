@@ -35,11 +35,9 @@ you can confirm you are looking at the correct object as ObjectTypeID for this i
 
 1.  goto table "moveable_objects" and use the object id from objects patch with this query (replacing "Where ID = 72125" with the ID provided by the last step)
 
-   SELECT * FROM lif_10.movable_objects WHERE ID = 72125
-
-    ORDER BY ID DESC LIMIT 1000;
-
-   SHOW TABLE STATUS LIKE 'movable_objects';
+       SELECT * FROM lif_10.movable_objects WHERE ID = 72125
+        ORDER BY ID DESC LIMIT 1000;
+       SHOW TABLE STATUS LIKE 'movable_objects';
 
 **Finding the container and ensure Object type id Match using your container ID**
 
