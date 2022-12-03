@@ -24,7 +24,7 @@ published: false
 
    You can cheat using a query changing the "GeoDataID" to your needs
 
-        SELECT * FROM objects_patch WHERE GeoDataID = 117521895 ORDER BY ObjectTypeID ASC LIMIT 1000;SHOW TABLE STATUS LIKE 'objects_patch';
+       SELECT * FROM objects_patch WHERE GeoDataID = 117521895 ORDER BY ObjectTypeID ASC LIMIT 1000;SHOW TABLE STATUS LIKE 'objects_patch';
 
    you can confirm you are looking at the correct object as ObjectTypeID for this item as it will be the following
 
