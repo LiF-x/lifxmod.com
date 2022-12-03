@@ -6,15 +6,17 @@ nav_order: 1
 nav_exclude: false
 parent: FAQ
 has_children: false
-has_toc: false
+has_toc: true
 published: false
 
 ---
-# Frequently Asked Questions
+# How can I remove an invisible cart from my server?
+{no_toc}
 
-## How can I remove an invisible cart from my server?
+## Table of contents
+{toc}
 
-**Locating the cart in your Database**
+##### **Locating the cart in your Database**
 
 1. Stand on the cart in game
 2. Use Below command in server console to gain the geo id of the cart whilst looking down at it
@@ -32,13 +34,13 @@ published: false
    1497 for horse cart no tent  
    1461 for horse cart with tent
 
-**Checking the container to make sure cart is empty**
+##### **Checking the container to make sure cart is empty**
 
 1. goto table "moveable_objects" and use the object id from objects patch with this query (replacing "Where ID = 72125" with the ID provided by the last step)
 
        SELECT * FROM movable_objects WHERE ID = 72125 ORDER BY ID DESC LIMIT 1000;SHOW TABLE STATUS LIKE 'movable_objects';
 
-**Finding the container and ensure Object type id Match using your container ID**
+##### **Finding the container and ensure Object type id Match using your container ID**
 
 1. 
 
@@ -48,7 +50,7 @@ published: false
 
        SELECT * FROM items WHERE ContainerID = 72584 ORDER BY ObjectTypeID ASC LIMIT 1000;SHOW TABLE STATUS LIKE 'items';
 
-**Time to delete all of the above**
+##### **Time to delete all of the above**
 
 Delete the lines associated with the cart from the following
 
@@ -58,7 +60,7 @@ Objects_Patch
 
 Containers
 
-**ENSURE ANY DELETIONS ARE ONLY FOR THE OBJECT TYPE YOU WISH TO REMOVE**
+##### **ENSURE ANY DELETIONS ARE ONLY FOR THE OBJECT TYPE YOU WISH TO REMOVE**
 
 1. AS A PRECAUTION IT IS SMART TO RUN THIS COMMAND IN SERVER CONSOLE AFTER DELETIONS
 
