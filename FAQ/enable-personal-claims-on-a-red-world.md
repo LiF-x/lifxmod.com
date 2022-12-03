@@ -1,6 +1,6 @@
 ---
 layout: default
-last_modified_date: 2022-12-03 15:10:05 +0000
+last_modified_date: 2022-12-03T15:10:05.000+00:00
 title: Enable Personal Claims on a Red World
 nav_order: 4
 nav_exclude: false
@@ -22,7 +22,16 @@ to
 
 <**req** type="world">red</**req**>
 
-are:
+are:  
+Worship
+
+* Private Land
+* Resize
+* Remove!
+* Undo Claim Resize
+
+  Information Below is for the changes
+
 
 * Worship
 
