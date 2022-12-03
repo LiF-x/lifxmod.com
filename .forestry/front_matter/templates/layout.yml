@@ -47,4 +47,5 @@ fields:
   hidden: true
 pages:
 - Docs/index.md
+- FAQ/index.md
 - index.md
