@@ -29,34 +29,29 @@ published: false
 
 SHOW TABLE STATUS LIKE 'objects_patch';
 
-you can confirm you are looking at the correct object as ObjectTypeID for this item will be 1497 
+you can confirm you are looking at the correct object as ObjectTypeID for this item as it will be 1497 for horse cart no tent or 1461 for horse cart with tent
 
 **Checking the container to make sure cart is empty**
 
-1.  Goto sql table "moveable_objects" and use the object id from objects patch with this query (replacing "Where ID = 72125" with yours)
+1.  goto table "moveable_objects" and use the object id from objects patch with this query (replacing "Where ID = 72125" with the ID provided by the last step)
 
-SELECT * FROM lif_10.movable_objects WHERE ID = 72125
+   SELECT * FROM lif_10.movable_objects WHERE ID = 72125
 
- ORDER BY ID DESC LIMIT 1000;
+    ORDER BY ID DESC LIMIT 1000;
 
-SHOW TABLE STATUS LIKE 'movable_objects';
-
-From here you can gain the RootContainerID
+   SHOW TABLE STATUS LIKE 'movable_objects';
 
 **Finding the container and ensure Object type id Match using your container ID**
 
-1. SELECT * FROM lif_10.containers WHERE ID = 72584
+1. SELECT * FROM containers WHERE ID = 72584 
 
-LIMIT 1000;
+    LIMIT 1000;
 
-SHOW TABLE STATUS LIKE 'containers';
+   SHOW TABLE STATUS LIKE 'containers';
+2.  Goto items table and use your container ID with the following query, any items inside the cart will show up. in this case cart is empty so no need to transfer items to new container.
 
-7) Goto items table and use your container ID with the following query, any items inside the cart will show up. in this case cart is empty so no need to transfer items to new container.
-
-SELECT * FROM lif_10.items WHERE ContainerID = 72584
-
- ORDER BY ObjectTypeID ASC LIMIT 1000;
-
+SELECT * FROM items WHERE ContainerID = 72584  
+ORDER BY ObjectTypeID ASC LIMIT 1000;  
 SHOW TABLE STATUS LIKE 'items';
 
 8) Time to delete all of the above.
