@@ -41,6 +41,7 @@ fields:
 pages:
 - Docs/console-classes.md
 - Docs/console-functions.md
+- Docs/objects-types-id-list.md
 - Docs/server-framework-development.md.md
 - Docs/server-framework.md
 - FAQ/how-can-i-increase-or-decrease-claim-sizes.md
