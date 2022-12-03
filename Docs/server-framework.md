@@ -20,7 +20,7 @@ last_modified_date:
 
 ## Installation instructions
 
-[Download the mod](/assets/images/art.zip){: .btn .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[Download the mod](/mods/server/art.zip){: .btn .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
 Copy the art.zip without unpackaging it to your servers root directory
 
@@ -40,6 +40,8 @@ Copy the art.zip without unpackaging it to your servers root directory
 
 | Date | Version | Comment |
 | --- | --- | --- |
+| 01.12.2022 | 3.0.0 | Removed requirement to reigster to mods hook, it is not handled by activatePackage, setup function is made mandatory |
+| 01.10.2021 | 2.6.1 | Added deathhook functionality |
 | 15.04.2021 | 2.4.0 | Added display of new version tag on modsAdded inclution of Utility a public repository for common functions to the LiFx framework |
 | 30.01.2021 | 2.2.0 | Added new hooks$LiFx::hooks::onPostConnectRoutineCallbacks = JettisonArray(“onPostConnectRoutineCallbacks”);$LiFx::hooks::onPreConnectRequestCallbacks = JettisonArray(“onPreConnectRequestCallbacks”); |
 | 24.01.2021 | 2.1.0 | Released, 1.x.x is now deprecated and unsupported |
