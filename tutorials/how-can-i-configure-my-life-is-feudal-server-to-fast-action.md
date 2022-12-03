@@ -42,35 +42,23 @@ Then change the value to the appropriate skill type for 1 second action as shown
 
 If Correctly done this will now look like the example Below
 
-    <ability lvl="60" name="Gold Deposits" type="Look for" id="5">
-    
+    			<ability lvl="60" name="Gold Deposits" type="Look for" id="5">
     				<duration const="">1</duration>
-    
     				<ability_skill_mult>600</ability_skill_mult>
-    
     				<entities>
-    
     					<entity type="cell"/>
-    
     					<entity type="tun_side"/>
-    
     				</entities>
-    
     				<requirements/>
-    
     				<results>
-    
     					<animation>perform</animation>
-    
     					<sound>player_perform</sound>
-    
     					<sstam_spent>10</sstam_spent>
-    
     				</results>
-    
     			</ability>
 
 				
 
+This is now Correctly Edited, and the same method can be used for all skill types to speed up the skills.  
   
-///
+Skill speed is determined by the server and not the client therefore only the servers skilltypes.xml needs editing which is located in the Servers data folder
