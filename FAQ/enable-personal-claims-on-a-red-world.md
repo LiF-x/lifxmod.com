@@ -50,6 +50,93 @@ are:
           </results>
       </ability>
 * Private Land
+
+                  <ability lvl="0" name="Private Land" type="Claim" id="290">
+                      <duration const="">5</duration>
+                      <ability_skill_mult>0</ability_skill_mult>
+                      <entities>
+                          <entity type="cell">
+                              <ent_reqs>
+                                  <ent_req type="claim" usage_type="claim"/>
+                              </ent_reqs>
+                          </entity>
+                          <entity type="complex_obj">
+                              <ent_reqs>
+                                  <ent_req type="state">incomplete</ent_req>
+                                  <ent_req type="object_type_id">1444</ent_req>
+                              </ent_reqs>
+                          </entity>
+                      </entities>
+                      <requirements>
+                          <req type="world">red</req> <!-- Default: green -->
+                      </requirements>
+                      <results>
+                          <animation>pray</animation>
+                          <sound sid="91"/>
+                          <sstam_spent>50</sstam_spent>
+                      </results>
+                  </ability>
 * Resize
+
+      <ability lvl="0" name="Resize" type="Claim" id="291">
+          <duration const="">5</duration>
+          <ability_skill_mult>0</ability_skill_mult>
+          <entities>
+              <entity type="cell">
+                  <ent_reqs>
+                      <ent_req type="distance">0</ent_req>
+                      <ent_req type="claim" usage_type="claim"/>
+                  </ent_reqs>
+              </entity>
+          </entities>
+          <requirements>
+              <req type="world">red</req> <!-- Default: green -->
+          </requirements>
+          <results>
+              <animation>pray</animation>
+              <sound sid="91"/>
+              <sstam_spent>10</sstam_spent>
+          </results>
+      </ability>
 * Remove!
+
+      <ability lvl="0" name="Remove!" type="Claim" id="292">
+          <duration const="">5</duration>
+          <ability_skill_mult>0</ability_skill_mult>
+          <entities>
+              <entity type="cell">
+                  <ent_reqs>
+                      <ent_req type="claim" usage_type="claim"/>
+                  </ent_reqs>
+              </entity>
+          </entities>
+          <requirements>
+              <req type="world">red</req> <!-- Default: green -->
+          </requirements>
+          <results>
+              <animation>pray</animation>
+              <sound sid="91"/>
+              <sstam_spent>10</sstam_spent>
+          </results>
+      </ability>
 * Undo Claim Resize
+
+      <ability lvl="0" name="Undo Claim Resize" id="329">
+          <duration const="">5</duration>
+          <ability_skill_mult>0</ability_skill_mult>
+          <entities>
+              <entity type="cell">
+                  <ent_reqs>
+                      <ent_req type="claim" usage_type="claim"/>
+                  </ent_reqs>
+              </entity>
+          </entities>
+          <requirements>
+              <req type="world">red</req> <!-- Default: green -->
+          </requirements>
+          <results>
+              <animation>pray</animation>
+              <sound sid="91"/>
+              <sstam_spent>10</sstam_spent>
+          </results>
+      </ability>
