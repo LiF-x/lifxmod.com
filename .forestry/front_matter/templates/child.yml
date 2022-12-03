@@ -41,4 +41,5 @@ fields:
 pages:
 - Docs/server-framework-development.md.md
 - Docs/server-framework.md
+- FAQ/how-can-i-increase-or-decrease-claim-sizes.md
 - FAQ/how-can-i-remove-an-invisible-cart-from-my-server.md
