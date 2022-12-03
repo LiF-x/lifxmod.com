@@ -11,10 +11,10 @@ published: false
 
 ---
 # How can I remove an invisible cart from my server?
-{no_toc}
+{:no_toc}
 
 ## Table of contents
-{toc}
+{:toc}
 
 ##### **Locating the cart in your Database**
 
