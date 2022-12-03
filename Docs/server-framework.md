@@ -24,20 +24,13 @@ last_modified_date:
 
 Copy the art.zip without unpackaging it to your servers root directory
 
-    +-- ..
-    |-- / Life is Feudal: Your Own dedicated server root
-    |-- **art.zip**
+    +-- .. (Life is Feudal: Your Own dedicated server root)
+    |-- art.zip
     |-- config_local.cs
     |-- main.cs
     |-- mods
     |   |-- Mods are installed here
     +-- ..
-
-### Exam
-
-Exam
-
-You are now set to download install and use compatible mods to the server framework
 
 ## Changelog
 
