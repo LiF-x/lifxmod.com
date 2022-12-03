@@ -51,10 +51,10 @@ you can confirm you are looking at the correct object as ObjectTypeID for this i
 2.  Goto items table and use your container ID with the following query, any items inside the cart will show up. in this case cart is empty so no need to transfer items to new container.
 
 SELECT * FROM items WHERE ContainerID = 72584  
-ORDER BY ObjectTypeID ASC LIMIT 1000;  
+ ORDER BY ObjectTypeID ASC LIMIT 1000;  
 SHOW TABLE STATUS LIKE 'items';
 
-8) Time to delete all of the above.
+**Time to delete all of the above**
 
 Delete the lines associated with the cart from the following
 
@@ -64,15 +64,15 @@ Objects_Patch
 
 Containers
 
-ENSURE ANY DELETIONS ARE ONLY FOR THE OBJECT TYPE YOU WISH TO REMOVE
+**ENSURE ANY DELETIONS ARE ONLY FOR THE OBJECT TYPE YOU WISH TO REMOVE**
 
-9) AS A PRECAUTION IT IS SMART TO RUN THIS COMMAND IN PING PERFECT CONSOLE AFTER DELETIONS
+9) AS A PRECAUTION IT IS SMART TO RUN THIS COMMAND IN SERVER CONSOLE AFTER DELETIONS
 
 stretchedPatchMaintenance();
 
 WAIT FOR IT TO SAY THE MAINTENANCE IS COMPLETE
 
-10)  RESTART SERVER or allow server to restart naturally.
+10)  RESTART SERVER.
 
 \- it is important to allow the server to save data otherwise patch maintenance error can occur, this is difficult to resolve  
   
