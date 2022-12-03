@@ -1,13 +1,12 @@
 ---
 layout: default
-last_modified_date: 2022-12-03 14:05:37 +0000
+last_modified_date: 2022-12-03T14:05:37.000+00:00
 title: How can I remove an invisible cart from my server
 nav_order: 1
 nav_exclude: false
 parent: FAQ
 has_children: false
 has_toc: true
-published: false
 
 ---
 # How can I remove an invisible cart from my server?
