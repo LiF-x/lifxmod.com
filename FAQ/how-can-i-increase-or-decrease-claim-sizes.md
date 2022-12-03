@@ -31,3 +31,4 @@ The Below strings are the Default server settings
     $cm_config::Claims::guildLevel4RadiusTown = 100;
     
     $cm_config::Claims::guildLevel4RadiusCountry = 100;
+    
