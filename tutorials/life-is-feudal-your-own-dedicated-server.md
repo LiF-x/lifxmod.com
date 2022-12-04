@@ -102,7 +102,7 @@ Install, and launch your Life is Feudal: Your Own game install at least once wit
 
 This section will cover some tips and tricks that I use to make developing mods using the LiFx Framework simpler and easier to restart, test and verify the mods without relying on comparatively slow game server provider's hosting panels.
 
-1. Create a shortcut to your "ddc
+1. Create a shortcut to "**ddctd_cm_yo_server.exe**" by right clicking 
 
 **Credits**
 
