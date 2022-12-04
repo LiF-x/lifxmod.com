@@ -10,8 +10,14 @@ has_toc: true
 
 ---
 # Setup a local Life is Feudal: Your Own dedicated server
-
+{: .no_toc }
 A guide to setting up a development environment for modding with LiFx framework compatibility
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC  
+{:toc}
 
 ## Prerequisits
 
