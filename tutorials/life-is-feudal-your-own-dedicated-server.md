@@ -98,6 +98,12 @@ Follow the guide provided here
 
 Install, and launch your Life is Feudal: Your Own game install at least once with YoLauncher to install the client framework.
 
+### Quality of life tips
+
+This section will cover some tips and tricks that I use to make developing mods using the LiFx Framework simpler and easier to restart, test and verify the mods without relying on comparatively slow game server provider's hosting panels.
+
+1. Create a shortcut to your "ddc
+
 **Credits**
 
 Thanks to Nyuton for his work on feudal.tools [knowledge base article](https://kb.feudal.tools/knowledge-base/setup-lifyo-dedicated-server-on-windows/) that this tutorial bases some of its ifnormation from
