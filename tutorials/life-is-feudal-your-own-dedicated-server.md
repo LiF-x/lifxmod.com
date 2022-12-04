@@ -1,7 +1,7 @@
 ---
 layout: default
 last_modified_date: 2022-12-04 11:44:50 +0000
-title: 'Life is Feudal: Your Own dedicated server'
+title: 'Setup a local Life is Feudal: Your Own dedicated server'
 nav_order: 1
 nav_exclude: false
 parent: Tutorials
@@ -10,7 +10,7 @@ has_toc: true
 published: false
 
 ---
-# Life is Feudal: Your Own dedicated server
+# Setup a local Life is Feudal: Your Own dedicated server
 
 A guide to setting up a development environment for modding with LiFx framework compatibility
 
