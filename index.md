@@ -14,7 +14,7 @@ last_modified_date:
 # Life is Feudal: Extended (LiFx)
 {: .fs-9 }
 
-All the documentation you need to make your mods compatible with the LiFx framework. Made to be easy both for developers and users
+All the documentation you need to make your mods compatible with the LiFx framework. This resource is primarily for developers and server owners.
 {: .fs-6 .fw-300 }
 
 [Download server framework](/mods/server/art.zip){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [Get YoLauncher](https://yolauncher.app){: .btn .fs-5 .mb-4 .mb-md-0 }
@@ -37,7 +37,7 @@ Bootstrap project
 
 ### Client dependencies
 
-Every client that will use your client mods utilizing LiFx framework will be required to use YoLauncher.
+Every client will be dependent on YoLauncher for LiFx compatible client mods.
 
 ***
 
