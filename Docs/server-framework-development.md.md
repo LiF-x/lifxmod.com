@@ -24,9 +24,10 @@ In order to make a compatible mod there are certain requirements:
 
 1. Your mod has to comply with **GPL v3 license** and if you provide your mod publicly, the code has to be shared as per the license.
 2. Your mod has to be a unique package as per Torque 3D Standards.
-3. Your mod's main entry point has to be a file named "**mod.cs**".
-4. In your mod.cs file, you have to register register at least one function to the LiFx hook "**$LiFx::hooks::mods**".
-5. Your package should provide a "**version**" function, specifying the version of your mod.
+3. Your mod's main entry point has to be a file named "**mod.cs**" as per the example below.
+4. In your mod.cs file, you have to register register at least one function to the LiFx hook "**$LiFx::hooks::mods**". (with 3.0.0 this will be deprecated)
+5. Your package must provide a setup function. (mandatory from 3.0.0)
+6. Your package should provide a "**version**" function, specifying the version of your mod.
 
 ## Useful links
 
