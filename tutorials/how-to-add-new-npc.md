@@ -10,33 +10,34 @@ has_toc: false
 published: false
 
 ---
-### How to add new NPC  
-  
+### How to add new NPC
+
 Using LiFx Framework this is much easier.
 
-> **For the purposes of this Tutorial we will show how to create a new object   
-> we will use a LiFx NPC   
+> **For the purposes of this Tutorial we will show how to create a new object using LiFx Framework**
+>
+> **  
+> we will create a LiFx NPC  
 > Please note: same method can be used for any object including buildings**
 
 Required files for mod  
-dts model  
-  
-  
+dts model
+
 Step 1) Create mod.cs  
 Step 2) Amend cm_objects.xml  
 Step 3) Amend Object_types.xml
 
-Step 4) Create cmod.cs - This is a client side mod which LiFx Framework will trigger allowing players to see the mod on the Server 
+Step 4) Create cmod.cs - This is a client side mod which LiFx Framework will trigger allowing players to see the mod on the Server
 
-**  
+\**  
 Step 1)**
 
 **Setting up your mod.cs file ready for auto load by the LiFx Autoloader**
 
 Open a new file and copy the code block below to it.
 
-Please ensure you name your mod correctly replacing "LiFxNPCmod" with your desired name.  
-  
+Please ensure you name your mod correctly replacing "LiFxNPCmod" with your desired name.
+
 Please think carefully on your object id, in this tutorial we will be using the id = 2500;
 
 > A list of object ids is available below, it is recommended to use one not currently in use to avoid mod conflicts.  
@@ -112,14 +113,14 @@ Please think carefully on your object id, in this tutorial we will be using the 
 
 It is now time to edit your cm_objects.xml
 
-You will need to add another object to this file it is recommended you add this at the very bottom below the last item, to do this simply copy and paste the CodeBlock below and amend to your desired information.  
-  
+You will need to add another object to this file it is recommended you add this at the very bottom below the last item, to do this simply copy and paste the CodeBlock below and amend to your desired information.
+
 You will notice the following:
 
 <lockedCells>  
-	<cell x="0" y="0" />  
-</lockedCells>  
-  
+<cell x="0" y="0" />  
+</lockedCells>
+
 This is to lock cells and is mainly used for new buildings, as we are looking at npcs we will not be looking into this however a future tutorial is planned for this.
 
     	<object id="2500" isUnflattenAllowed="1" rotationStep="1" defaultState="Complete" StreamingGroup="1" noRuins="1">
@@ -144,8 +145,8 @@ This is to lock cells and is mainly used for new buildings, as we are looking at
 
 **Step 3)**
 
-Amending Object_types.xml  
-  
+Amending Object_types.xml
+
 Open your object types file and at the bottom add a new block by copying and pasting the below code block into your file, making amendments as you see fit.
 
     	<row>
