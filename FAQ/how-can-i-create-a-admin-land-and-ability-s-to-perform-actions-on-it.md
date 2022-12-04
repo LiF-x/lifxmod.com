@@ -39,6 +39,6 @@ Example:
 
 Once you have the correct information for where you want the Admin lands input this information ingame into the system tab.  
   
-To remove a admin claim stand on the admin land and put the following into your system tab
+To remove an admin land stand on the admin land you wish to remove and put the following into your system tab
 
 > **/adminland delete**
