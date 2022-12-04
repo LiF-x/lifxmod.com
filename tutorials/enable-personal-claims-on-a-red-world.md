@@ -2,7 +2,7 @@
 layout: default
 last_modified_date: 2022-12-03T15:38:46.000+00:00
 title: Enable Personal Claims on a Red World
-nav_order: 1
+nav_order: 2
 nav_exclude: false
 parent: Tutorials
 has_children: false
