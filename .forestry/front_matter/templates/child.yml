@@ -39,6 +39,7 @@ fields:
     display_utc: false
   default: now
 pages:
+- Docs/client-framework.md
 - Docs/console-classes.md
 - Docs/console-functions.md
 - Docs/objects-types-id-list.md
