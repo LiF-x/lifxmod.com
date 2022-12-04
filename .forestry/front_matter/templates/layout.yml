@@ -46,6 +46,7 @@ fields:
   default: now
   hidden: true
 pages:
+- Docs/client-documentation.md
 - Docs/index.md
 - FAQ/index.md
 - index.md
