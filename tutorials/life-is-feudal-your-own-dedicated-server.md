@@ -2,7 +2,7 @@
 layout: default
 last_modified_date: 2022-12-04 11:44:50 +0000
 title: 'Life is Feudal: Your Own dedicated server'
-nav_order: 99
+nav_order: 1
 nav_exclude: false
 parent: Tutorials
 has_children: false
