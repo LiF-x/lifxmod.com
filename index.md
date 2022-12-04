@@ -12,6 +12,7 @@ last_modified_date:
 ![Life is Feudal: Extended](/uploads/lifx-lightgrey-logo.png)
 
 # Life is Feudal: Extended (LiFx)
+
 {: .fs-9 }
 
 All the documentation you need to make your mods compatible with the LiFx framework. This resource is primarily for developers and server owners.
@@ -26,7 +27,7 @@ All the documentation you need to make your mods compatible with the LiFx framew
 ### Dependencies
 
 1. [Life is Feudal: Your Own](https://store.steampowered.com/app/290080/Life_is_Feudal_Your_Own/)
-2. Life is Feudal: Your Own dedicated server (local setup guide)
+2. [Life is Feudal: Your Own dedicated server (local setup guide)](/tutorials/life-is-feudal-your-own-dedicated-server.html)
 3. [LiFx Server framework](/Docs/server-framework.html)
 
 ## Getting started creating client mods
