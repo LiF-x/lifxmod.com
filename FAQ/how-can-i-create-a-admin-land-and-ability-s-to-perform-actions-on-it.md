@@ -37,10 +37,11 @@ Example:
 > Where geoId1 and geoId2 are two corners of the claim.
 >
 > ![](/uploads/geoidpreference.png)  
-> You can create an infinite number of admin claims. And in order to remove a particular claim, you must stand on it and use this command in the console:
+> You can create an infinite number of admin claims. 
+>
+> Once you have the correct information for where you want the Admin lands input this information ingame into the system tab.
 
-Once you have the correct information for where you want the Admin lands input this information ingame into the system tab.  
-  
-To remove an admin land stand on the admin land you wish to remove and put the following into your system tab
+**Removing the Adminlands**
 
+> To remove a particular claim, you must stand on it and use this command in the console:  
 > **/adminland delete**
