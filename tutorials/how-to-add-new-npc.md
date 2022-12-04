@@ -143,6 +143,8 @@ Amending Object_types.xml
 
 Open your object types file and at the bottom add a new block by copying and pasting the below code block into your file, making amendments as you see fit.
 
+> This will already be set up if you want to use it out of the box
+
     	<row>
     		<ID>2500</ID>
     		<ParentID>61</ParentID>
@@ -171,6 +173,8 @@ The Above has now completed the server side of the mod.
 
 Create a new and copy and paste the below CodeBlock into the file amending if needed  
 the loading of materials is important as this will load the textures onto your model.
+
+> This will already be set up if you want to use it out of the box
 
     /**
     * <author>Ibun</author>
@@ -201,6 +205,4 @@ the loading of materials is important as this will load the textures onto your m
       }
     };
     activatePackage(LiFxNPC);
-    LiFx::registerCallback($LiFx::hooks::mods, setup, LiFxNPC);
-
-....
+    LiFx::registerCallback($LiFx::hooks::mods, setup, LiFxNPC....
