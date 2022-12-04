@@ -20,52 +20,13 @@ Using LiFx Framework this is much easier.
 > we will create a LiFx NPC  
 > Please note: same method can be used for any object including buildings**
 
-Required files for mod  
-dts model - We will be using a renamed NPC model Assel from the original YO models  
-cm_objects.xml  
-Object_types.xml
+> Required files for mod - below is a frame work for you to download and work off  
+> [LiFxTutorials/LiFxNPC at main · matty5350/LiFxTutorials (github.com)](https://github.com/matty5350/LiFxTutorials/tree/main/LiFxNPC "LiFx NPC")
 
-**mod Structure Set up  
-  
-Create a folder for your mod for the purposes of this tutorial I will name it LiFxNPC**
-
-* **Inside this folder create a new one called "data"**
-* **Inside the main folder (LiFxNPC) create a new folder "mods"**
-* **Inside the main folder (LiFxNPC) create a new folder "yolauncher"  
-  ![](/uploads/mainstructure.png)**
-* **Inside the data Folder place files "cm_objects.xml" and "object_types.xml"**
-
-  > **Mods folder set up**
-* **Inside the mods folder create a new one called LiFx**
-* **Inside the new LiFx folder create a new one called NPC**
-
-  > **YoLauncher Folder**
-  * **Inside the yolauncher folder create a new one named "modpack"**
-  * **Inside the new "modpack" folder create a new one named "art"**
-  * **Inside the new "modpack" folder create a new one named "data"**
-  * **Inside the new "modpack" folder create a new one named "mods"**
-* **Inside the new "art" folder Create a new one named "Models"**
-  * **Inside the new "Models" folder Create a new one named "3D"**
-    * **Inside the new "3D" folder Create a new one named "NPC" - This is where your.dts should go**
-* **Inside the new "art" folder Create a new one named "Textures"**
-  * **Inside the new "Textures" folder Create a new one named "NPC" - Your NPCmaterials.cs will be here**
-    * **Inside the new "NPC" folder Create a new one named "Customization"**
-      * **Inside the new "Customization" folder Create a new one named "male"**
-
-Step 1) Create mod.cs - Place in your mods folder  
-Step 2) Amend cm_objects.xml  
-Step 3) Amend Object_types.xml
-
-**Client side**
-
-Step 4) Create cmod.cs - This is a client side mod which LiFx Framework will trigger allowing players to see the mod on the Server
-
-\**  
+**Client side**  
 Step 1)**
 
-**Setting up your mod.cs file ready for auto load by the LiFx Autoloader**
-
-Open a new file and copy the code block below to it.
+**Open up the mod.cs file from the link above.**
 
 Please ensure you name your mod correctly replacing "LiFxNPCmod" with your desired name.
 
@@ -145,6 +106,8 @@ Please think carefully on your object id, in this tutorial we will be using the 
 It is now time to edit your cm_objects.xml
 
 You will need to add another object to this file it is recommended you add this at the very bottom below the last item, to do this simply copy and paste the CodeBlock below and amend to your desired information.
+
+> This will already be set up if you want to use it out of the box
 
 You will notice the following:
 
