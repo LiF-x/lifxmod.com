@@ -19,7 +19,6 @@ A guide to setting up a development environment for modding with LiFx framework 
 * MariaDB
 * SteamCMD
 * LiFx Server Framework
-* YoLauncher (LiFx Client Framework)
 
 ## Windows
 
