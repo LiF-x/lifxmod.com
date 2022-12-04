@@ -32,12 +32,11 @@ A guide to setting up a development environment for modding with LiFx framework 
 3. When prompted for a root password. Choose a complex password, we recommend a password of minimum 16 characters, with punctuations, special characters, numbers, large and small letter combinations.  
    If you want remote users to be able to login as root (**we discourage this**) you also have to check the option "_Enable access from remote machines for 'root' user_"
 
-   > Note when allowing root connections from remote computers, you are potentially opening up a security risk. 
+   > Note when allowing root connections from remote computers, you are potentially opening up a security risk.
 4. Leave the rest of the options default, you may now complete the installation wizard without alterations.
-5. Life is Feudal requires some changes to the standard config for MariaDB. Navigate to the data directory of your MariaDB installation "C:\\Program Files\\MariaDB <your version>\\data" where you replace "<our version>" with the version number you installed. For example: C:\\Program Files\\MariaDB 10.10\\data.   
+5. Life is Feudal requires some changes to the standard config for MariaDB. Navigate to the data directory of your MariaDB installation "C:\\Program Files\\MariaDB <your version>\\data" where you replace "<our version>" with the version number you installed. For example: C:\\Program Files\\MariaDB 10.10\\data.  
    Open the file called "**my.ini**" in your favorite text editor.
 
-     
    Make sure the \[mysqld\] section has the following options. Add the missing options as shown below. Merge the differences between your "**my.ini**" file and what we describe here:
 
        [mysqld]
@@ -72,13 +71,11 @@ A guide to setting up a development environment for modding with LiFx framework 
        steamcmd.exe +login anonymous +app_update 320850 +validate
 3. This will update and install Life is Feudal: Your Own dedicated files which will be under the file path to your steamcmd.exe directory: "**C:\\Steam\\steamapps\\common\\Life Is Feudal Your Own Dedicated Server\\**"
 4. Copy config_local.cs from "**C:\\Steam\\steamapps\\common\\Life Is Feudal Your Own Dedicated Server\\docs**" to "**C:\\Steam\\steamapps\\common\\Life Is Feudal Your Own Dedicated Server\\**" and open it up in your favorite text editor.
-
-       
 5. Customize the world_1.xml located in the following path "**C:\\Steam\\steamapps\\common\\Life Is Feudal Your Own Dedicated Server\\config**" this is the main configuration file for your server. World ID has to be concise and follow the name of your xml file, default is 1.
 
 #### Booting your server for the first time
 
-To start your server simply run the file named "**ddctd_cm_yo_server.exe**" located in the path "**C:\\Steam\\steamapps\\common\\Life Is Feudal Your Own Dedicated Server\\**" it will open a new window with yellow text showing you the console of your server. 
+To start your server simply run the file named "**ddctd_cm_yo_server.exe**" located in the path "**C:\\Steam\\steamapps\\common\\Life Is Feudal Your Own Dedicated Server\\**" it will open a new window with yellow text showing you the console of your server.
 
 If you get an error of missing DLL files, it is likely you haven't installed Microsoft Visual C++ 2015 Redistributable package. You can find that package here [https://www.microsoft.com/en-us/download/details.aspx?id=48145](https://www.microsoft.com/en-us/download/details.aspx?id=48145 "https://www.microsoft.com/en-us/download/details.aspx?id=48145")
 
@@ -102,7 +99,9 @@ Install, and launch your Life is Feudal: Your Own game install at least once wit
 
 This section will cover some tips and tricks that I use to make developing mods using the LiFx Framework simpler and easier to restart, test and verify the mods without relying on comparatively slow game server provider's hosting panels.
 
-1. Create a shortcut to "**ddctd_cm_yo_server.exe**" by right clicking it and choosing "Send to", "Desktop (create shortcut)"
+1. Create a shortcut to "**ddctd_cm_yo_server.exe**" 
+
+   Do this by right clicking "**ddctd_cm_yo_server.exe**" and choosing "Send to", "Desktop (create shortcut)"
 
 **Credits**
 
