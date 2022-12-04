@@ -23,6 +23,8 @@ once the console is up paste the following into it
 You will then start to see the Geo IDS as pictured below**
 
 ![](/uploads/geoidinfo.png)  
+**Creating the Adminlands**  
+  
 With this step done simply look at the tile you wish to gain a Geo id and it will display the Geo ID next to "SEL: ter" then replace geoid1 and geoid2 using this process with the geo ids you wish to use.
 
 * **/adminland create geoId1 geoId2 name of adminland**
