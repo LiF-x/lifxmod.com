@@ -97,3 +97,7 @@ Follow the guide provided here
 ### YoLauncher
 
 Install, and launch your Life is Feudal: Your Own game install at least once with YoLauncher to install the client framework.
+
+**Credits**
+
+Thanks to Nyuton for his work on feudal.tools [knowledge base article](https://kb.feudal.tools/knowledge-base/setup-lifyo-dedicated-server-on-windows/) that this tutorial bases some of its ifnormation from
