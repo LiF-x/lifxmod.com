@@ -13,5 +13,14 @@ published: false
 Heraldry Not Working how can this be fixed?
 
 \- Shut down the server first  
-\- Update DB by setting coallition to **utf8_unicode_ci**  
+\- Update DB by setting coalition to **utf8_unicode_ci**  
 \- Restart the server
+
+Alternatively, you can run the Query below into your database using HeidiSql or a similar program
+
+    ALTER TABLE `heraldic_charges`
+        ALTER `Position` DROP DEFAULT,
+        ALTER `Size` DROP DEFAULT;
+    ALTER TABLE `heraldic_charges`
+        CHANGE COLUMN `Position` `Position` ENUM('top_left','top_center','top_right','middle_left','true_center','middle_right','bottom_left','bottom_center','bottom_right') NOT NULL AFTER `ColorIndex`,
+        CHANGE COLUMN `Size` `Size` ENUM('small','medium','large') NOT NULL AFTER `Position`;
