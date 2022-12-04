@@ -17,7 +17,6 @@ Inside your server folder, there is a folder named "data" and there you will fin
 Modify this file accordingly by copy and pasting the current <item id="1463" line and changing the item id number to what you would like in your starter kit.
 
 > Example:  
->   
 > **Please note:** this example may be slightly different than what is originally shown but it works as it is a simpler version then the original it has been included.
 
      <?xml version="1.0" encoding="utf-8"?>
