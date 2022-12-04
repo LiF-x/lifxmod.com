@@ -91,17 +91,16 @@ When the server has finished loaded (it may take several minutes on first boot u
 
 Follow the guide provided here
 
-### YoLauncher
-
-Install, and launch your Life is Feudal: Your Own game install at least once with YoLauncher to install the client framework.
-
 ### Quality of life tips
 
 This section will cover some tips and tricks that I use to make developing mods using the LiFx Framework simpler and easier to restart, test and verify the mods without relying on comparatively slow game server provider's hosting panels.
 
 1. Create a shortcut to "**ddctd_cm_yo_server.exe**" 
-
-   Do this by right clicking "**ddctd_cm_yo_server.exe**" and choosing "Send to", "Desktop (create shortcut)"
+   1. Do this by right clicking "**ddctd_cm_yo_server.exe**" and choosing "Send to", "Desktop (create shortcut)"
+   2. Edit your shortcut, and go to properties.
+   3. Append "-worldId 1" to the end of "Target" so you can choose what worldId you want to launch. Example: "**C:\\Steam\\steamapps\\common\\Life Is Feudal Your Own Dedicated Server\\ddctd_cm_yo_server.exe -worldId 1**"
+2. Put your server mod repositories directly in the directory "**C:\\Steam\\steamapps\\common\\Life Is Feudal Your Own Dedicated Server\\mods**"  
+   This way you will not need to copy files locally to test them out, and you will have source tracking all the way.
 
 **Credits**
 
