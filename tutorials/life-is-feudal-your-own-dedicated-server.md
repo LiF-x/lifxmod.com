@@ -67,7 +67,7 @@ A guide to setting up a development environment for modding with LiFx framework 
 1. Open up a terminal in the folder where you have your steamcmd.exe file
 2. In your terminal write the following
 
-       steamcmd.exe +login anonymous +app_update 320850 +validate
+       .\steamcmd.exe +login anonymous +app_update 320850 validate +quit
 3. This will update and install Life is Feudal: Your Own dedicated files which will be under the file path to your steamcmd.exe directory: "**C:\\Steam\\steamapps\\common\\Life Is Feudal Your Own Dedicated Server\\**"
 4. Copy config_local.cs from "**C:\\Steam\\steamapps\\common\\Life Is Feudal Your Own Dedicated Server\\docs**" to "**C:\\Steam\\steamapps\\common\\Life Is Feudal Your Own Dedicated Server\\**" and open it up in your favorite text editor.
 5. Customize the world_1.xml located in the following path "**C:\\Steam\\steamapps\\common\\Life Is Feudal Your Own Dedicated Server\\config**" this is the main configuration file for your server. World ID has to be concise and follow the name of your xml file, default is 1.
