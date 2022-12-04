@@ -22,7 +22,7 @@ To help you look for objects you would like to put in the file please click the 
 [Objects Types ID List - LiF: Extended (lifxmod.com)](https://lifxmod.com/Docs/objects-types-id-list.html)
 
 > Example:  
-> **Please note:** this example may be slightly different than what is originally shown but it works as it is a simpler version then the original it has been included.
+> **Please note:** this example may be slightly different than what is originally shown but it works the same if not better.
 
      <?xml version="1.0" encoding="utf-8"?>
     <xml>
