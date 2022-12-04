@@ -49,7 +49,7 @@ The server framework is standalone.
 
 ### License
 
-Life is Feudal: Extended (LiFx) is distributed by an GPL 3.0 license.
+Life is Feudal: Extended (LiFx) is distributed by a GPL 3.0 license.
 
 ### Credits
 
