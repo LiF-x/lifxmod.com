@@ -7,7 +7,6 @@ nav_exclude: false
 parent: Tutorials
 has_children: false
 has_toc: true
-published: false
 
 ---
 # Setup a local Life is Feudal: Your Own dedicated server
