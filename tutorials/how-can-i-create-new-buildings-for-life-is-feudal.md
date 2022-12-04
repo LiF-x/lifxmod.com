@@ -10,4 +10,13 @@ has_toc: false
 published: false
 
 ---
-### How can I create new buildings for life is feudal?
+### How can I create new buildings for life is feudal?  
+  
+Using LiFx Frame Work  
+  
+Client side files to edit  
+cm_object.xml  
+objects_types.xml  
+  
+  
+> Example Mod Download<
