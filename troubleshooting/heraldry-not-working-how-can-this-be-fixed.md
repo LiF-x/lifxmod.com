@@ -7,7 +7,6 @@ nav_exclude: false
 parent: Troubleshooting
 has_children: false
 has_toc: false
-published: false
 
 ---
 Heraldry Not Working how can this be fixed?
