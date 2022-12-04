@@ -14,7 +14,7 @@ published: false
 
 Inside your server folder, there is a folder named "data" and there you will find a file named "cm_createchar.xml"
 
-Modify this file accordingly by copy and pasting the example blow and changing the item id numbers to what you would like in your starter kit.  
+Modify this file accordingly by copy and pasting the example below into your cm_createchar.xml replacing anything that is already there, once this is done change the item id numbers to what you would like in your starter kit.  
   
 If for any reason you do not want this many items or you would like to add more delete the unwanted line or copy and paste one of the lines changing the item id number  
   
