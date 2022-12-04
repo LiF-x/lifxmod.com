@@ -14,7 +14,12 @@ published: false
 
 Inside your server folder, there is a folder named "data" and there you will find a file named "cm_createchar.xml"
 
-Modify this file accordingly by copy and pasting the current <item id="1463" line and changing the item id number to what you would like in your starter kit.
+Modify this file accordingly by copy and pasting the example blow and changing the item id numbers to what you would like in your starter kit.  
+  
+If for any reason you do not want this many items or you would like to add more delete the unwanted line or copy and paste one of the lines changing the item id number  
+  
+To help you look for objects you would like to put in the file please click the link below  
+[Objects Types ID List - LiF: Extended (lifxmod.com)](https://lifxmod.com/Docs/objects-types-id-list.html)
 
 > Example:  
 > **Please note:** this example may be slightly different than what is originally shown but it works as it is a simpler version then the original it has been included.
