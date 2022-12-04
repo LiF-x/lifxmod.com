@@ -88,13 +88,13 @@ When the server has finished loaded (it may take several minutes on first boot u
 
 ### LiFx Server Framework
 
-Follow the guide provided [here](https://aunmnvnai-ljng.instant.forestry.io/Docs/server-framework.html)
+Follow the guide provided [here](https://aunmnvnai-ljng.instant.forestry.io/Docs/server-framework.html){: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ### Quality of life tips
 
 This section will cover some tips and tricks that I use to make developing mods using the LiFx Framework simpler and easier to restart, test and verify the mods without relying on comparatively slow game server provider's hosting panels.
 
-1. Create a shortcut to "**ddctd_cm_yo_server.exe**" 
+1. Create a shortcut to "**ddctd_cm_yo_server.exe**"
    1. Do this by right clicking "**ddctd_cm_yo_server.exe**" and choosing "Send to", "Desktop (create shortcut)"
    2. Edit your shortcut, and go to properties.
    3. Append "-worldId 1" to the end of "Target" so you can choose what worldId you want to launch. Example: "**C:\\Steam\\steamapps\\common\\Life Is Feudal Your Own Dedicated Server\\ddctd_cm_yo_server.exe -worldId 1**"
