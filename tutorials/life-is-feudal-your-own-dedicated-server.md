@@ -61,7 +61,34 @@ A guide to setting up a development environment for modding with LiFx framework 
 
 ### SteamCMD
 
-Install SteamCMD
+1. Download SteamCMD for Windows from valve: [https://developer.valvesoftware.com/wiki/SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD "https://developer.valvesoftware.com/wiki/SteamCMD")
+2. Unzip to a directory of your choice, for this tutorial your server files will also reside next with your steamcmd.exe file. For the purpose of this tutorial, we are assuming you have unpacked the zip file to the following directory: "**C:\\Steam**"
+
+### Life is Feudal: Your Own dedicated server files
+
+1. Open up a terminal in the folder where you have your steamcmd.exe file
+2. In your terminal write the following
+
+       steamcmd.exe +login anonymous +app_update 320850 +validate
+3. This will update and install Life is Feudal: Your Own dedicated files which will be under the file path to your steamcmd.exe directory: "**C:\\Steam\\steamapps\\common\\Life Is Feudal Your Own Dedicated Server\\**"
+4. Copy config_local.cs from "**C:\\Steam\\steamapps\\common\\Life Is Feudal Your Own Dedicated Server\\docs**" to "**C:\\Steam\\steamapps\\common\\Life Is Feudal Your Own Dedicated Server\\**" and open it up in your favorite text editor.
+
+       
+5. Customize the world_1.xml located in the following path "**C:\\Steam\\steamapps\\common\\Life Is Feudal Your Own Dedicated Server\\config**" this is the main configuration file for your server. World ID has to be concise and follow the name of your xml file, default is 1.
+
+#### Booting your server for the first time
+
+To start your server simply run the file named "**ddctd_cm_yo_server.exe**" located in the path "**C:\\Steam\\steamapps\\common\\Life Is Feudal Your Own Dedicated Server\\**" it will open a new window with yellow text showing you the console of your server. 
+
+If you get an error of missing DLL files, it is likely you haven't installed Microsoft Visual C++ 2015 Redistributable package. You can find that package here [https://www.microsoft.com/en-us/download/details.aspx?id=48145](https://www.microsoft.com/en-us/download/details.aspx?id=48145 "https://www.microsoft.com/en-us/download/details.aspx?id=48145")
+
+When the server has finished loaded (it may take several minutes on first boot up, due to server creating navmesh and terrain cache for the first time) and ready for clients it will display the following:
+
+    {} <> [0] Server is up and ready to accept connections
+    {} <<Thread>> [] The TCP server is up and running at port 28000 [T:NONE:12676]
+    {} <> [74] CmSteam::onSteamServersConnected
+    {} <> [92] CmSteam::onSteamPolicyResponse. secure=1, our steamID=xxxxxxx
+    {} <> [92] Steam initialized
 
 ### LiFx Server Framework
 
