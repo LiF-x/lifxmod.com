@@ -25,7 +25,39 @@ A guide to setting up a development environment for modding with LiFx framework 
 
 ### MariaDB
 
-Install mariadb
+1. Download the latest MariaDB release from [https://mariadb.org/download](https://mariadb.org/download "https://mariadb.org/download")
+
+   > Disclaimer: Life is Feudal: Your Own recommends MariaDB version 5.5, but due to security patches being discontinued since April 2020, we would recommend you install a newer version. Server hosts are likely to have a newer version than 5.5, however note there are changes in terms of triggers and procedures that are different between each version and may impact your mods.
+2. Run the MSI installer to install it as a service. No modification ot the default features are necessary.
+3. When prompted for a root password. Choose a complex password, we recommend a password of minimum 16 characters, with punctuations, special characters, numbers, large and small letter combinations.  
+   If you want remote users to be able to login as root (**we discourage this**) you also have to check the option "_Enable access from remote machines for 'root' user_"
+
+   > Note when allowing root connections from remote computers, you are potentially opening up a security risk. 
+4. Leave the rest of the options default, you may now complete the installation wizard without alterations.
+5. Life is Feudal requires some changes to the standard config for MariaDB. Navigate to the data directory of your MariaDB installation "C:\\Program Files\\MariaDB <your version>\\data" where you replace "<our version>" with the version number you installed. For example: C:\\Program Files\\MariaDB 10.10\\data.   
+   Open the file called "**my.ini**" in your favorite text editor.
+
+     
+   Make sure the \[mysqld\] section has the following options. Add the missing options as shown below. Merge the differences between your "**my.ini**" file and what we describe here:
+
+       [mysqld]
+       default_storage_engine=innodb
+       character-set-server=utf8
+       innodb_file_per_table=ON
+       innodb_file_format=Barracuda
+       innodb_flush_log_at_trx_commit=1
+       max_sp_recursion_depth=255
+       max_allowed_packet=10M
+       query_cache_size=0
+       query_cache_type=OFF
+6. Once that is done, restart your MariaDB service using either of these options:
+   1. Go to windows run (⊞ Win + R) and type "**services.msc**", once services pops up, find "MariaDB" service and restart it
+   2. Open up a powershell or command prompt window and type
+
+          net stop MariaDB
+          net start MariaDB
+
+      These commands will each run and give you a status if the service is stopped or started successfully.
 
 ### SteamCMD
 
