@@ -7,7 +7,6 @@ nav_exclude: false
 parent: Troubleshooting
 has_children: false
 has_toc: false
-published: false
 
 ---
 ### How to map materials to a new mod object
