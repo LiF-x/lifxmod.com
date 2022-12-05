@@ -2,7 +2,7 @@
 layout: default
 last_modified_date: 2022-12-05 18:22:57 +0000
 title: How to map materials to a new mod object
-nav_order: 7
+nav_order: 3
 nav_exclude: false
 parent: Troubleshooting
 has_children: false
