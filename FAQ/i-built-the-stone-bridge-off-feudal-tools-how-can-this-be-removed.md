@@ -7,7 +7,6 @@ nav_exclude: false
 parent: FAQ
 has_children: false
 has_toc: false
-published: false
 
 ---
 ### I built the stone bridge off feudal tools, how can this be removed?
