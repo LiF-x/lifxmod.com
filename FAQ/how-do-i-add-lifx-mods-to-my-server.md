@@ -7,7 +7,6 @@ nav_exclude: false
 parent: FAQ
 has_children: false
 has_toc: false
-published: false
 
 ---
 ### How do I add LiFx Mods to my server?
