@@ -10,9 +10,8 @@ has_toc: false
 published: false
 
 ---
+### How do I add LiFx Mods to my server?
 
-How do I add LiFx Mods to my server?  
-  
 You must ensure LiFx Frame work is installed on your server, this can be done by following the guide below and downloading if required.
 
 > [Server framework - LiF: Extended (lifxmod.com)](https://lifxmod.com/Docs/server-framework.html)
