@@ -19,7 +19,7 @@ Once this is done the steps are very simple As pictured below
 
 1. Click the folder "mods"
 2. Click the folder "LiFx"
-3. Drop the mod files into the mods folder  
+3. Drop the mod files into the LiFx folder  
    \- It is recommended to have a folder for each mod as pictured below
 
 ![](/uploads/howtomodinstallation.png)
