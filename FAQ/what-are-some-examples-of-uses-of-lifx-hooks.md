@@ -12,7 +12,7 @@ published: false
 ---
 ### What are some examples of uses of LiFx Hooks?
 
-In order to help people knowing what hooks to trigger for what purpose   
+In order to help people knowing what hooks to trigger for what purpose  
 Below is a list of them and their uses.
 
 **This is good for Adding new objects to database**
@@ -34,7 +34,7 @@ Below is a list of them and their uses.
 **The below would be to add new objects to your mod to allow for auto set up in the database.**
 
 1. **Replacing** LiFxhooks with your mod name
-2. **Replacing** ObjectsTypesWoodenCross() With your item name e.g. ObjectsTypesNewItem()   
+2. **Replacing** ObjectsTypesWoodenCross() With your item name e.g. ObjectsTypesNewItem()  
    \- **Ensure () Remains at the end**
 
 > LiFx::registerObjectsTypes(LiFxhooks::ObjectsTypesWoodenCross(), LiFxhooks);
@@ -48,12 +48,12 @@ Below is a list of them and their uses.
 **The below is good for Adding the following:**
 
 1. New Weapons
-2. New AI 
+2. New AI
 
 > LiFx::registerCallback($LiFx::hooks::onDatablockLoad, RegisterNewDatablock, LiFxhooks);
 
-**The below is good for adding Materials to new Objects  
-  
+\**The below is good for adding Materials to new Objects
+
 Replacing** LiFxhooks with your mod name
 
 > LiFx::registerCallback($LiFx::hooks::onMaterialsLoad, RegisterNewMaterial, LiFxhooks);
