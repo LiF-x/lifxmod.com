@@ -12,4 +12,18 @@ published: false
 ---
 ### What are the uses of LiFx Hooks?
 
-f
+In order to help people knowing what hooks to trigger here is a list of them and their uses.
+
+This is good for Adding new objects to database
+
+> LiFx::registerCallback($LiFx::hooks::onServerCreatedCallbacks, Dbchanges, );
+
+This is good for Editing Existing lines for original items -
+
+Perfect for updating Container sizes
+
+> LiFx::registerCallback($LiFx::hooks::onInitServerDBChangesCallbacks, ConChanges, LiFxhooks);
+
+The below would be to add new objects to your mod to allow for auto set up in the database.
+
+LiFx::registerObjectsTypes(LiFxhooks::ObjectsTypesWoodenChurch(), LiFxhooks);
