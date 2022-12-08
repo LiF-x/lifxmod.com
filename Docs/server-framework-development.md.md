@@ -61,7 +61,6 @@ In order to make a compatible mod there are certain requirements:
 | $LiFx::hooks::onStartSwimCallbacks | - | Is called when someone starts swimming |
 | $LiFx::hooks::onStopSwimCallbacks | - | Is called when someone stops swimming |
 
-
 ## Example
 
 An example of server framework compatible mod.  
@@ -144,7 +143,7 @@ You can also use the public example starting point which you can find on in the 
     	// Each of the variables in the object, corrosponds to the column value in the database
         return new ScriptObject(ObjectsTypesExampleBuilding : ObjectsTypes)
         {
-          id = 2420; // *UNIQUE INT* Has to be a unique id
+          id = 2420; // *UNIQUE INT* Has to be a unique id - grab id from here: https://lifxmod.com/Docs/objects-types-id-list.html
           ObjectName = "ExampleBuilding"; // *STRING* Name of your object
           ParentID = 61; // *INT* ParentID decides what type of object you have, think of it as class inheritance
           IsContainer = 0; // *BOOL* 1 (true) or 0 (false) - If your object is supposed to have a container referenced
@@ -178,7 +177,3 @@ You can also use the public example starting point which you can find on in the 
     // This command is from Torque, and activates your package so that the engine can reference it
     // This is required for your mod to work, and have the code loaded in torque engine.
     activatePackage(ExampleMod);
-    
-    // This registers your setup method, to the framework similar to how you register callbacks otherwise inside your setup function of the package
-    // It is subject to change and may later be removed for automation purposes
-    LiFx::registerCallback($LiFx::hooks::mods, setup, ExampleMod);
