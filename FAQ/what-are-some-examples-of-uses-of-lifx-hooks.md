@@ -10,7 +10,7 @@ has_toc: false
 published: false
 
 ---
-### What are some examples of uses of LiFx Hooks?
+## What are some examples of uses of LiFx Hooks?
 
 In order to help people knowing what hooks to trigger for what purpose  
 Below is a list of them and their uses.
