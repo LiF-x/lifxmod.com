@@ -34,7 +34,8 @@ Below is a list of them and their uses.
 **The below would be to add new objects to your mod to allow for auto set up in the database.**
 
 1. **Replacing** LiFxhooks with your mod name
-2. **Replacing** ObjectsTypesWoodenCross() With your item name e.g. ObjectsTypesNewItem() **Ensure () Remains at the end**
+2. **Replacing** ObjectsTypesWoodenCross() With your item name e.g. ObjectsTypesNewItem()   
+   \- **Ensure () Remains at the end**
 
 > LiFx::registerObjectsTypes(LiFxhooks::ObjectsTypesWoodenCross(), LiFxhooks);
 
