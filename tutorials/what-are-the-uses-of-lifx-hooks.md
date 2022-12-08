@@ -27,3 +27,5 @@ Perfect for updating Container sizes
 The below would be to add new objects to your mod to allow for auto set up in the database.
 
 LiFx::registerObjectsTypes(LiFxhooks::ObjectsTypesWoodenChurch(), LiFxhooks);
+
+![](/uploads/lifxhooksobjecttypes.png)
