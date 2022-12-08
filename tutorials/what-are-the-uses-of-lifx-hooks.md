@@ -23,9 +23,9 @@ Below is a list of them and their uses.
 
 **The below is good for Adding the following:**
 
-1. updating Container sizes
-2. Creating new triggers
-3. Updating original Container sizes of Vanilla buildings
+1. Creating new Procedures
+2. Creating new Triggers
+3. Updating Original Container sizes of Vanilla buildings
 
 **Replacing** LiFxhooks with your mod name
 
