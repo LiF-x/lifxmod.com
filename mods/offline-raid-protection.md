@@ -12,8 +12,6 @@ published: false
 ---
 # Offline raid protection
 
-#### Download
-
 [Download here](https://github.com/LiF-x/OfflineRaidProtection/releases/latest){: .btn .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
-#### Installation instructions
+### Installation instructions
