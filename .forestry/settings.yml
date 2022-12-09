@@ -5,6 +5,11 @@ admin_path: ''
 webhook_url: 
 sections:
 - type: directory
+  path: Docs
+  label: Docs
+  create: documents
+  match: "**/*"
+- type: directory
   path: mods
   label: Official mods
   create: all
@@ -12,11 +17,6 @@ sections:
   templates:
   - child
   - layout
-- type: directory
-  path: Docs
-  label: Docs
-  create: documents
-  match: "**/*"
 - type: directory
   path: tutorials
   label: Tutorials
