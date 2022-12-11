@@ -9,9 +9,7 @@ has_children: false
 has_toc: false
 
 ---
-<img src="https://img.shields.io/badge/LiFx%20Server%20-%3Ev3.0.0-green" />
-
-<img src="https://img.shields.io/badge/MariaDB%20-%3Ev5.5.49-green" />
+<img src="https://img.shields.io/badge/LiFx%20Server%20-%3Ev3.0.0-green" /><img src="https://img.shields.io/badge/MariaDB%20-%3Ev5.5.49-green" />
 # Loot
 
 [Download here](https://github.com/LiF-x/Loot/releases/latest)
