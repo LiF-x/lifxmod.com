@@ -10,7 +10,7 @@ has_toc: false
 published: false
 
 ---
-[LiFx Server ->v3.0.0-green](https://img.shields.io/badge/LiFx%20Server%20-%3Ev3.0.0-green "LiFx Server ->v3.0.0-green")
+<img src="https://img.shields.io/badge/LiFx%20Server%20-%3Ev3.0.0-green" />
 
 # Loot
 
