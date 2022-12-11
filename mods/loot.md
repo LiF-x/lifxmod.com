@@ -42,7 +42,7 @@ has_toc: false
 
 | Column | Description |
 | --- | --- |
-| ContainerID | The ID of the container of which you want the loot to drigger on, when it is added to the world. |
+| ContainerID | The ID of the container of which you want the loot to trigger on, when it is added to the world. |
 | ItemDropID | The ID of the loot you wish to put into the container |
 | Min Quality | The minimum quality of the object you want to spawn in to the container |
 | Max Quality | The maximum quality of the object you want to spawn in to the container |
