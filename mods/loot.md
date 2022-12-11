@@ -7,7 +7,6 @@ nav_exclude: false
 parent: Official mods
 has_children: false
 has_toc: false
-published: false
 
 ---
 <img src="https://img.shields.io/badge/LiFx%20Server%20-%3Ev3.0.0-green" />
