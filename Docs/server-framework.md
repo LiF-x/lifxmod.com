@@ -40,7 +40,7 @@ Copy the art.zip without unpackaging it to your servers root directory
 
 | Date | Version | Comment |
 | --- | --- | --- |
-| 01.12.2022 | 3.0.0 | Removed requirement to reigster to mods hook, it is not handled by activatePackage, setup function is made mandatory |
+| 14.12.2022 | 3.0.0 | Removed requirement to reigster to mods hook, it is not handled by activatePackage, setup function is made mandatory. Added export functionality for objects_types.xml, recipe.xml and recipe_requirement.xml |
 | 01.10.2021 | 2.6.1 | Added deathhook functionality |
 | 15.04.2021 | 2.4.0 | Added display of new version tag on modsAdded inclution of Utility a public repository for common functions to the LiFx framework |
 | 30.01.2021 | 2.2.0 | Added new hooks$LiFx::hooks::onPostConnectRoutineCallbacks = JettisonArray(“onPostConnectRoutineCallbacks”);$LiFx::hooks::onPreConnectRequestCallbacks = JettisonArray(“onPreConnectRequestCallbacks”); |
