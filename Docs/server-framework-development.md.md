@@ -39,7 +39,6 @@ In order to make a compatible mod there are certain requirements:
 
 | Hook array | Parameters | Description |
 | --- | --- | --- |
-| $LiFx::hooks::mods |  | This is the mod entrypoint, you have to register your mod and the "setup" function to this hook for it to load, see example below. It is only used for registering your setup functionality not to execute any game altering code directly |
 | $LiFx::hooks::onStartCallbacks | %this | Executes when onStart is called by the server code and should be your main entry point for your mod to execute and load configuration. |
 | $LiFx::hooks::onConnectRequestCallbacks | %this, %gameConnection, %netaddress, %name | Calls a function when a user is attempting to join |
 | $LiFx::hooks::onPostConnectRoutineCallbacks | %this, %gameConnection, %netaddress, %name |  |
@@ -109,7 +108,7 @@ You can also use the public example starting point which you can find on in the 
         return "v1.0.0" 
       }
       
-      // The setup method is required, and will be looked for by the framework
+      // The setup method is required, and will be looked for by the framework, if it doesn't have it your mod will not execute
       // This is where you tell the framework, which hooks you use and what object types you have added, so that the framework can call your code at the appropiate time
       function ExampleMod::setup() {
         // Register callback hooks, do not run any form of code that does anything here, just register the hook
