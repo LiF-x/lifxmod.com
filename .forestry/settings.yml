@@ -10,6 +10,14 @@ sections:
   create: documents
   match: "**/*"
 - type: directory
+  path: mods
+  label: Official mods
+  create: all
+  match: "**/*"
+  templates:
+  - child
+  - layout
+- type: directory
   path: tutorials
   label: Tutorials
   create: all

@@ -4,7 +4,7 @@ last_modified_date: 2022-12-03T15:10:15.000+00:00
 title: Console functions
 nav_order: 6
 nav_exclude: false
-parent: Documentation
+parent: Server Documentation
 has_children: false
 has_toc: false
 

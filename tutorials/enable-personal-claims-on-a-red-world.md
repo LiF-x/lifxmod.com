@@ -2,7 +2,7 @@
 layout: default
 last_modified_date: 2022-12-03T15:38:46.000+00:00
 title: Enable Personal Claims on a Red World
-nav_order: 1
+nav_order: 2
 nav_exclude: false
 parent: Tutorials
 has_children: false
@@ -15,23 +15,21 @@ In order to activate Personal Claims on a Red World you will need to edit both t
 
 The Abilities you will need to edit from
 
-<**req** type="world">green</**req**>
+    <req type="world">green</req>
 
 to
 
-<**req** type="world">red</**req**>
+    <req type="world">red</req>
 
-are:  
-Worship
+are:
 
+* Worship
 * Private Land
 * Resize
 * Remove!
 * Undo Claim Resize
 
   Information Below is for the changes
-
-
 * Worship
 
       <ability lvl="0" name="Worship" type="Special" id="355">

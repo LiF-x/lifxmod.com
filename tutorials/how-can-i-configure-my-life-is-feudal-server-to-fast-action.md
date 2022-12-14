@@ -7,15 +7,14 @@ nav_exclude: false
 parent: Tutorials
 has_children: false
 has_toc: false
-published: false
 
 ---
 ### How can I configure my Life Is Feudal server to fast action?
 
-Find a skill you wish to speed up  
-  
+Find a skill you wish to speed up
+
 For the purposes of this tutorial, we will look at speeding up searching for Gold Deposits  
-find the line with the following in your xml
+find the line with the following in your skill_types.xml
 
     <duration const="8 25"/>
 
@@ -40,6 +39,19 @@ Then change the value to the appropriate skill type for 1 second action as shown
 
     <duration const="">1</duration>
 
+This will remove the calculation-based speed which was intended by BitBox  
+\- Please take note of the removal of "8 25" to allow it to be ignored it must be deleted
+
+> **What is the meaning of these numbers?**
+>
+> The 8 Resembles the maximum time it would take to complete the action
+>
+> The 25 resembles a Deminer, This is a division added as your skills raise which in effect reduces the minimum time taken to complete the action.  
+>  
+>
+> More indepth Calculation would be as below  
+> Duration = (Value1 - RealSkillLevel/Value2) * tool quality
+
 If Correctly done this will now look like the example Below
 
     			<ability lvl="60" name="Gold Deposits" type="Look for" id="5">
@@ -57,6 +69,6 @@ If Correctly done this will now look like the example Below
     				</results>
     			</ability>	
 
-This is now Correctly Edited, and the same method can be used for all skill types to speed up the skills.  
-  
+This is now Correctly Edited, and the same method can be used for all skill types to speed up the skills.
+
 Skill speed is determined by the server and not the client therefore only the servers skilltypes.xml needs editing which is located in the Servers data folder

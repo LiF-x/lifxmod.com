@@ -14,7 +14,7 @@ last_modified_date:
 # Life is Feudal: Extended (LiFx)
 {: .fs-9 }
 
-All the documentation you need to make your mods compatible with the LiFx framework. Made to be easy both for developers and users
+All the documentation you need to make your mods compatible with the LiFx framework. This resource is primarily for developers and server owners.
 {: .fs-6 .fw-300 }
 
 [Download server framework](/mods/server/art.zip){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [Get YoLauncher](https://yolauncher.app){: .btn .fs-5 .mb-4 .mb-md-0 }
@@ -26,8 +26,8 @@ All the documentation you need to make your mods compatible with the LiFx framew
 ### Dependencies
 
 1. [Life is Feudal: Your Own](https://store.steampowered.com/app/290080/Life_is_Feudal_Your_Own/)
-2. Life is Feudal: Your Own dedicated server (local setup guide)
-3. [LiFx Server framework](/docs/Releases/server-mod/)
+2. [Life is Feudal: Your Own dedicated server (local setup guide)](/tutorials/life-is-feudal-your-own-dedicated-server.html)
+3. [LiFx Server framework](/Docs/server-framework.html)
 
 ## Getting started creating client mods
 
@@ -37,7 +37,7 @@ Bootstrap project
 
 ### Client dependencies
 
-Every client that will use your client mods utilizing LiFx framework will be required to use YoLauncher.
+Every client will be dependent on YoLauncher for LiFx compatible client mods.
 
 ***
 
@@ -49,7 +49,7 @@ The server framework is standalone.
 
 ### License
 
-Life is Feudal: Extended (LiFx) is distributed by an GPL 3.0 license.
+Life is Feudal: Extended (LiFx) is distributed by a GPL 3.0 license.
 
 ### Credits
 
@@ -59,7 +59,7 @@ Life is Feudal: Extended (LiFx) is distributed by an GPL 3.0 license.
 #### Notable contributors
 
 * Ebhe (our moderator)
-* Ulrik 
+* Ulrik
 * Johnny
 * Ibun (of Viking Gaming)
 * Basil of BasilMod
