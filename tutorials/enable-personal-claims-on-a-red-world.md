@@ -11,7 +11,7 @@ has_toc: false
 ---
 ### Enable Personal Claims on a Red World
 
-In order to activate Personal Claims on a Red World you will need to edit both the Server’s and Client’s **skill_types.xml** files. Below you can find examples of how we recommend you should edit your file.
+In order to activate Personal Claims on a Red World you will need to edit both the Server’s and Client’s **skill_types.xml** files (found in the data folder). Below you can find examples of how we recommend you should edit your file.
 
 The Abilities you will need to edit from
 
