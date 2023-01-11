@@ -7,7 +7,6 @@ nav_exclude: false
 parent: Tutorials
 has_children: false
 has_toc: false
-published: false
 
 ---
 Open your Skill_types.xml   
