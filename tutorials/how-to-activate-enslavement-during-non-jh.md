@@ -9,9 +9,9 @@ has_children: false
 has_toc: false
 
 ---
-Open your Skill_types.xml   
-  
-Find the Enslave block and Remove the Requirements 
+Open your Skill_types.xml
+
+Find the Enslave block and Remove the Requirements
 
     			<ability lvl="0" name="Enslave" id="345">
     				<duration const="">6</duration>
@@ -38,7 +38,7 @@ Find the Enslave block and Remove the Requirements
 
 so it looks like the below block, ensure this file is shared with client.
 
-    			<ability lvl="0" name="Enslave" id="345">
+    <ability lvl="0" name="Enslave" id="345">
     				<duration const="">20</duration>
     				<ability_skill_mult>0</ability_skill_mult>
     				<icon>art\2D\skills\abilities\coup_de_grace.png</icon>
@@ -55,3 +55,5 @@ so it looks like the below block, ensure this file is shared with client.
     			</ability>
     		</abilities>
     	</row>
+
+ 
