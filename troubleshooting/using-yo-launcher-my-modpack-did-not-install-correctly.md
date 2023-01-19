@@ -15,7 +15,7 @@ has_toc: false
    ![](/uploads/yolauncheruninstall.png)
 2. Exit your game - If you are not in game ignore this step
 3. Close Yo Launcher
-4. Reopen Yo Launcher
+4. Reopen Yo Launcher 
 5. Rejoin the server and allow modpack to download and install again
 
    This should resolve the issue
