@@ -13,7 +13,7 @@ has_toc: false
 
 1. Please Uninstall the modpack using the built in uninstall feature on Yo launcher  
    ![](/uploads/yolauncheruninstall.png)
-2. Exit your game
+2. Exit your game - If you are not in game ignore this step
 3. Close Yo Launcher
 4. Reopen Yo Launcher
 5. Rejoin the server and allow modpack to download and install again
