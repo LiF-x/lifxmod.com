@@ -1,0 +1,84 @@
+collections_config:
+  docs:
+    name: Docs
+    path: Docs
+    schemas:
+      child: &ref_0
+        path: .cloudcannon/schemas/child.md
+        name: Child
+        _enabled_editors:
+          - content
+        _inputs:
+          $.layout:
+            hidden: true
+          $.nav_order:
+            type: number
+          $.last_modified_date:
+            instance_value: NOW
+            type: datetime
+            comment: ''
+        text_key: content
+      layout: &ref_1
+        path: .cloudcannon/schemas/layout.md
+        name: Parent
+        _enabled_editors:
+          - content
+        _inputs:
+          $.layout:
+            hidden: true
+          $.nav_order:
+            type: number
+            comment: ''
+          $.last_modified_date:
+            instance_value: NOW
+            hidden: true
+            type: datetime
+            comment: ''
+  official-mods:
+    name: Official mods
+    path: mods
+    schemas:
+      default: *ref_0
+      layout: *ref_1
+  tutorials:
+    name: Tutorials
+    path: tutorials
+    schemas:
+      default: *ref_0
+      layout: *ref_1
+  faq:
+    name: FAQ
+    path: FAQ
+    schemas:
+      child: *ref_0
+      layout: *ref_1
+  troubleshooting:
+    name: Troubleshooting
+    path: troubleshooting
+    schemas:
+      default: *ref_0
+      layout: *ref_1
+  pages:
+    name: Pages
+    path: ''
+    schemas:
+      layout: *ref_1
+  posts:
+    name: Posts
+    path: _posts
+collection_groups:
+  - heading: Content
+    collections:
+      - docs
+      - official-mods
+      - tutorials
+      - faq
+      - troubleshooting
+      - pages
+      - posts
+paths:
+  static: ''
+  uploads: uploads
+_inputs:
+  template:
+    hidden: true
