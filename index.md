@@ -16,9 +16,6 @@ last_modified_date:
 All the documentation you need to make your mods compatible with the LiFx framework. This resource is primarily for developers and server owners.
 {: .fs-6.fw-300}
 
-test
-{: .fs-6.fw-300}
-
 [Download server framework](/mods/server/art.zip){: .btn.btn-primary.fs-5.mb-4.mb-md-0.mr-2} [Get YoLauncher](https://yolauncher.app){: .btn.fs-5.mb-4.mb-md-0}
 
 ---
