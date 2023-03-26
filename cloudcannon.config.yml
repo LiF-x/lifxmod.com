@@ -40,6 +40,12 @@ collections_config:
     schemas:
       default: *ref_0
       layout: *ref_1
+  unsupported-mods:
+    name: Unsupported mods
+    path: unsupportedmods
+    schemas:
+      default: *ref_0
+      layout: *ref_1
   tutorials:
     name: Tutorials
     path: tutorials
@@ -74,6 +80,7 @@ collection_groups:
       - tutorials
       - faq
       - troubleshooting
+      - unsupported-mods
       - pages
       - posts
 paths:
