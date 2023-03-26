@@ -46,6 +46,12 @@ collections_config:
     schemas:
       default: *ref_0
       layout: *ref_1
+  client-only-mods:
+    name: Client only mods
+    path: clientonlymods
+    schemas:
+      default: *ref_0
+      layout: *ref_1
   tutorials:
     name: Tutorials
     path: tutorials
@@ -81,6 +87,7 @@ collection_groups:
       - faq
       - troubleshooting
       - unsupported-mods
+      - client-only-mods
       - pages
       - posts
 paths:
