@@ -2,7 +2,7 @@
 _schema: default
 layout: default
 title: Church
-nav_order: 5
+nav_order: 6
 nav_exclude: false
 parent: Official mods
 has_children: false
