@@ -2,14 +2,13 @@
 _schema: default
 layout: default
 title: Full Server Fix + VIP
-nav_order: 6
+nav_order: 5
 nav_exclude: false
 parent: Official mods
 has_children: false
 has_toc: false
 last_modified_date:
 ---
-
 # Full Server Fix + VIP
 
 [Download here](https://github.com/LiF-x/FullServerFixVIPV1.0.1/releases/tag/FullServerFix%2BVIPV1.0.1){: .btn .fs-5 .mb-4 .mb-md-0 .mr-2 }
