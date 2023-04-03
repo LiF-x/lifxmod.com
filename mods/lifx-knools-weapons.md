@@ -15,7 +15,7 @@ last_modified_date:
 
 \[Download here\](https://github.com/LiF-x/Knool-Pack/releases/latest)
 
-\### Installation instructions
+\### Installation instructions&nbsp;
 
 1\. Download the latest package from the above link.
 
