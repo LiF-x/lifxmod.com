@@ -2,7 +2,7 @@
 _schema: default
 layout: default
 title: Full Server Fix
-nav_order: 4
+nav_order: 2
 nav_exclude: false
 parent: Official mods
 has_children: false
