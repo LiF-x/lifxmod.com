@@ -1,15 +1,16 @@
 ---
+_schema: default
 layout: default
-last_modified_date: 2022-12-11 18:09:53 +0000
 title: Loot
 nav_order: 2
 nav_exclude: false
 parent: Official mods
 has_children: false
 has_toc: false
-
+last_modified_date: 2022-12-11 18:09:53
 ---
-<img src="https://img.shields.io/badge/LiFx%20Server%20-%3Ev3.0.0-green" title="Requires LiFx server framework minimum v3.0.0" /><img src="https://img.shields.io/badge/MariaDB%20-%3Ev5.5.49-green" title="Tested with MariaDB v5.5.49" />
+![](https://img.shields.io/badge/LiFx%20Server%20-%3Ev3.0.0-green "Requires LiFx server framework minimum v3.0.0")![](https://img.shields.io/badge/MariaDB%20-%3Ev5.5.49-green "Tested with MariaDB v5.5.49")
+
 # Loot
 
 [Download here](https://github.com/LiF-x/Loot/releases/latest)
@@ -33,7 +34,9 @@ has_toc: false
 1. Edit the lootTable.cs file
 2. Add one line per drop item following this template:
 
-       dbi.Update("INSERT IGNORE `" @ LiFxLoot::loottable() @ "` VALUES (ContainerID, ItemDropID, Min Quality, Max Quality, Min Quantity, Max Quantity, Chance)");
+   ```
+   dbi.Update("INSERT IGNORE `" @ LiFxLoot::loottable() @ "` VALUES (ContainerID, ItemDropID, Min Quality, Max Quality, Min Quantity, Max Quantity, Chance)");
+   ```
 
    Where you replace the values according to your drop wishes.
 
