@@ -6,7 +6,7 @@ nav_order: 7
 nav_exclude: false
 parent: Official mods
 has_children: false
-has_toc: false
+has_toc: true
 last_modified_date:
 ---
 \# KnoolPack
