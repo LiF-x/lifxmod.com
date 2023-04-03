@@ -1,13 +1,13 @@
 ---
+_schema: default
 layout: default
-last_modified_date: 2022-12-09T12:22:33.000+00:00
 title: Full Server Fix
-nav_order: 1
+nav_order: 4
 nav_exclude: false
 parent: Official mods
 has_children: false
 has_toc: false
-
+last_modified_date: 2022-12-09 12:22:33
 ---
 # Full Server Fix
 
