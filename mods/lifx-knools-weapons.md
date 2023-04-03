@@ -1,7 +1,7 @@
 ---
 _schema: default
 layout: default
-title: LiFx Knools + Weapons
+title: LiFx Knools and Weapons
 nav_order: 7
 nav_exclude: false
 parent: Official mods
