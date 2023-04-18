@@ -11,11 +11,11 @@ last_modified_date:
 ---
 # KnoolPack
 
- Introduction of Knools and knool weapons 
+&nbsp;Introduction of Knools and knool weapons&nbsp;
 
 [Download here](https://github.com/LiF-x/Knool-Pack/releases/latest)
 
-### Installation instructions 
+### Installation instructions&nbsp;
 
 1. Download the latest package from the above link.
 
@@ -25,31 +25,36 @@ last_modified_date:
 
 4. Upload the contents of the folder "mods" to the server
 
-5. Upload the contents of the folder "yolauncher"  to the server 
+5. Upload the contents of the folder "yolauncher" &nbsp;to the server&nbsp;
 
-5. Edit **Your** skill_types.xml on the server,
+6. Edit **Your** skill\_types.xml on the server,
 
-    5A). Add "2399 2359 2360 2361 2362" to the id list inside <ent_req type="object_type_id">1070 1083 924 925 926 927 928 929 930 931 932 933 934 935 936 1090 1460</ent_req> of Loot! ability. (Normally on line# 6073)
+&nbsp; &nbsp; 5A). Add "2399 2359 2360 2361 2362" to the id list inside
 
-    5B). Add "2465" inside <ent_req type="object_type_id">47 48 49 1466</ent_req> of Shape Stones Ability (Normally on line# 1902)
+<ent_req type="object_type_id">1070 1083 924 925 926 927 928 929 930 931 932 933 934 935 936 1090 1460</ent_req> of Loot! ability. (Normally on line# 6073)
 
-6. Copy all data from Knool_cm_equipTypes.xml and paste at the bottom of **Your** cm_equipTypes.xmll in the data folder on the server 
-Please Note: Ensure you paste over the top of this tag </object_types> as the Knool_cm_equipTypes.xml includes this.
+&nbsp; &nbsp; 5B). Add "2465" inside
 
-7. Upload the ai folder (including content) to your servers data folder.
+<ent_req type="object_type_id">47 48 49 1466</ent_req> of Shape Stones Ability (Normally on line# 1902)
 
-7. Use LiFx Server framework v3.0.0 or newer with $LiFx::createDataXMLS set to true in AutoloadConfig.cs to create objects_types.xml, recipe.xml and recipe_requirement.xml on the server and start the server. (This mod however only requires the object_types.xml)
+1. Copy all data from Knool\_cm\_equipTypes.xml and paste at the bottom of **Your** cm\_equipTypes.xmll in the data folder on the server&nbsp; Please Note: Ensure you paste over the top of this tag &lt;/object\_types&gt; as the Knool\_cm\_equipTypes.xml includes this.
 
-8. Stop the server and copy files on the server from /LiFx/dbexport to your servers /data folder
+2. &nbsp;Copy all Data from knool\_cm\_objects and paste at the bottom of your cm\_objects.xml<br>\- Ensure you do not overwrite the final line "&lt;/object\_types&gt;" This is required to complete the xml file.
 
-8. Download  objects_types.xml, recipe.xml, skill_types.xml and recipe_requirement.xml from the servers generated xml files (in the LiFx Folder) to your extracted "yolauncher/modpack/data" folder.
+3. Upload the ai folder (including content) to your servers data folder.
 
-9. Ensure you have 7zip installed on your computer [Download here](https://7zip.dev/en/download/)
+4. Use LiFx Server framework v3.0.0 or newer with $LiFx::createDataXMLS set to true in AutoloadConfig.cs to create objects\_types.xml, recipe.xml and recipe\_requirement.xml on the server and start the server. (This mod however only requires the object\_types.xml)
 
-10. Ensure all you need is in the pack and insert files into the yo launcher folder that you need for your server, ensuring you do not overwrite the mod files without checking your are moving a more up to date version with the correct information 
+5. Stop the server and copy files on the server from /LiFx/dbexport to your servers /data folder
 
-11. Run the "createModpack.bat" included in this pack to generate a mod pack to upload to [Yo Launcher](https://www.yolauncher.app/)
+6. Download &nbsp;objects\_types.xml, recipe.xml, skill\_types.xml and recipe\_requirement.xml from the servers generated xml files (in the LiFx Folder) to your extracted "yolauncher/modpack/data" folder.
 
-12. Upload to Yo Launcher as normal 
+7. Ensure you have 7zip installed on your computer [Download here](https://7zip.dev/en/download/)
 
-13. Enjoy
+8. Ensure all you need is in the pack and insert files into the yo launcher folder that you need for your server, ensuring you do not overwrite the mod files without checking your are moving a more up to date version with the correct information.<br><br>\*\*XMLS REQUIRED FOR THIS MOD\*\*<br>\- cm\_equipTypes.xml (needs to be built as mentioned above).<br>\- cm\_spawn\_patterns.xml ( ensure all knools are on this )<br>\- cm\_objects.xml &nbsp;(needs to be built as mentioned above).<br>\- object\_types.xml (Built for you as mentioned on the server and can be found in the db export folder ).<br>\- recipie.xml (Built for you as mentioned on the server and can be found in the db export folder ).<br>\- recipie\_requirement.xml (Built for you as mentioned on the server and can be found in the db export folder ).​​​
+
+9. Run the "createModpack.bat" included in this pack to generate a mod pack to upload to [Yo Launcher](https://www.yolauncher.app/)
+
+10. Upload to Yo Launcher as normal&nbsp;
+
+11. Enjoy
