@@ -20,9 +20,6 @@ last_modified_date:
 
 
 
-
-
-
 ### Installation instructions&nbsp;
 
 1. Download the latest package from the above link.
