@@ -19,6 +19,10 @@ last_modified_date: 2022-12-11 18:09:53
 
 * This mod requires the LiFx Server Framework version 3.0.0 or newer
 
+## About
+
+Adds a loot table to containers when containers are created. We made this to be able to add drops to the Knools on the event of their death, but it works on any container, so you could for example use this to support your admins to create random "treasure" chests and remove the manual work of letting them choose what is in it. Or even on player creation to add player inventory.
+
 ### Installation instructions
 
 1. Download the latest package from the above link.
