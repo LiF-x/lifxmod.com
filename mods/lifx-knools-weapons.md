@@ -31,11 +31,15 @@ last_modified_date:
 
 &nbsp; &nbsp; 5A). Add "2399 2359 2360 2361 2362" to the id list inside
 
-<ent_req type="object_type_id">1070 1083 924 925 926 927 928 929 930 931 932 933 934 935 936 1090 1460</ent_req> of Loot! ability. (Normally on line# 6073)
+<ent_req type="object_type_id">1070 1083 924 925 926 927 928 929 930 931 932 933 934 935 936 1090 1460</ent_req>
+
+of Loot! ability. (Normally on line# 6073)
 
 &nbsp; &nbsp; 5B). Add "2465" inside
 
-<ent_req type="object_type_id">47 48 49 1466</ent_req> of Shape Stones Ability (Normally on line# 1902)
+<ent_req type="object_type_id">47 48 49 1466</ent_req>
+
+of Shape Stones Ability (Normally on line# 1902)
 
 1. Copy all data from Knool\_cm\_equipTypes.xml and paste at the bottom of **Your** cm\_equipTypes.xmll in the data folder on the server&nbsp; Please Note: Ensure you paste over the top of this tag &lt;/object\_types&gt; as the Knool\_cm\_equipTypes.xml includes this.
 
@@ -51,7 +55,11 @@ last_modified_date:
 
 7. Ensure you have 7zip installed on your computer [Download here](https://7zip.dev/en/download/)
 
-8. Ensure all you need is in the pack and insert files into the yo launcher folder that you need for your server, ensuring you do not overwrite the mod files without checking your are moving a more up to date version with the correct information.<br><br>\*\*XMLS REQUIRED FOR THIS MOD\*\*<br>\- skilltypes.xml (needs to be built as mentioned above).<br>\- cm\_equipTypes.xml (needs to be built as mentioned above).<br>\- cm\_spawn\_patterns.xml ( ensure all knools are on this )<br>\- cm\_objects.xml &nbsp;(needs to be built as mentioned above).<br>\- object\_types.xml (Built for you as mentioned on the server and can be found in the db export folder ).<br>\- recipe.xml (Built for you as mentioned on the server and can be found in the db export folder ).<br>\- recipe\_requirement.xml (Built for you as mentioned on the server and can be found in the db export folder ).​​​<br><br>\#Ensure these files as already mentioned are on your server\*\*<br><br>\#ensure the files are in the datafolder prepared for yo launcher.
+8. Ensure all you need is in the pack and insert files into the yo launcher folder that you need for your server, ensuring you do not overwrite the mod files without checking your are moving a more up to date version with the correct information.<br><br>\*\*XMLS REQUIRED FOR THIS MOD\*\*<br>\- skilltypes.xml (needs to be built as mentioned above).<br>\- cm\_equipTypes.xml (needs to be built as mentioned above).<br>\- cm\_spawn\_patterns.xml ( ensure all knools are on this )<br>\- cm\_objects.xml &nbsp;(needs to be built as mentioned above).<br>\- object\_types.xml (Built for you as mentioned on the server and can be found in the db export folder ).<br>\- recipe.xml (Built for you as mentioned on the server and can be found in the db export folder ).<br>\- recipe\_requirement.xml (Built for you as mentioned on the server and can be found in the db export folder ).​​​<br><br>\
+
+###Ensure these files as already mentioned are on your server<br><br>
+
+###Ensure the files are in the datafolder prepared for yo launcher.
 
 9. ​​Run the "createModpack.bat" included in this pack to generate a mod pack to upload to [Yo Launcher](https://www.yolauncher.app/)
 
