@@ -59,7 +59,7 @@ of Shape Stones Ability (Normally on line# 1902)
 
 ###Ensure these files as already mentioned are on your server&nbsp;
 
-###Ensure the files are in the datafolder prepared for yo launcher.&nbsp;
+###Ensure the files are in the data folder YOU prepared for yo launcher.&nbsp;
 
 9. ​​Run the "createModpack.bat" included in this pack to generate a mod pack to upload to [Yo Launcher](https://www.yolauncher.app/)
 
