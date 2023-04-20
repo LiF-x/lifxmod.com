@@ -15,11 +15,11 @@ Heraldry Not Working how can this be fixed?
 
 **As pictured below**
 
-![](/uploads/hereldryfix.png){: width="1591" height="364"}
+![](/uploads/hereldryfix-1.png){: width="2800" height="726"}
 
-<br>\- Restart the server
+Ensure you save the data after changes or they will not take effect<br><br>\- Restart the server
 
-In some cases the coalation is not the issue, in this case you can try to run the Query below into your database using HeidiSql or a similar program
+In some cases the coalation is not the issue, in this case you can try to run the Query below into your database using HeidiSql or a similar program<br><br>this will fix positioning issues in heraldic\_charges
 
 ```
 ALTER TABLE `heraldic_charges`
