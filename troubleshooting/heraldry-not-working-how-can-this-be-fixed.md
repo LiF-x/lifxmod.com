@@ -11,9 +11,7 @@ last_modified_date: 2022-12-04 10:47:43
 ---
 Heraldry Not Working how can this be fixed?
 
-\- Shut down the server first<br>\- Update DB by changing coalition From **utf8\_unicode\_ci&nbsp;**&nbsp;to the correct one **utf8\_general\_ci**<br><br>This should be done In the heraldic\_charges​​​ Table​​​​<br>
-
-**As pictured below**
+\- Shut down the server first<br>\- Update DB by changing coalition From **utf8\_unicode\_ci&nbsp;**&nbsp;to the correct one **utf8\_general\_ci**<br><br>This should be done In the heraldic\_charges​​​ Table​​​​<br><br>**As pictured below**
 
 ![](/uploads/hereldryfix-1.png){: width="2800" height="726"}
 
