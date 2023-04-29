@@ -17,22 +17,22 @@ last_modified_date:
 
 * ​​​​​Warehouse - Increase to 50000 Storage
 * Large Warehouse - Increase to 100000 Storage
-* Bloomery -&nbsp;Increase to 1000 Storage
-* Furnace -&nbsp;Increase to 300 Storage
-* Blacksmith Workshop -&nbsp;Increase to 500 Storage
+* Bloomery - Increase to 1000 Storage
+* Furnace - Increase to 300 Storage
+* Blacksmith Workshop - Increase to 500 Storage
 * Camp Fire - Ability to burn soil & Increase to 1000 Storage
-* Forge and Anvil -&nbsp;Increase to 200 Storage
-* Kiln -&nbsp;Increase to 1000 Storage
-* Cart&nbsp;-&nbsp;Increase to 1000 Storage
-* Trader&nbsp;Cart -&nbsp;Increase to 2000 Storage
-* Horse&nbsp;Cart -&nbsp;Increase to 6000 Storage (Normal and Tented)&nbsp;
-* Chest -&nbsp;Increase to 600 Storage
-* Wardrobe -&nbsp;Increase to 800 Storage
-* Crate -&nbsp;Increase to 400 Storage
-* Barrel -&nbsp;Increase to 600 Storage
-* Big Couldren-&nbsp;Increase to 1000 Storage
-* Oven -&nbsp;Increase to 300 Storage
-* Brewing Tank-&nbsp;Increase to 300 Storage<br><br>This will give more rooms for the following Houses
+* Forge and Anvil - Increase to 200 Storage
+* Kiln - Increase to 1000 Storage
+* Cart -&nbsp;Increase to 1000 Storage
+* Trader Cart - Increase to 2000 Storage
+* Horse Cart - Increase to 6000 Storage (Normal and Tented)&nbsp;
+* Chest - Increase to 600 Storage
+* Wardrobe - Increase to 800 Storage
+* Crate - Increase to 400 Storage
+* Barrel - Increase to 600 Storage
+* Big Couldren- Increase to 1000 Storage
+* Oven - Increase to 300 Storage
+* Brewing Tank- Increase to 300 Storage<br><br>This will give more rooms for the following Houses
 
 * Small wooden house - To 10 Rooms
 * Small Plaster house - To 10 rooms
@@ -56,7 +56,7 @@ last_modified_date:
    * To your "yolauncher/modpack/data" folder.
 7. Ensure you have 7zip installed on your computer [Download here](https://7zip.dev/en/download/)
 
-8. Ensure all you need is in the pack and insert files into the yo launcher folder that you need for your server, ensuring you do not overwrite the mod files without checking your are moving a more up to date version with the correct information.<br><br>\*\*XMLS REQUIRED FOR THIS MOD\*\*<br>\- object\_types.xml (Built for you as mentioned on the server and can be found in the db export folder )<br>
+8. Ensure all you need is in the pack and insert files into the yo launcher folder that you need for your server, ensuring you do not overwrite the mod files without checking your are moving a more up to date version with the correct information.<br><br>\*\*XMLS REQUIRED FOR THIS MOD\*\*<br>\- object\_types.xml (Built for you as mentioned on the server and can be found in the db export folder )
 9. ​​Run the "createModpack.bat" included in this pack to generate a mod pack to upload to [Yo Launcher](https://www.yolauncher.app/)
 10. Upload to Yo Launcher as normal&nbsp;
 
