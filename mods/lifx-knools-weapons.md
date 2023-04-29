@@ -41,7 +41,7 @@ last_modified_date:
 
 8. &nbsp;Copy all Data from knool\_cm\_objects and paste at the bottom of your cm\_objects.xml<br>\- Ensure you do not overwrite the final line "&lt;/object\_types&gt;" This is required to complete the xml file.
 
-9. Upload the ai folder (including content) to your servers data folder.
+9. Upload the "data\\ai" folder (including content) to your servers data folder.
 
 10. Use LiFx Server framework v3.0.0 or newer with $LiFx::createDataXMLS set to true in AutoloadConfig.cs to create objects\_types.xml, recipe.xml and recipe\_requirement.xml on the server and start the server. (This mod however only requires the object\_types.xml)
 
