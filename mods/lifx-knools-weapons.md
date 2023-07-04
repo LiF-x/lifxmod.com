@@ -19,7 +19,7 @@ last_modified_date:
 
 1. Download the latest package from the above link.
 
-2. Extract the contents of the zip to a local folder
+2. Extract the contents of the zip to a local folder (the tutorial assumes you are working from the extracted base directory for all local instructions)
 
 3. Remove older versions of the mod from your server
 
@@ -31,11 +31,15 @@ last_modified_date:
 
    1. &nbsp;Add "2399 2359 2360 2361 2362" to the id list inside&nbsp;
 
-      <ent_req type="object_type_id">1070 1083 924 925 926 927 928 929 930 931 932 933 934 935 936 1090 1460&nbsp;</ent_req>of Loot! ability. (Normally on line# 6073)
+      &lt;ent\_req type="object\_type\_id"&gt;1070 1083 924 925 926 927 928 929 930 931 932 933 934 935 936 1090 1460 &lt;/ent\_req&gt;
+
+      of Loot! ability. (Normally on line# 6073)
 
    2. Add "2465" inside&nbsp;
 
-      <ent_req type="object_type_id">47 48 49 1466</ent_req>&nbsp;of Shape Stones Ability (Normally on line# 1902)
+      &lt;ent\_req type="object\_type\_id"&gt;47 48 49 1466&lt;/ent\_req&gt;
+
+      &nbsp;of Shape Stones Ability (Normally on line# 1902)
 
 7. Copy all data from Knool\_cm\_equipTypes.xml and paste at the bottom of **Your** cm\_equipTypes.xmll in the data folder on the server&nbsp; Please Note: Ensure you paste over the top of this tag &lt;/equipment\_types&gt; as the Knool\_cm\_equipTypes.xml includes this.
 
@@ -47,13 +51,13 @@ last_modified_date:
 
 11. Stop the server and copy files on the server from /LiFx/dbexport to your servers /data folder
 
-12. Download &nbsp;objects\_types.xml, recipe.xml, skill\_types.xml and recipe\_requirement.xml from the servers generated xml files (in the LiFx Folder) to your extracted "yolauncher/modpack/data" folder.
+12. Download &nbsp;recipe.xml and recipe\_requirement.xml from the servers generated xml files (in the LiFx Folder) to your extracted "yolauncher/modpack/data" folder.
 
 13. Download cm\_objects.xml and skill\_types from the servers data folder to your extracted "yolauncher/modpack/data" folder.
 
 14. Ensure you have 7zip installed on your computer [Download here](https://7zip.dev/en/download/)
 
-15. Ensure all you need is in the pack and insert files into the yo launcher folder that you need for your server, ensuring you do not overwrite the mod files without checking your are moving a more up to date version with the correct information.<br><br>
+15. Ensure all you need is in the pack and insert files into the yo launcher folder that you need for your server, ensuring you do not overwrite the mod files without checking your are moving a more up to date version with the correct information.<br>
 
 ### Ensure these files as already mentioned are on your server&nbsp;
 
