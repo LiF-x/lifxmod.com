@@ -10,11 +10,15 @@ last_modified_date:
 ---
 ![Life is Feudal: Extended](/uploads/lifx-lightgrey-logo.png)
 
-# Life is Feudal: Extended (LiFx){: .fs-9}
+# Life is Feudal: Extended (LiFx)
+{: .fs-9}
 
-All the documentation you need to make your mods compatible with the LiFx framework. This resource is primarily for developers and server owners.{: .fs-6.fw-300}
+All the documentation you need to make your mods compatible with the LiFx framework. This resource is primarily for developers and server owners.
+{: .fs-6.fw-300}
 
 [![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Frepos%2FLiF-x%2FServerAutoloader%2Freleases%3Fper_page%3D1&amp;query=%24%5B0%5D.tag_name&amp;label=ServerAutoloader&amp;color=green)](https://github.com/LiF-x/ServerAutoloader/releases/latest)
+[![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Frepos%2FLiF-x%2FClientAutoloader%2Freleases%3Fper_page%3D1&query=%24%5B0%5D.tag_name&label=ClientAutoloader)](https://github.com/LiF-x/ClientAutoloader/releases/latest)
+
 
 [Download server framework](/mods/server/art.zip){: .btn.btn-primary.fs-5.mb-4.mb-md-0.mr-2} [Get YoLauncher](https://yolauncher.app){: .btn.fs-5.mb-4.mb-md-0}
 
