@@ -65,9 +65,9 @@ In order to make a compatible mod there are certain requirements:
 
 ## Example
 
-An example of server framework compatible mod.<br> Each server mod has to be named mod.cs for the framework to find it and execute it.
+An example of server framework compatible mod.<br>Each server mod has to be named mod.cs for the framework to find it and execute it.
 
-You can also use the public example starting point which you can find on in the public repository.<br> [Server Mod Boilerplate](https://github.com/LiF-x/ExampleServerMod){: .btn.fs-5.mb-4.mb-md-0.mr-2}
+You can also use the public example starting point which you can find on in the public repository.<br>[Server Mod Boilerplate](https://github.com/LiF-x/ExampleServerMod){: .btn.fs-5.mb-4.mb-md-0.mr-2}
 
 ### Example structure of the server
 
