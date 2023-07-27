@@ -13,6 +13,11 @@ last_modified_date:
 
 &nbsp;Introduction of Knools and knool weapons&nbsp;
 
+Pre-requisite assumptions made:
+
+1. Your server is using [LiFx Server Framework](/Docs/server-framework)
+2. Your server is connected to [YoLauncher.app](https://YoLauncher.app)
+
 [Download here](https://github.com/LiF-x/Knool-Pack/releases/latest)
 
 ### Installation instructions&nbsp;
@@ -57,7 +62,7 @@ last_modified_date:
 
 14. Ensure you have 7zip installed on your computer [Download here](https://7zip.dev/en/download/)
 
-15. Ensure all you need is in the pack and insert files into the yo launcher folder that you need for your server, ensuring you do not overwrite the mod files without checking your are moving a more up to date version with the correct information.<br>
+15. Ensure all you need is in the pack and insert files into the yo launcher folder that you need for your server, ensuring you do not overwrite the mod files without checking your are moving a more up to date version with the correct information.
 
 ### Ensure these files as already mentioned are on your server&nbsp;
 
@@ -67,8 +72,10 @@ last_modified_date:
 
 <br>\- skill\_types.xml (needs to be built as mentioned above).<br>\- cm\_equipTypes.xml (needs to be built as mentioned above).<br>\- cm\_objects.xml &nbsp;(needs to be built as mentioned above).<br>\- object\_types.xml (Built for you as mentioned on the server and can be found in the db export folder ).<br>\- recipe.xml (Built for you as mentioned on the server and can be found in the db export folder ).<br>\- recipe\_requirement.xml (Built for you as mentioned on the server and can be found in the db export folder ).​​​
 
-1. ​​Run the "createModpack.bat" included in this pack to generate a mod pack to upload to [Yo Launcher](https://www.yolauncher.app/)
+1. ​​Run the "createModpack.bat" included in this pack to generate a modpack .zip to upload to your server on&nbsp;[Yo Launcher](https://www.yolauncher.app/)&nbsp;
 
 2. Upload to Yo Launcher as normal&nbsp;
 
-3. Enjoy
+3. Set modpack as active
+
+4. (Re)Launch YoLauncher to download the modpack for your client and join your server.
