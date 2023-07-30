@@ -10,7 +10,9 @@ has_toc: true
 last_modified_date:
 ---
 # KnoolPack
-[En français](/mods/lifx-knools-fr)
+
+[En français](/mods/lifx-knools-fr) 
+
 &nbsp;Introduction of Knools and knool weapons&nbsp;
 
 Pre-requisite assumptions made:
