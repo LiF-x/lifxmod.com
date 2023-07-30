@@ -10,7 +10,7 @@ has_toc: true
 last_modified_date:
 ---
 # KnoolPack
-
+[In english](/mods/lifx-knools-weapons)
 &nbsp;Tuto pour les knools et armes de knools&nbsp;
 
 Pré requis pour suivre le tuto:
