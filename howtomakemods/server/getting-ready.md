@@ -16,9 +16,14 @@ We'll go through the premises of setting up your development environment for dev
 
 ## Prerequisits
 
+* GitHub for Desktop
 * MariaDB
 * SteamCMD
 * LiFx Server Framework
+
+### GitHub for Desktop
+
+1\. Download and install GitHub for Desktop:&nbsp;[https://desktop.github.com/](https://desktop.github.com/){: target="_blank" rel="noopener"}
 
 ### MariaDB
 
@@ -99,4 +104,3 @@ This section will cover some tips and tricks that I use to make developing mods 
    2. Edit your shortcut, and go to properties.
    3. Append "-worldId 1" to the end of "Target" so you can choose what worldId you want to launch. Example: "**C:\\Steam\\steamapps\\common\\Life Is Feudal Your Own Dedicated Server\\ddctd\_cm\_yo\_server.exe -worldId 1**"
 2. Put your server mod repositories directly in the directory "**C:\\Steam\\steamapps\\common\\Life Is Feudal Your Own Dedicated Server\\mods**"<br>This way you will not need to copy files locally to test them out, and you will have source tracking all the way.
-
