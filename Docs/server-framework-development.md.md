@@ -109,7 +109,7 @@ package ExampleMod
   // Returns a string as a version, LiFx will look for this specific function to output version to new connecting players
   // Takes no parameters, is a reserved function for LiFx compatability.
   function ExampleMod::version() {
-    return "v1.0.0"
+    return "v1.0.0";
   }
 
   // The setup method is required, and will be looked for by the framework, if it doesn't have it your mod will not execute
