@@ -1,83 +1,435 @@
+paths:
+  uploads: uploads
+  static: ''
 collections_config:
-  docs:
-    name: Docs
-    path: Docs
+  howtomakemods:
+    path:
+    output: false
+    url:
+    filter:
+    parse_branch_index:
+    name: How to make mods
+    description: ''
+    icon: notes
+    documentation:
+    preview:
+    sort:
+    sort_options:
+    singular_name:
+    singular_key:
+    _editables: {}
+    _inputs: {}
+    _select_data: {}
+    _structures: {}
+    add_options:
+    create:
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+    new_preview_url:
+    schemas: {}
+    schema_key:
+  official-mods:
+    path: mods
+    output: false
+    name: Official mods
+    icon: notes
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
     schemas:
-      child: &ref_0
+      default:
         path: .cloudcannon/schemas/child.md
         name: Child
         _enabled_editors:
           - content
         _inputs:
           $.layout:
+            type: auto
             hidden: true
+            cascade: true
           $.nav_order:
             type: number
+            cascade: true
           $.last_modified_date:
-            instance_value: NOW
             type: datetime
-            comment: ''
+            instance_value: NOW
+            cascade: true
         text_key: content
-      layout: &ref_1
+      layout:
         path: .cloudcannon/schemas/layout.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: true
         name: Parent
+        icon: notes
         _enabled_editors:
           - content
         _inputs:
           $.layout:
+            type: auto
             hidden: true
+            cascade: true
           $.nav_order:
             type: number
-            comment: ''
+            cascade: true
           $.last_modified_date:
+            type: datetime
             instance_value: NOW
             hidden: true
+            cascade: true
+  docs:
+    path: Docs
+    output: false
+    name: Docs
+    icon: notes
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+    schemas:
+      child:
+        path: .cloudcannon/schemas/child.md
+        name: Child
+        _enabled_editors:
+          - content
+        _inputs:
+          $.layout:
+            type: auto
+            hidden: true
+            cascade: true
+          $.nav_order:
+            type: number
+            cascade: true
+          $.last_modified_date:
             type: datetime
-            comment: ''
-  official-mods:
-    name: Official mods
-    path: mods
-    schemas:
-      default: *ref_0
-      layout: *ref_1
-  unsupported-mods:
-    name: Unsupported mods
-    path: unsupportedmods
-    schemas:
-      default: *ref_0
-      layout: *ref_1
+            instance_value: NOW
+            cascade: true
+        text_key: content
+      layout:
+        path: .cloudcannon/schemas/layout.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: true
+        name: Parent
+        icon: notes
+        _enabled_editors:
+          - content
+        _inputs:
+          $.layout:
+            type: auto
+            hidden: true
+            cascade: true
+          $.nav_order:
+            type: number
+            cascade: true
+          $.last_modified_date:
+            type: datetime
+            instance_value: NOW
+            hidden: true
+            cascade: true
   client-only-mods:
-    name: Client only mods
     path: clientonlymods
+    output: false
+    name: Client only mods
+    description: ''
+    icon: notes
+    _editables: {}
+    _inputs: {}
+    _select_data: {}
+    _structures: {}
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
     schemas:
-      default: *ref_0
-      layout: *ref_1
+      default:
+        path: .cloudcannon/schemas/child.md
+        name: Child
+        _enabled_editors:
+          - content
+        _inputs:
+          $.layout:
+            type: auto
+            hidden: true
+            cascade: true
+          $.nav_order:
+            type: number
+            cascade: true
+          $.last_modified_date:
+            type: datetime
+            instance_value: NOW
+            cascade: true
+        text_key: content
+      layout:
+        path: .cloudcannon/schemas/layout.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: true
+        name: Parent
+        icon: notes
+        _enabled_editors:
+          - content
+        _inputs:
+          $.layout:
+            type: auto
+            hidden: true
+            cascade: true
+          $.nav_order:
+            type: number
+            cascade: true
+          $.last_modified_date:
+            type: datetime
+            instance_value: NOW
+            hidden: true
+            cascade: true
   tutorials:
-    name: Tutorials
     path: tutorials
+    output: false
+    name: Tutorials
+    icon: notes
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
     schemas:
-      default: *ref_0
-      layout: *ref_1
+      default:
+        path: .cloudcannon/schemas/child.md
+        name: Child
+        _enabled_editors:
+          - content
+        _inputs:
+          $.layout:
+            type: auto
+            hidden: true
+            cascade: true
+          $.nav_order:
+            type: number
+            cascade: true
+          $.last_modified_date:
+            type: datetime
+            instance_value: NOW
+            cascade: true
+        text_key: content
+      layout:
+        path: .cloudcannon/schemas/layout.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: true
+        name: Parent
+        icon: notes
+        _enabled_editors:
+          - content
+        _inputs:
+          $.layout:
+            type: auto
+            hidden: true
+            cascade: true
+          $.nav_order:
+            type: number
+            cascade: true
+          $.last_modified_date:
+            type: datetime
+            instance_value: NOW
+            hidden: true
+            cascade: true
   faq:
-    name: FAQ
     path: FAQ
+    output: false
+    name: FAQ
+    icon: notes
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
     schemas:
-      child: *ref_0
-      layout: *ref_1
+      child:
+        path: .cloudcannon/schemas/child.md
+        name: Child
+        _enabled_editors:
+          - content
+        _inputs:
+          $.layout:
+            type: auto
+            hidden: true
+            cascade: true
+          $.nav_order:
+            type: number
+            cascade: true
+          $.last_modified_date:
+            type: datetime
+            instance_value: NOW
+            cascade: true
+        text_key: content
+      layout:
+        path: .cloudcannon/schemas/layout.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: true
+        name: Parent
+        icon: notes
+        _enabled_editors:
+          - content
+        _inputs:
+          $.layout:
+            type: auto
+            hidden: true
+            cascade: true
+          $.nav_order:
+            type: number
+            cascade: true
+          $.last_modified_date:
+            type: datetime
+            instance_value: NOW
+            hidden: true
+            cascade: true
   troubleshooting:
-    name: Troubleshooting
     path: troubleshooting
+    output: false
+    name: Troubleshooting
+    icon: notes
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
     schemas:
-      default: *ref_0
-      layout: *ref_1
+      default:
+        path: .cloudcannon/schemas/child.md
+        name: Child
+        _enabled_editors:
+          - content
+        _inputs:
+          $.layout:
+            type: auto
+            hidden: true
+            cascade: true
+          $.nav_order:
+            type: number
+            cascade: true
+          $.last_modified_date:
+            type: datetime
+            instance_value: NOW
+            cascade: true
+        text_key: content
+      layout:
+        path: .cloudcannon/schemas/layout.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: true
+        name: Parent
+        icon: notes
+        _enabled_editors:
+          - content
+        _inputs:
+          $.layout:
+            type: auto
+            hidden: true
+            cascade: true
+          $.nav_order:
+            type: number
+            cascade: true
+          $.last_modified_date:
+            type: datetime
+            instance_value: NOW
+            hidden: true
+            cascade: true
   pages:
-    name: Pages
     path: ''
+    output: true
+    name: Pages
+    icon: notes
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
     schemas:
-      layout: *ref_1
+      layout:
+        path: .cloudcannon/schemas/layout.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: true
+        name: Parent
+        icon: notes
+        _enabled_editors:
+          - content
+        _inputs:
+          $.layout:
+            type: auto
+            hidden: true
+            cascade: true
+          $.nav_order:
+            type: number
+            cascade: true
+          $.last_modified_date:
+            type: datetime
+            instance_value: NOW
+            hidden: true
+            cascade: true
   posts:
-    name: Posts
     path: _posts
+    output: true
+    name: Posts
+    description: ''
+    icon: notes
+    _editables: {}
+    _inputs: {}
+    _select_data: {}
+    _structures: {}
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+    schemas: {}
+  unsupported-mods:
+    path: unsupportedmods
+    output: false
+    name: Unsupported mods
+    icon: notes
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+    schemas:
+      default:
+        path: .cloudcannon/schemas/child.md
+        name: Child
+        _enabled_editors:
+          - content
+        _inputs:
+          $.layout:
+            type: auto
+            hidden: true
+            cascade: true
+          $.nav_order:
+            type: number
+            cascade: true
+          $.last_modified_date:
+            type: datetime
+            instance_value: NOW
+            cascade: true
+        text_key: content
+      layout:
+        path: .cloudcannon/schemas/layout.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: true
+        name: Parent
+        icon: notes
+        _enabled_editors:
+          - content
+        _inputs:
+          $.layout:
+            type: auto
+            hidden: true
+            cascade: true
+          $.nav_order:
+            type: number
+            cascade: true
+          $.last_modified_date:
+            type: datetime
+            instance_value: NOW
+            hidden: true
+            cascade: true
 collection_groups:
   - heading: Content
     collections:
@@ -90,9 +442,13 @@ collection_groups:
       - client-only-mods
       - pages
       - posts
-paths:
-  static: ''
-  uploads: uploads
 _inputs:
   template:
+    type: auto
     hidden: true
+    cascade: true
+_select_data: {}
+_structures: {}
+_editables: {}
+data_config: {}
+timezone: Etc/UTC
