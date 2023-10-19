@@ -179,7 +179,7 @@ On the very last line, as per requirement of LiFx Framework, we have to activate
 activatePackage(HelloWorldMod);
 ```
 
-**Congratulations**, that completes the mod! You are now a bonefide Life is Feudal: Your Own modder.
+**Congratulations**, that completes the mod! You are now a bonafide Life is Feudal: Your Own modder.
 
 The complete mod should look like the following
 
