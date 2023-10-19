@@ -93,7 +93,7 @@ When the server has finished loaded (it may take several minutes on first boot u
 
 ### LiFx Server Framework
 
-[Follow this guide](https://aunmnvnai-ljng.instant.forestry.io/Docs/server-framework.html){: .btn.fs-5.mb-4.mb-md-0}
+[Follow this guide](/Docs/server-framework.html){: .btn.fs-5.mb-4.mb-md-0}
 
 ### Quality of life tips
 
