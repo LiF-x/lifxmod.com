@@ -433,6 +433,7 @@ collections_config:
 collection_groups:
   - heading: Content
     collections:
+      - howtomakemods
       - docs
       - official-mods
       - tutorials
