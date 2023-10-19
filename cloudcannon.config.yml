@@ -3,7 +3,7 @@ paths:
   static: ''
 collections_config:
   howtomakemods:
-    path:
+    path: howtomakemods
     output: false
     url:
     filter:
@@ -33,7 +33,12 @@ collections_config:
     path: mods
     output: false
     name: Official mods
+    description: ''
     icon: notes
+    _editables: {}
+    _inputs: {}
+    _select_data: {}
+    _structures: {}
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
