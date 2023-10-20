@@ -16,7 +16,7 @@ In this scenario we will make a simple mod that greets the connected player with
 
 This will introduce you to setting up local development area as well as introduce you to some of the out of the box functionality of our server framework.
 
-This series makes the assumption you are using Visual Studio Code when making your Torque Script mods for Life is Feudal: Your Own, and that you have set up your environment according to getting ready.
+This series makes the assumption you are using [Visual Studio Code](https://code.visualstudio.com/){: target="_blank" rel="noopener"} when making your Torque Script mods for Life is Feudal: Your Own, and that you have set up your environment according to getting ready.
 
 Start off by opening Visual Studio Code, and choose&nbsp;![](/uploads/screenshot-2023-10-19-191040.png){: width="209" height="55"}&nbsp;point it to the mods folder here:
 
