@@ -3032,11 +3032,11 @@ has_toc: false
 |  | 3019 |  |  |  |
 |  | 3020 |  |  |  |
 |  | 3021 |  |  |  |
-| LiFx Siege ladder | 3022 |  | **Large Tanning Tub Conversion** |  |
-| LiFx Siege ladder | 3023 |  | **Small Siege Ladder Conversion** |  |
-| LiFx Siege ladder | 3024 |  | **Siege Ladder Conversion** |  |
-| LiFx Siege ladder | 3025 |  | **Large Siege Ladder Conversion** |  |
-| LiFx Siege ladder | 3026 |  | **Big Siege Ladder Conversion** |  |
+| LiFx Siege ladder | 3022 | 1902 | **Large Tanning Tub Conversion** |  |
+| LiFx Siege ladder | 3023 | 1902 | **Small Siege Ladder Conversion** |  |
+| LiFx Siege ladder | 3024 | 1902 | **Siege Ladder Conversion** |  |
+| LiFx Siege ladder | 3025 | 1902 | **Large Siege Ladder Conversion** |  |
+| LiFx Siege ladder | 3026 | 1902 | **Big Siege Ladder Conversion** |  |
 |  | 3027 |  |  |  |
 |  | 3028 |  |  |  |
 |  | 3029 |  |  |  |
