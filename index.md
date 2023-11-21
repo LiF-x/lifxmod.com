@@ -64,6 +64,7 @@ Life is Feudal: Extended (LiFx) is distributed by a GPL 3.0 license.
 * Basil of BasilMod
 * Skunk of SF Mod
 * Kurai Seraph
+* Zbig for the initial implementation of the wood cart as a seperate harnessable cart.
 * Joseantime for old site contributions
 * Pabluuz for old site contributions
 * laze for translation to French
