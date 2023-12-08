@@ -11,7 +11,7 @@ last_modified_date:
 ---
 &nbsp;This is a Unsupported Mod due to a bug with Logs being placed into the cart, that remains unresolved.<br><br>Therefore no formal instructions will be made to help with installation, as it is assumed anyone whom wishes to use mods in this section have a certain level of knowlage to install and possibly rectify the mod.<br><br>\# Log Cart
 
-L:iFx Log Cart created for LIF:YO<br>\[Download here](https://github.com/LiF-x/LogCart/releases/latest)&nbsp;
+LiFx Log Cart created for LIF:YO<br>\[Download here](https://github.com/LiF-x/LogCart/releases/latest)&nbsp;
 
 ### Installation instructions
 
