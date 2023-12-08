@@ -13,7 +13,7 @@ last_modified_date: 2023-12-08 19:22:08
 
 # Anticamp
 
-Life Is Feudal Healing System - Using Mara Red sickle to heal players.
+Life Is Feudal Anticamp - pushes enemy players off claims to stop base camping.
 
 [Download here](https://github.com/LiF-x/AntiCamp/releases/latest)&nbsp;
 
