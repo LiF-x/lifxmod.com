@@ -2499,10 +2499,10 @@ has_toc: false
 | LiF-X | 2486 |  |  |  |
 | LiF-X | 2487 |  |  |  |
 | LiF-X | 2488 |  |  |  |
-| LiF-X | 2489 |  | Small Siege Ladder |  |
-| LiF-X | 2490 |  | Siege Ladder |  |
-| LiF-X | 2491 |  | Large Siege Ladde |  |
-| LiF-X | 2492 |  | Big Siege Ladder |  |
+| LiF-X | 2489 | 75 | Small Siege Ladder |  |
+| LiF-X | 2490 | 75 | Siege Ladder |  |
+| LiF-X | 2491 | 75 | Large Siege Ladde |  |
+| LiF-X | 2492 | 75 | Big Siege Ladder |  |
 | JorvikMOD | 2493 | 2473 | Small Thatch Roof Top Left End |  |
 | JorvikMOD | 2494 | 2473 | Small Thatch Roof Top Right End |  |
 | JorvikMOD | 2495 | 2480 | Small Thatch Roof |  |
