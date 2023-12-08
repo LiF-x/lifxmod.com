@@ -26,3 +26,9 @@ LiFx Log Cart created for LIF:YO
 4. Upload the contents of the folder "mods" to the server
 
 5. Upload the contents of the folder "yolauncher" to the server
+
+## Credits for mod Creation
+
+Dorian - Conversion to LiFx Framework
+Zbigi - Making Original mod work
+Kurai - Model creation
