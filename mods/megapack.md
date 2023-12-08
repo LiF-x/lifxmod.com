@@ -9,7 +9,7 @@ has_children: false
 has_toc: false
 last_modified_date: 2023-12-08 19:28:22
 ---
-# LiFx Mega Pack
+# LiFx Mega Pack 
 
 Life Is Feudal LiFx Mega Pack - This is a large modpack with 14 mods set up for you as a drag and drop install.
 
