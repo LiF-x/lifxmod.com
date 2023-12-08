@@ -11,7 +11,7 @@ last_modified_date: 2023-12-08 19:07:30
 ---
 ![](https://img.shields.io/badge/LiFx%20Server%20-%3Ev3.0.0-green "Requires LiFx server framework minimum v3.0.0")![](https://img.shields.io/badge/MariaDB%20-%3Ev5.5.49-green "Tested with MariaDB v5.5.49")
 
-# KillFeed
+# Healer
 
 Life Is Feudal Healing System - Using Mara Red sickle to heal players.
 
