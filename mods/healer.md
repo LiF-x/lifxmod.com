@@ -2,7 +2,7 @@
 _schema: default
 layout: default
 title: Healer
-nav_order:
+nav_order: 11
 nav_exclude: false
 parent: Official mods
 has_children: false
