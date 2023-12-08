@@ -15,7 +15,7 @@ last_modified_date:
 
 Life Is Feudal Bell Tower fix - This is a bell tower fix for lif yo, to allow sounds to work
 
-[Download here](https://github.com/LiF-x/LiFxBellTowerFixV1.0.1/releases/latest)&nbsp;
+[Download here](https://github.com/LiF-x/Belltower-Fix/releases/latest)&nbsp;
 
 ### Installation instructions
 
