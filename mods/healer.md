@@ -15,7 +15,7 @@ last_modified_date: 2023-12-08 19:07:30
 
 Life Is Feudal Healing System - Using Mara Red sickle to heal players.
 
-[Download here](https://github.com/LiF-x/KillFeed/releases/latest)&nbsp;
+[Download here](https://github.com/LiF-x/Healer/releases/latest)&nbsp;
 
 ### Installation instructions
 
