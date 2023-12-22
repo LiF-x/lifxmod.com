@@ -2495,7 +2495,7 @@ has_toc: false
 | JorvikMOD | 2482 | 2480 | Small Wooden Pillar |  |
 | JorvikMOD | 2483 | 2480 | Small Log Corner Wall |  |
 | JorvikMOD | 2484 | 2480 | Small Log Wall With Window |  |
-| LiF-X | 2485 |  |  |  |
+| LiF-X/Jorvik | 2485 | 72 | LiFxChurch/Sanctum of the Sleeper |  |
 | LiF-X | 2486 |  |  |  |
 | LiF-X | 2487 |  |  |  |
 | LiF-X | 2488 |  |  |  |
@@ -2579,7 +2579,7 @@ has_toc: false
 | JorvikMOD | 2566 | 2473 | Small Log Wall With Entrance | Moved from 2417 |
 | JorvikMOD | 2567 | 2473 | Small Log Wall With Door | Moved from 2418 |
 | JorvikMOD | 2568 | 2473 | Small Wooden Floor Entrance | Moved from 2419 |
-| JorvikMOD | 2469 | 2473 | Small Wooden Floor | Moved from 2473 |
+| JorvikMOD | 2569 | 2473 | Small Wooden Floor | Moved from 2473 |
 |  | 2564 |  |  |  |
 |  | 2565 |  |  |  |
 |  | 2566 |  |  |  |
