@@ -2464,13 +2464,13 @@ has_toc: false
 | Folkvangr.eu | 2451 | 1057 | Event Ticket Fragment | Used as an ingame event currency |
 | LiFx Jorvik 2 | 2452 | 60 | pvp flag |  |
 | LiFx Jorvik 2 | 2453 | 60 | Pve Flag |  |
-| Folkvangr.eu | 2454 |  |  |  |
-| Folkvangr.eu | 2455 |  |  |  |
-| Folkvangr.eu | 2456 |  |  |  |
-| Folkvangr.eu | 2457 |  |  |  |
-| Folkvangr.eu | 2458 |  |  |  |
-| Folkvangr.eu | 2459 |  |  |  |
-| RPCLiF MOD | 2460 |  |  |  |
+| LiFx Jorvik 2 | 2454 | 72 | LongHouse |  |
+| LiFx Jorvik 2 | 2455 | 172 | Stone Gate |  |
+| LiFx Jorvik 2 | 2456 | 61 | Small Stone Bridge |  |
+| LiFx Jorvik 2 | 2457 | 61 | Large wood Bridge |  |
+| LiFx Jorvik 2 | 2458 | 61 | Large Stone Bridge |  |
+| LiFx Jorvik 2 | 2459 | 61 | Large Stone Bridge end |  |
+| LiFx Jorvik 2 | 2460 | 61 | Small Stone Bridge End |  |
 | LiF-X | 2461 | 1031 | Witch Sickle |  |
 | LiF-X | 2462 | 58 | Bear Axe |  |
 | LiF-X | 2463 | 57 | Chieftain Sword |  |
