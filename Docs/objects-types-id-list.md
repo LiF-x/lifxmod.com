@@ -2410,20 +2410,20 @@ has_toc: false
 | LiF-X | 2397 | 751 | Mole Knool |  |
 | LiF-X | 2398 | 751 | Witch Knool |  |
 | LiF-X | 2399 | 457 | Bear Knool Carcass |  |
-| LiF-X | 2400 | 69 |  |  |
-|  | 2401 |  |  |  |
-|  | 2402 |  |  |  |
+| LiFx/Jorvik 1 | 2400 | 61 | Jorvik Cross |  |
+| LiFx/Jorvik 1  | 2401 | 61 | Wooden Bridge  |  |
+| LiFx/Jorvik 1 | 2402 | 61 | Stone Bridge |  |
 | JorvikMOD 1&2 | 2403 | 72 | Small Wooden Shed |  |
-|  | 2404 |  |  |  |
-|  | 2405 |  |  |  |
-|  | 2406 |  |  |  |
-|  | 2407 |  |  |  |
-|  | 2408 |  |  |  |
-|  | 2409 |  |  |  |
-|  | 2410 |  |  |  |
-|  | 2411 |  |  |  |
-|  | 2412 |  |  |  |
-|  | 2413 |  |  |  |
+| LiFx/Jorvik 1 | 2404 | 61 | Metal Cage |  |
+| LiFx/Jorvik 1 | 2405 | 61 | Wooden Pier |  |
+| LiFx/Jorvik 1 | 2406 | 61 | Wooden Barricade A |  |
+| LiFx/Jorvik 1 | 2407 | 61 | Wooden Barricade B |  |
+| LiFx/Jorvik 1 | 2408 | 61 | Stone Alter |  |
+| LiFx/Jorvik 1 | 2409 | 72 | Wooden Tower House |  |
+| LiFx/Jorvik 1 | 2410 | 72 | Wooden Church |  |
+| LiFx/Jorvik 1 | 2411 | 61 | Wooden Pier T |  |
+| LiFx/Jorvik 1 | 2412 | 61 | Wooden Pier L |  |
+| LiFx/Jorvik 1 | 2413 | 61 | Stone Tomb Cross |  |
 |  | 2414 |  |  |  |
 |  | 2415 |  |  |  |
 |  | 2416 |  |  |  |
