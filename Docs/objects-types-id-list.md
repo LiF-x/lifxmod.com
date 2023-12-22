@@ -2580,17 +2580,11 @@ has_toc: false
 | JorvikMOD | 2567 | 2473 | Small Log Wall With Door | Moved from 2418 |
 | JorvikMOD | 2568 | 2473 | Small Wooden Floor Entrance | Moved from 2419 |
 | JorvikMOD | 2569 | 2473 | Small Wooden Floor | Moved from 2473 |
-|  | 2564 |  |  |  |
-|  | 2565 |  |  |  |
-|  | 2566 |  |  |  |
-|  | 2567 |  |  |  |
-|  | 2568 |  |  |  |
-|  | 2569 |  |  |  |
-|  | 2570 |  |  |  |
-|  | 2571 |  |  |  |
-|  | 2572 |  |  |  |
-|  | 2573 |  |  |  |
-|  | 2574 |  |  |  |
+| LiFx Buildings | 2570 | 61 | LiFx Sign |  |
+| LiFx Buildings | 2571 | 61 | PVE Sign Post |  |
+| LiFx Buildings | 2572 | 61 | PVP Sign Post |  |
+| LiFx Buildings | 2573 | 61 | RP Sign Post |  |
+| LiFx Buildings | 2574 | 61 | Extra Signpost | |
 |  | 2575 |  |  |  |
 |  | 2576 |  |  |  |
 |  | 2577 |  |  |  |
