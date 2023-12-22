@@ -2496,7 +2496,7 @@ has_toc: false
 | JorvikMOD | 2483 | 2480 | Small Log Corner Wall |  |
 | JorvikMOD | 2484 | 2480 | Small Log Wall With Window |  |
 | LiF-X/Jorvik | 2485 | 72 | LiFxChurch/Sanctum of the Sleeper |  |
-| LiF-X | 2486 |  |  |  |
+| LiF-X | 2486 | 64 | Large tanning Tub |  |
 | LiF-X | 2487 |  |  |  |
 | LiF-X | 2488 |  |  |  |
 | LiF-X | 2489 | 75 | Small Siege Ladder |  |
@@ -3032,7 +3032,7 @@ has_toc: false
 |  | 3019 |  |  |  |
 |  | 3020 |  |  |  |
 |  | 3021 |  |  |  |
-| LiFx Siege ladder | 3022 | 1902 | **Large Tanning Tub Conversion** |  |
+| LiFx Large tub | 3022 | 1902 | **Large Tanning Tub Conversion** |  |
 | LiFx Siege ladder | 3023 | 1902 | **Small Siege Ladder Conversion** |  |
 | LiFx Siege ladder | 3024 | 1902 | **Siege Ladder Conversion** |  |
 | LiFx Siege ladder | 3025 | 1902 | **Large Siege Ladder Conversion** |  |
