@@ -2413,7 +2413,7 @@ has_toc: false
 | LiF-X | 2400 | 69 |  |  |
 |  | 2401 |  |  |  |
 |  | 2402 |  |  |  |
-| JorvikMOD | 2403 | 72 | Small Wooden Shed |  |
+| JorvikMOD 1&2 | 2403 | 72 | Small Wooden Shed |  |
 |  | 2404 |  |  |  |
 |  | 2405 |  |  |  |
 |  | 2406 |  |  |  |
@@ -2462,8 +2462,8 @@ has_toc: false
 | RPCLiF MOD | 2449 |  | Mortar Powder |  |
 | Folkvangr.eu | 2450 | 1057 | Event Ticket Book | Used as an ingame event currency |
 | Folkvangr.eu | 2451 | 1057 | Event Ticket Fragment | Used as an ingame event currency |
-| Folkvangr.eu | 2452 |  |  |  |
-| Folkvangr.eu | 2453 |  |  |  |
+| LiFx Jorvik 2 | 2452 | 60 | pvp flag |  |
+| LiFx Jorvik 2 | 2453 | 60 | Pve Flag |  |
 | Folkvangr.eu | 2454 |  |  |  |
 | Folkvangr.eu | 2455 |  |  |  |
 | Folkvangr.eu | 2456 |  |  |  |
