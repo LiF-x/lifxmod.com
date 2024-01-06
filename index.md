@@ -70,3 +70,4 @@ Life is Feudal: Extended (LiFx) is distributed by a GPL 3.0 license.
 * laze for translation to French
 
 **The community overall**
+
