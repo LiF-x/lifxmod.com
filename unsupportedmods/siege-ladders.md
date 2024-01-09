@@ -2,7 +2,7 @@
 _schema: default
 layout: default
 title: Siege Ladders
-nav_order: 4
+nav_order: 3
 nav_exclude: false
 parent: Unsupported mods
 has_children: false

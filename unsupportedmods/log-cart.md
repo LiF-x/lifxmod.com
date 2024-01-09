@@ -6,7 +6,7 @@ nav_order: 1
 nav_exclude: false
 parent: Unsupported Mods
 has_children: false
-has_toc: false 
+has_toc: false
 last_modified_date:
 ---
 &nbsp;This is a Unsupported Mod due to a bug with Logs being placed into the cart, that remains unresolved.<br><br>Therefore no formal instructions will be made to help with installation, as it is assumed anyone whom wishes to use mods in this section have a certain level of knowlage to install and possibly rectify the mod.<br><br>\# Log Cart
@@ -29,6 +29,6 @@ LiFx Log Cart created for LIF:YO
 
 ## Credits for mod Creation
 
-- Dorian - Conversion to LiFx Framework
-- Zbigi - Making Original mod work 
-- Kurai - Model creation
+* Dorian - Conversion to LiFx Framework
+* Zbigi - Making Original mod work
+* Kurai - Model creation
