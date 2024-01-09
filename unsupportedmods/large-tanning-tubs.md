@@ -1,7 +1,7 @@
 ---
 _schema: default
 layout: default
-title: LargeTanningtubs
+title: Large Tanning tubs
 nav_order: 2
 nav_exclude: false
 parent: Unsupported Mods
