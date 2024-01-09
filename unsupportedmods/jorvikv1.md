@@ -2,7 +2,7 @@
 _schema: default
 layout: default
 title: JorvikV1
-nav_order: 3
+nav_order: 4
 nav_exclude: false
 parent: Unsupported Mods
 has_children: false
