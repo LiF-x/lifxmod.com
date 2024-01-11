@@ -13,7 +13,7 @@ last_modified_date: 2023-12-08 19:28:22
 
 Life Is Feudal LiFx Mega Pack - This is a large modpack with 14 mods set up for you as a drag and drop install.
 
-[Download here](https://github.com/LiF-x/AdminOversight/releases/latest)&nbsp;
+[Download here](https://github.com/LiF-x/LiFx-MegaPack/releases/latest)&nbsp;
 
 ### Installation Instructions
 
