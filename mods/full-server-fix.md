@@ -9,6 +9,7 @@ has_children: false
 has_toc: false
 last_modified_date: 2022-12-09 12:22:33
 ---
+![](https://img.shields.io/badge/LiFx%20Server%20-%3Ev3.0.0-green "Requires LiFx server framework minimum v3.0.0")![](https://img.shields.io/badge/MariaDB%20-%3Ev5.5.49-green "Tested with MariaDB v5.5.49")
 # Full Server Fix
 
 [Download here](https://github.com/LiF-x/FullServerFix/releases/tag/v1.0.0){: .btn.fs-5.mb-4.mb-md-0.mr-2}
