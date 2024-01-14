@@ -27,14 +27,14 @@ Life Is Feudal Healing System - Using Mara Red sickle to heal players.
 
 ## Set up
 
-To place the healer use ingame command as GM
-/addobj 1244 
+To place the healer use ingame command as GM /addobj 1244
 
 This will spawn Mara red sickle
 
 ### Quick tip
 
 Easiest way to make her sit on a object is:
-- Place a building site of a chair
-- Spawn her
-- Complete the chair
+
+* Place a building site of a chair
+* Spawn her
+* Complete the chair

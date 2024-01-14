@@ -9,6 +9,9 @@ has_children: false
 has_toc: false
 last_modified_date: 2024-01-14 01:38:57
 ---
+
+![](https://img.shields.io/badge/LiFx%20Server%20-%3Ev3.0.0-green "Requires LiFx server framework minimum v3.0.0")![](https://img.shields.io/badge/MariaDB%20-%3Ev5.5.49-green "Tested with MariaDB v5.5.49")
+
 &nbsp;Introduction of LiFx Signs
 
 ![](/uploads/signs.png){: width="1915" height="689"}
