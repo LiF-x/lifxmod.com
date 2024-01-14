@@ -10,6 +10,8 @@ has_toc: false
 last_modified_date: 2024-01-14 01:38:57
 ---
 
+##This is a pre release!
+
 ![](https://img.shields.io/badge/LiFx%20Server%20-%3Ev3.0.0-green "Requires LiFx server framework minimum v3.0.0")![](https://img.shields.io/badge/MariaDB%20-%3Ev5.5.49-green "Tested with MariaDB v5.5.49")
 
 &nbsp;Introduction of LiFx Signs
@@ -21,7 +23,7 @@ Pre-requisite assumptions made:
 1. Your server is using [LiFx Server Framework](/Docs/server-framework)
 2. Your server is connected to [YoLauncher.app](https://YoLauncher.app)
 
-[Download here](https://github.com/LiF-x/signs/releases/latest)
+[Download signs here](https://github.com/LiF-x/signs/releases/latest){: .btn.fs-5.mb-4.mb-md-0.mr-2}
 
 ### Installation instructions&nbsp;
 
