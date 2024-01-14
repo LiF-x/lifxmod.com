@@ -9,7 +9,9 @@ has_children: false
 has_toc: false
 last_modified_date: 2024-01-14 01:38:57
 ---
-&nbsp;Introduction of LiFx Signs&nbsp;
+&nbsp;Introduction of LiFx Signs
+
+![](/uploads/signs.png){: width="1915" height="689"}
 
 Pre-requisite assumptions made:
 
