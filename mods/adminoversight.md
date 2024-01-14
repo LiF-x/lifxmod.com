@@ -15,7 +15,7 @@ last_modified_date: 2023-12-08 18:54:44
 
 Life Is Feudal Admin Oversight System - to give players transparency of admin actions, any server who does not choose to have this installed may have something to hide
 
-[Download here](https://github.com/LiF-x/AdminOversight/releases/latest)&nbsp;
+[Download here](https://github.com/LiF-x/AdminOversight/releases/latest){: .btn.fs-5.mb-4.mb-md-0.mr-2}
 
 ### Installation instructions
 
