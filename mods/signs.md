@@ -9,8 +9,6 @@ has_children: false
 has_toc: false
 last_modified_date: 2024-01-14 01:38:57
 ---
-
-
 &nbsp;Introduction of LiFx Signs&nbsp;
 
 Pre-requisite assumptions made:
@@ -32,8 +30,7 @@ Pre-requisite assumptions made:
 
 5. Upload the contents of the folder "yolauncher" &nbsp;to the server&nbsp;
 
-
-6. Use LiFx Server framework v3.0.0 or newer with $LiFx::createDataXMLS set to true in AutoloadConfig.cs to create objects\_types.xml, recipe.xml and recipe\_requirement.xml on the server and start the server. 
+6. Use LiFx Server framework v3.0.0 or newer with $LiFx::createDataXMLS set to true in AutoloadConfig.cs to create objects\_types.xml, recipe.xml and recipe\_requirement.xml on the server and start the server.
 
 7. Stop the server and copy files on the server from /LiFx/dbexport to your servers /data folder
 
@@ -47,11 +44,11 @@ Pre-requisite assumptions made:
 
 ### Ensure these files as already mentioned are on your server&nbsp;
 
-<br>\- cm\_spawn\_patterns.xml ( ensure all knools are on this )<br>\- skill\_types.xml (needs to be built as mentioned above).<br>\- cm\_equipTypes.xml (needs to be built as mentioned above).<br>\- cm\_objects.xml &nbsp;(needs to be built as mentioned above).<br>\- object\_types.xml (Built for you as mentioned on the server and can be found in the db export folder ).<br>\- recipe.xml (Built for you as mentioned on the server and can be found in the db export folder ).<br>\- recipe\_requirement.xml (Built for you as mentioned on the server and can be found in the db export folder ).​​​
+\- cm\_objects.xml &nbsp;(included in pack).<br>\- object\_types.xml (Built for you as mentioned on the server and can be found in the db export folder ).<br>\- recipe.xml (Built for you as mentioned on the server and can be found in the db export folder ).<br>\- recipe\_requirement.xml (Built for you as mentioned on the server and can be found in the db export folder ).​​​
 
 ### Ensure the files are in the data folder YOU prepared for yo launcher.&nbsp;
 
-<br>\- skill\_types.xml (needs to be built as mentioned above).<br>\- cm\_equipTypes.xml (needs to be built as mentioned above).<br>\- cm\_objects.xml &nbsp;(needs to be built as mentioned above).<br>\- object\_types.xml (Built for you as mentioned on the server and can be found in the db export folder ).<br>\- recipe.xml (Built for you as mentioned on the server and can be found in the db export folder ).<br>\- recipe\_requirement.xml (Built for you as mentioned on the server and can be found in the db export folder ).​​​
+\- cm\_objects.xml &nbsp;(included in pack).<br>\- object\_types.xml (Built for you as mentioned on the server and can be found in the db export folder ).<br>\- recipe.xml (Built for you as mentioned on the server and can be found in the db export folder ).<br>\- recipe\_requirement.xml (Built for you as mentioned on the server and can be found in the db export folder ).​​​
 
 1. ​​Run the "createModpack.bat" included in this pack to generate a modpack .zip to upload to your server on&nbsp;[Yo Launcher](https://www.yolauncher.app/)&nbsp;
 
