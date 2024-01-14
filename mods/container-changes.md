@@ -23,7 +23,7 @@ last_modified_date:
 * Camp Fire - Ability to burn soil & Increase to 1000 Storage
 * Forge and Anvil - Increase to 200 Storage
 * Kiln - Increase to 1000 Storage
-* Cart -&nbsp;Increase to 1000 Storage
+* Cart - Increase to 1000 Storage
 * Trader Cart - Increase to 2000 Storage
 * Horse Cart - Increase to 6000 Storage (Normal and Tented)&nbsp;
 * Chest - Increase to 600 Storage

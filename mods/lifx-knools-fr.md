@@ -34,7 +34,7 @@ Pré requis pour suivre le tuto:
 
 5. Mettre le contenu du dossier "yolauncher" sur le serveur
 
-6. Modifiez **Votre** skill_types.xml du serveur,
+6. Modifiez **Votre** skill\_types.xml du serveur,
 
    1. &nbsp;Ajoutez "2399 2359 2360 2361 2362" à la liste des identifiants dans&nbsp;
 
@@ -52,7 +52,7 @@ Pré requis pour suivre le tuto:
 
 8. &nbsp;Copiez toutes les données de knool\_cm\_objects et le coller au bas de votre cm\_objects.xml<br>\- Veillez à ne pas écraser la dernière ligne "&lt;/object\_types&gt;" Ceci est nécessaire pour compléter le fichier xml.
 
-9. Mettre le dossier "data\ai" (y compris le contenu) dans le dossier data de votre serveur.
+9. Mettre le dossier "data\\ai" (y compris le contenu) dans le dossier data de votre serveur.
 
 10. Utilisez LiFx Server framework v3.0.0 ou plus récent avec $LiFx::createDataXMLS réglez sur "true" AutoloadConfig.cs pour créer objects\_types.xml, recipe.xml and recipe\_requirement.xml sur le serveur et démarrer le serveur. (Toutefois, ce module ne nécessite que l'utilisation de l'option object\_types.xml)
 
