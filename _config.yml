@@ -6,8 +6,6 @@ aux_links:
   Supported by Rampart.Games: https://rampart.games
   YoLauncher: https://yolauncher.app
   GitHub: https://github.com/LiF-x
-plugins:
-  - jekyll-default-layout
 footer_content: >-
   Copyright &copy; 2020-2022 https://github.com/Mjaed. Distributed by an <a
   href="https://github.com/LiF-x/lifxmod.com/blob/main/LICENSE">GPL 3.0
