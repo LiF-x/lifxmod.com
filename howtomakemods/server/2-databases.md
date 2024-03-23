@@ -23,7 +23,7 @@ It is also very important to close the handlers properly as to not create open c
 ## The basic skeleton for setting up a select query:
 
 {: .highlight }
-> <span class="text-red-300">dbi</span>.(<span class="text-purple-000">ScriptObject</span>,"<span class="text-blue-000">callback</span>"","<span class="text-green-000">SQL</span>")
+> <span class="text-red-300">dbi</span>.select(<span class="text-purple-000">ScriptObject</span>,"<span class="text-blue-000">callback</span>"","<span class="text-green-000">SQL</span>")
 >
 > ##### <span class="text-red-300">dbi</span>
 >
