@@ -97,7 +97,17 @@ function DatabaseMod::multipleResults(%this, %resultSet) {
 ```
 ### The basic skeleton for setting up a update  query:
 
+{: .highlight }
 > <span class="text-red-300">dbi</span>.update("<span class="text-green-000">SQL</span>")
+>
+> ##### <span class="text-red-300">dbi</span>
+>
+> This is the global object that interacts with the database, it is the same object that the game uses to query the database
+>
+> ##### <span class="text-green-000">SQL</span>
+>
+> Your SQL query this is where you will add your SQL statements that will be sent to the database
+
 
 ### Update statements with examples 
 
