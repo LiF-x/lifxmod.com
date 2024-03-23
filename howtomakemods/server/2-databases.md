@@ -25,7 +25,7 @@ It is also very important to close the handlers properly as to not create open c
 
 ### The basic skeleton for setting up a select query:
 
-<span class="text-red-300">dbi</span>.(<span class="text-purple-000">ScriptObject</span>,"<span class="text-blue-000">callback</span>"","<span class="text-green-000">SQL</span>")
+> <span class="text-red-300">dbi</span>.(<span class="text-purple-000">ScriptObject</span>,"<span class="text-blue-000">callback</span>"","<span class="text-green-000">SQL</span>")
 
 ##### <span class="text-red-300">dbi</span>
 
@@ -88,7 +88,7 @@ function DatabaseMod::multipleResults(%this, %resultSet) {
 ```
 ### The basic skeleton for setting up a update  query:
 
-<span class="text-red-300">dbi</span>.("<span class="text-green-000">SQL</span>")
+> <span class="text-red-300">dbi</span>.("<span class="text-green-000">SQL</span>")
 
 ### Update statements with examples 
 
