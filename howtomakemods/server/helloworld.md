@@ -20,7 +20,7 @@ This will introduce you to setting up local development area as well as introduc
 
 This series makes the assumption you are using [Visual Studio Code](https://code.visualstudio.com/){: target="_blank" rel="noopener"} when making your Torque Script mods for Life is Feudal: Your Own, and that you have set up your environment according to getting ready.
 
-Start off by opening Visual Studio Code, and choose&nbsp;![](/uploads/screenshot-2023-10-19-191040.png){: width="209" height="55"}&nbsp;point it to the mods folder here:
+Start off by opening Visual Studio Code, and choose ![](/uploads/screenshot-2023-10-19-191040.png){: width="209" height="55"} point it to the mods folder here:
 
 **C:\\Steam\\steamapps\\common\\Life Is Feudal Your Own Dedicated Server\\mods**<br>​​<br>Under Explorer on the left menu, create a folder named "HelloWorld" and then make a new file in the "HelloWorld" folder, named "mod.cs"![](/uploads/screenshot-2023-10-19-191444.png){: width="348" height="127"}
 
@@ -128,7 +128,7 @@ package HelloWorldMod
 };
 ```
 
-Notice we are scoping our namespace of the package "HelloWorldMod::" this is how we ensure that the functions are scoped correctly inside our functions, and that they are then overridable by other mods if necessary.&nbsp;
+Notice we are scoping our namespace of the package "HelloWorldMod::" this is how we ensure that the functions are scoped correctly inside our functions, and that they are then overridable by other mods if necessary.
 
 All good so far! Let's get going into the next part. Hooking up our custom "Hello World" to LiFx Framework.
 
