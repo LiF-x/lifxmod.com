@@ -97,7 +97,7 @@ function DatabaseMod::multipleResults(%this, %resultSet) {
 ```
 ### The basic skeleton for setting up a update  query:
 
-> <span class="text-red-300">dbi</span>.("<span class="text-green-000">SQL</span>")
+> <span class="text-red-300">dbi</span>.update("<span class="text-green-000">SQL</span>")
 
 ### Update statements with examples 
 
