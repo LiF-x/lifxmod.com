@@ -12,7 +12,7 @@ has_toc: false
 ---
 # 1\. Hello World
 
-{% include sponsored.md %}
+{% include sponsored-article.md %}
 
 In this scenario we will make a simple mod that greets the connected player with a message that displays "Hello World".
 
