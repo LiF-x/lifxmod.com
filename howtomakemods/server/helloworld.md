@@ -12,6 +12,11 @@ has_toc: false
 ---
 # 1\. Hello World
 
+{: .important-title}
+> Sponsored by Rampart Games
+>
+> This article is sponsored by [Rampart.Games](https://rampart.games "Rampart Games Ltd Game Servers"){: target="_blank" rel="noopener"}, a modern container based game server provider.  No slot limitations, you choose and pay for the resources that fit your needs.
+
 In this scenario we will make a simple mod that greets the connected player with a message that displays "Hello World".
 
 This will introduce you to setting up local development area as well as introduce you to some of the out of the box functionality of our server framework.

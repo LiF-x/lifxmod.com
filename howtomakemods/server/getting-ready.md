@@ -12,6 +12,11 @@ has_toc: false
 ---
 # Getting ready
 
+{: .important-title}
+> Sponsored by Rampart Games
+>
+> This article is sponsored by [Rampart.Games](https://rampart.games "Rampart Games Ltd Game Servers"){: target="_blank" rel="noopener"}, a modern container based game server provider.  No slot limitations, you choose and pay for the resources that fit your needs.
+
 We'll go through the premises of setting up your development environment for developing server mods.
 
 ## Prerequisits
