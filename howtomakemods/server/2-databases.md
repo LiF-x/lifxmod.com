@@ -54,8 +54,9 @@ Whenever we finish a query it is very important to eject the resultSet variable 
 This is in order to keep performance of your server and to not overwhelm capacity of result tracking that dbi does.
 
 ```mermaid
-graph TD;
-    select-->callback;
+graph LR;
+    dbi.select-->id1[(Database)]
+    id1[(Database)]-->DatabaseMod::result;
 ```
 
 This example gets 1 row from characters and reads the ID column into a variable.
