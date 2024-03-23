@@ -15,7 +15,7 @@ has_toc: false
 {: .important-title}
 > Sponsored by Rampart Games
 >
-> This article is sponsored by [Rampart.Games](https://rampart.games "Rampart Games Ltd Game Servers"){: target="_blank" rel="noopener"}, a modern contariner based game server provider.  No slot limitations, you choose the resources for your needs.
+> This article is sponsored by [Rampart.Games](https://rampart.games "Rampart Games Ltd Game Servers"){: target="_blank" rel="noopener"}, a modern container based game server provider.  No slot limitations, you choose the resources for your needs.
 
 In this scenario we will make a simple mod that explores the databases features of the global "dbi" object. If you haven't yet, please review tutorial [Getting ready](/howtomakemods/server/getting-ready.html "Tutorial getting ready") and [\#1 Hello World](/howtomakemods/server/helloworld.html "Tutorial #1 Hello World") which introduces you to setting up a local development area and the basic concepts of writing mods in the LiFx framework.
 
