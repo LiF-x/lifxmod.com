@@ -80,7 +80,7 @@ This will get all characters from the database and loop through each result as l
 
 ```
 function DatabaseMod::selectMultiple() {
-  dbi.select(DatabaseMod,"result", "SELECT * from `characters`");
+  dbi.select(DatabaseMod,"multipleResults", "SELECT * from `characters`");
 }
 function DatabaseMod::multipleResults(%this, %resultSet) {
   if(%resultSet.ok())
