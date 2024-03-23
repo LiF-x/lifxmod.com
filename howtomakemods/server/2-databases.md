@@ -53,6 +53,11 @@ When setting up select, we do this with a <span class="text-blue-000">callback</
 Whenever we finish a query it is very important to eject the resultSet variable from tracking of dbi and delete the resultSet from memory.
 This is in order to keep performance of your server and to not overwhelm capacity of result tracking that dbi does.
 
+```mermaid
+graph TD;
+    select-->callback;
+```
+
 This example gets 1 row from characters and reads the ID column into a variable.
 
 ```

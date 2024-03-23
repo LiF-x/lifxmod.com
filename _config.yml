@@ -13,6 +13,10 @@ footer_content: >-
   <a href="https://github.com/LiF-x/lifxmod.com/issues">Issues</a>
 last_edit_timestamp: true
 last_edit_time_format: '%b %e %Y at %I:%M %p'
+mermaid:
+  # Version of mermaid library
+  # Pick an available version from https://cdn.jsdelivr.net/npm/mermaid/
+  version: "10.9.0"
 callouts:
   important:
     color: blue
@@ -20,3 +24,4 @@ callouts:
   highlight:
     color: yellow
     opacity: 0.3
+    
