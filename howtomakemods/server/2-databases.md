@@ -86,6 +86,47 @@ function DatabaseMod::multipleResults(%this, %resultSet) {
 }
 
 ```
+### The basic skeleton for setting up a update  query:
+
+<span class="text-red-300">dbi</span>.("<span class="text-green-000">SQL</span>")
+
+### Update statements with examples 
+
+
+```
+function DatabaseMod::update() {
+  dbi.update("UPDATE `characters` SET key='value' WHERE ID = 1");
+}
+
+```
+
+### Insert statements with examples 
+
+Simple insert, we use update here because we don't need anything in return, update is purely a single statement so it works well for insertion.
+```
+function DatabaseMod::insert() {
+  dbi.update("INSERT INTO `table` (keys) VALUES (values)");
+}
+
+```
+
+When we need to track the primary key that was given to the row after insertion, we can use select statements instead of update and pass the callback to a callback function, similar to the select above. 
+The difference beeing we decide which column returns by the trailing SQL statemetn of RETURNING ID. Which in this case would return the primary key column "ID".
+
+```
+function DatabaseMod::insert() {
+  dbi.select(DatabaseMod,"insertResult", "INSERT INTO `table` (keys) VALUES (values) RETURNING ID");
+}
+function DatabaseMod::insertResult(%this, %resultSet) {
+  if(%resultSet.ok() && %resultSet.nextRecord())
+  {
+    %accountID = %resultSet.getFieldValue("ID");
+  }
+  dbi.remove(%resultSet);
+  %resultSet.delete();
+}
+
+```
 
 &nbsp;
 
