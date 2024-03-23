@@ -45,7 +45,47 @@ Your SQL query this is where you will add your SQL statements that will be sent 
 
 #### Select
 
-When setting up select, we do this with a callback property of the call, so that any results from your query is returned to the callback function you define.
+When setting up select, we do this with a <span class="text-blue-000">callback</span> property of the call, so that any results from your <span class="text-green-000">query</span> is returned to the <span class="text-blue-000">callback</span> function you define.
+
+Whenever we finish a query it is very important to eject the resultSet variable from tracking of dbi and delete the resultSet from memory.
+This is in order to keep performance of your server and to not overwhelm capacity of result tracking that dbi does.
+
+This example gets 1 row from characters and reads the ID column into a variable.
+
+```
+function DatabaseMod::select() {
+  dbi.select(DatabaseMod,"result", "SELECT * from `characters` LIMIT 1");
+}
+function DatabaseMod::result(%this, %resultSet) {
+  if(%resultSet.ok() && %resultSet.nextRecord())
+  {
+    %accountID = %resultSet.getFieldValue("ID");
+  }
+  dbi.remove(%resultSet);
+  %resultSet.delete();
+}
+
+```
+In order to fetch multiple rows, we need to alter it a little bit.
+This will get all characters from the database and loop through each result as long as there is a new result.
+
+```
+function DatabaseMod::selectMultiple() {
+  dbi.select(DatabaseMod,"result", "SELECT * from `characters`");
+}
+function DatabaseMod::multipleResults(%this, %resultSet) {
+  if(%resultSet.ok())
+  {
+    while(%resultSet.nextRecord())
+    {
+      %accountID = %resultSet.getFieldValue("ID");
+    }
+  }
+  dbi.remove(%resultSet);
+  %resultSet.delete();
+}
+
+```
 
 &nbsp;
 
