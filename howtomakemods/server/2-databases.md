@@ -43,7 +43,7 @@ Your callback reference, it should match the function name that will handle the 
 
 Your SQL query this is where you will add your SQL statements that will be sent to the database
 
-#### Select
+### Select statements with examples 
 
 When setting up select, we do this with a <span class="text-blue-000">callback</span> property of the call, so that any results from your <span class="text-green-000">query</span> is returned to the <span class="text-blue-000">callback</span> function you define.
 
