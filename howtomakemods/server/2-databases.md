@@ -24,6 +24,7 @@ From our experience and testing, even though there are several functions availab
 It is also very important to close the handlers properly as to not create open connections that linger after they are no longer needed. This will cause the torque <br>engine to do heavy cleanups if not done properly.
 
 ## The basic skeleton for setting up a select query:
+
 {: .highlight }
 > <span class="text-red-300">dbi</span>.(<span class="text-purple-000">ScriptObject</span>,"<span class="text-blue-000">callback</span>"","<span class="text-green-000">SQL</span>")
 >
