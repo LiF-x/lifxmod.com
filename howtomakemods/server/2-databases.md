@@ -120,10 +120,10 @@ When we need to track the primary key that was given to the row after insertion,
 The difference beeing we decide which column returns by the trailing SQL statemetn of RETURNING ID. Which in this case would return the primary key column "ID".
 
 ```
-function DatabaseMod::insert() {
-  dbi.select(DatabaseMod,"insertResult", "INSERT INTO `table` (keys) VALUES (values) RETURNING ID");
+function DatabaseMod::insertWithReturn() {
+  dbi.select(DatabaseMod,"insertWithReturnResult", "INSERT INTO `table` (keys) VALUES (values) RETURNING ID");
 }
-function DatabaseMod::insertResult(%this, %resultSet) {
+function DatabaseMod::insertWithReturnResult(%this, %resultSet) {
   if(%resultSet.ok() && %resultSet.nextRecord())
   {
     %accountID = %resultSet.getFieldValue("ID");
@@ -157,20 +157,73 @@ if (!isObject(DatabaseMod))
     };
 }
 
-package HelloWorldMod
+package DatabaseMod
 {
   function DatabaseMod::version() {
     return "v1.0.0";
   }
-
-  function DatabaseMod::setup() {
-
-    LiFx::registerCallback($LiFx::hooks::onConnectCallbacks, sendHelloWorld, DatabaseMod);
+  
+  
+  /**
+  * SELECT 
+  **/
+  function DatabaseMod::select() {
+    dbi.select(DatabaseMod,"result", "SELECT * from `characters` LIMIT 1");
+  }
+  function DatabaseMod::result(%this, %resultSet) {
+    if(%resultSet.ok() && %resultSet.nextRecord())
+    {
+      %accountID = %resultSet.getFieldValue("ID");
+    }
+    dbi.remove(%resultSet);
+    %resultSet.delete();
+  }
+  function DatabaseMod::selectMultiple() {
+    dbi.select(DatabaseMod,"result", "SELECT * from `characters`");
+  }
+  function DatabaseMod::multipleResults(%this, %resultSet) {
+    if(%resultSet.ok())
+    {
+      while(%resultSet.nextRecord())
+      {
+        %accountID = %resultSet.getFieldValue("ID");
+      }
+    }
+    dbi.remove(%resultSet);
+    %resultSet.delete();
+  }
+  
+  
+  /** 
+  * UPDATE
+  **/
+  function DatabaseMod::update() {
+    dbi.update("UPDATE `characters` SET key='value' WHERE ID = 1");
+  }
+  
+  
+  /** 
+  * INSERT
+  **/
+  function DatabaseMod::insert() {
+    dbi.update("INSERT INTO `table` (keys) VALUES (values)");
+  }
+  function DatabaseMod::insert() {
+    dbi.update("INSERT INTO `table` (keys) VALUES (values)");
+  }
+  
+  function DatabaseMod::insertWithReturn() {
+    dbi.select(DatabaseMod,"insertWithReturnResult", "INSERT INTO `table` (keys) VALUES (values) RETURNING ID");
+  }
+  function DatabaseMod::insertWithReturnResult(%this, %resultSet) {
+    if(%resultSet.ok() && %resultSet.nextRecord())
+    {
+      %accountID = %resultSet.getFieldValue("ID");
+    }
+    dbi.remove(%resultSet);
+    %resultSet.delete();
   }
 
-  function DatabaseMod::sendHelloWorld(%this, %client) {
-    %client.cmSendClientMessage(2476, "Hello World!");
-  }
 };
 activatePackage(DatabaseMod);
 ```
