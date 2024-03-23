@@ -12,17 +12,7 @@ has_toc: false
 ---
 # 2\. Databases
 
-&nbsp;
-
-&nbsp;
-
-&nbsp;
 {: .important-title}
-
-&nbsp;
-
-&nbsp;
-
 > Sponsored by Rampart Games
 >
 > This article is sponsored by [Rampart.Games](https://rampart.games "Rampart Games Ltd Game Servers"){: target="_blank" rel="noopener"}, a modern contariner based game server provider.  No slot limitations, you choose the resources for your needs.
