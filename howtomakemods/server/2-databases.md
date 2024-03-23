@@ -24,24 +24,24 @@ From our experience and testing, even though there are several functions availab
 It is also very important to close the handlers properly as to not create open connections that linger after they are no longer needed. This will cause the torque <br>engine to do heavy cleanups if not done properly.
 
 ## The basic skeleton for setting up a select query:
-
+{: .highlight }
 > <span class="text-red-300">dbi</span>.(<span class="text-purple-000">ScriptObject</span>,"<span class="text-blue-000">callback</span>"","<span class="text-green-000">SQL</span>")
-
-##### <span class="text-red-300">dbi</span>
-
-This is the global object that interacts with the database, it is the same object that the game uses to query the database
-
-##### <span class="text-purple-000">ScriptObject</span>
-
-Refers to the object you've defined as your mod, it is used to scope your queries to your object
-
-##### <span class="text-blue-000">callback</span>
-
-Your callback reference, it should match the function name that will handle the callback of your query.
-
-##### <span class="text-green-000">SQL</span>
-
-Your SQL query this is where you will add your SQL statements that will be sent to the database
+>
+> ##### <span class="text-red-300">dbi</span>
+>
+> This is the global object that interacts with the database, it is the same object that the game uses to query the database
+>
+> ##### <span class="text-purple-000">ScriptObject</span>
+>
+> Refers to the object you've defined as your mod, it is used to scope your queries to your object
+>
+> ##### <span class="text-blue-000">callback</span>
+>
+> Your callback reference, it should match the function name that will handle the callback of your query.
+>
+> ##### <span class="text-green-000">SQL</span>
+>
+> Your SQL query this is where you will add your SQL statements that will be sent to the database
 
 
 
