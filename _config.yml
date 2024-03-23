@@ -2,6 +2,7 @@ title: 'LiF: Extended'
 description: 'Life is Feudal: Your Own, LiFx, mod framework'
 theme: just-the-docs
 url: https://lifxmod.com
+color_scheme: dark
 aux_links:
   Supported by Rampart.Games: https://rampart.games
   YoLauncher: https://yolauncher.app
