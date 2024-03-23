@@ -14,6 +14,15 @@ has_toc: false
 
 &nbsp;
 
+&nbsp;
+{: .important-title}
+
+&nbsp;
+
+> Sponsored by Rampart Games
+>
+> This article is sponsored by [Rampart.Games](https://rampart.games "Rampart Games Ltd Game Servers"){: target="_blank" rel="noopener"}, a modern contariner based game server provider.  No slot limitations, you choose the resources for your needs.
+
 In this scenario we will make a simple mod that explores the databases features of the global "dbi" object. If you haven't yet, please review tutorial [\#1 Hello World](/howtomakemods/server/helloworld.html "Tutorial #1 Hello World") which introduces you to setting up a local development area and the basic concepts of writing mods in the LiFx framework.
 
 From our experience and testing, even though there are several functions available, the only two we've seen work without issues are **Query** and **Select** we recommend that you avoid using the other functions exposed, as they tend to put your server in an unstable state, eventually crashing.
