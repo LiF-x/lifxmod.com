@@ -13,6 +13,12 @@ last_modified_date:
 # Life is Feudal: Extended (LiFx)
 {: .fs-9}
 
+{: .important-title}
+> Sponsored by Rampart Games
+>
+> LiFx is sponsored by [Rampart.Games](https://rampart.games "Rampart Games Ltd Game Servers"){: target="_blank" rel="noopener"}, a modern container based game server provider.  No slot limitations, you choose and pay for the resources that fit your needs.
+
+
 All the documentation you need to make your mods compatible with the LiFx framework. This resource is primarily for developers and server owners.
 {: .fs-6.fw-300}
 
