@@ -37,7 +37,7 @@ When setting up select, we do this with a callback property of the call, so that
 
 The basic skeleton for setting up a select query:
 
-<span class=".bg-red-300">dbi</span>.(<span class=".bg-yellow-000">ScriptObject</span>,"<span class=".bg-blue-000">callback</span>"","<span class=".bg-green-000">SQL</span>")
+<span class="text-red-300">dbi</span>.(<span class="text-yellow-000">ScriptObject</span>,"<span class="text-blue-000">callback</span>"","<span class="text-green-000">SQL</span>")
 
 **Congratulations**, that completes the mod! You should now have a foundational understanding of how to properly use databases from your server side mods.
 
