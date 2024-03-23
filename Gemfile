@@ -5,5 +5,5 @@ gem "jekyll", "~> 4.3" # installed by `gem jekyll`
 
 #gem "just-the-docs", "0.4.0.rc3" # currently the latest pre-release
 gem "just-the-docs", "0.8.1"           # the latest release - currently 0.3.3
-#gem "jekyll-default-layout"
+gem "jekyll-default-layout"
 
