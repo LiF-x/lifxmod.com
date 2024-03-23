@@ -12,7 +12,8 @@ has_toc: false
 ---
 # 1\. Hello World
 
-{% include sponsored.html %}
+{% include sponsored.md %}
+
 In this scenario we will make a simple mod that greets the connected player with a message that displays "Hello World".
 
 This will introduce you to setting up local development area as well as introduce you to some of the out of the box functionality of our server framework.
