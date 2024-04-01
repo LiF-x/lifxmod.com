@@ -13,7 +13,7 @@ last_modified_date:
 
 # Full Server Fix + VIP
 
-[Download here](https://github.com/LiF-x/FullServerFixVIPV1.0.1/releases/tag/FullServerFix%2BVIPV1.0.1){: .btn.fs-5.mb-4.mb-md-0.mr-2}
+[Download here](https://github.com/LiF-x/FullServerFixVIP/releases/latest){: .btn.fs-5.mb-4.mb-md-0.mr-2}
 
 ## About
 
