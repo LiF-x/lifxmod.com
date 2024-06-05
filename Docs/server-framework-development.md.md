@@ -131,6 +131,15 @@ package ExampleMod
     * Parameter 2: The package name of your mod
 	*/
     LiFx::registerObjectsTypes(ExampleMod::ObjectsTypesBazaar(), ExampleMod);
+    
+
+	/**
+	* LiFx::registerRecipe is a global framework function, it takes 2 parameters
+	* It is used to write to the dump.sql on start, prior to the server reading it, and is necessary as bitbox wipes the objectstypes table on each start up.
+    * Parameter 1: The function including scope to your objectstypes definition
+    * Parameter 2: The package name of your mod
+	*/
+    LiFx::registerRecipe(ExampleMod::RecipeSmallWoodenShed(), ExampleMod);
   }
 
   // Example function references from setup above, this code will execute when the hook is called by the LiFx framework
@@ -174,6 +183,35 @@ package ExampleMod
       AllowExportFromRed = 0; // Not in use
       AllowExportFromGreen = 0; // Not in use
     };
+  }
+
+  function ExampleMod::RecipeSmallWoodenShed(%this)
+  {
+    %recipe =  new ScriptObject(RecipeSmallWoodenShed : Recipes)
+    {
+      RecipeName = "Small Wooden Shed";
+      Description = "Description";
+      StartingToolsID = 32;
+      SkillTypeID = 18; // The skill for it to populate within
+      SkillLevel = 60;  // The skill level needed to make this
+      ResultObjectTypeID = 2403; // The resulting object from the recipe
+      SkillDepends = 20; // Including influnece of requirements this should sum up to 100
+      Quantity = 1; // 
+      Autorepeat = 0; // If autorepeat can be used in the client interface
+      IsBlueprint = 0; // If you set this to 1 you have to populate the blueprint table seperatly
+      ImagePath = "path to image relative to server root";
+      Requirements = JettisonArray("RecipeSmallWoodenShedRequirements");
+
+    };
+    %recipe.Requirements.Push(RecipeRequirements, new ScriptObject("" : RecipeRequirements){ 
+        MaterialObjectTypeID = 32;
+        Quality = 0;
+        Influence = 40;
+        Quantity = 10; // For the ToolId used the quanity equals how many actions to finish the recipe
+        IsRegionalItemRequired = 0; 
+    });
+    %recipe.Requirements.Push(RecipeRequirements, LiFx::RecipeRequirement(1356,0,40,10,0)); // Shorthand form MaterialObjectTypeID, Quality, Influence, Quanitty, IsRegionalItemRequired
+    return %recipe;
   }
 };
 
