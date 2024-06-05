@@ -189,17 +189,17 @@ package ExampleMod
   {
     %recipe =  new ScriptObject(RecipeSmallWoodenShed : Recipes)
     {
-      RecipeName = "Small Wooden Shed";
+      RecipeName = "ExampleBuilding";
       Description = "Description";
       StartingToolsID = 32;
       SkillTypeID = 18; // The skill for it to populate within
       SkillLevel = 60;  // The skill level needed to make this
-      ResultObjectTypeID = 2403; // The resulting object from the recipe
+      ResultObjectTypeID = 2420; // The resulting object from the recipe
       SkillDepends = 20; // Including influnece of requirements this should sum up to 100
       Quantity = 1; // 
       Autorepeat = 0; // If autorepeat can be used in the client interface
       IsBlueprint = 0; // If you set this to 1 you have to populate the blueprint table seperatly
-      ImagePath = "path to image relative to server root";
+      ImagePath = "mods/ExampleMod/BuildingImages/Example.png";
       Requirements = JettisonArray("RecipeSmallWoodenShedRequirements");
 
     };
