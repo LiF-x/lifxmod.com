@@ -1,0 +1,38 @@
+name: Auto-close Issues With Redirect
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  autoclose:
+    runs-on: ubuntu-latest
+
+    permissions:
+      issues: write   # required to comment + close
+
+    steps:
+      - name: Stop if bot made the comment (avoid loops)
+        if: ${{ github.actor == 'github-actions[bot]' }}
+        run: echo "Skipping because actor is the bot"
+
+      - name: Post redirect comment
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Thanks for your message!
+
+            🚫 **This issue is automatically closed.**
+            Please submit new issues at the following location:
+
+            👉 https://github.com/LiF-x/Projects/issues/new/choose
+
+      - name: Close the issue
+        uses: peter-evans/close-issue@v3
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          comment: |
+            Closing this issue automatically.  
+            Please open all new issues at:  
+            https://your.redirect.url/here
