@@ -4080,15 +4080,15 @@ has_toc: false
 |  | 4067 |  |  |  |
 |  | 4068 |  |  |  |
 |  | 4069 | 60 | Gudrekja Pack (House) |  |
-|  | 4070 | 4095 | Norse Realms Sign(Market closed) |  |
-|  | 4071 | 4095 | Norse Realms Sign(Market Open) |  |
-|  | 4072 | 4095 | Norse Realms Sign(Asgard) |  |
-|  | 4073 | 4095 | Norse Realms Sign(Helheim) |  |
-|  | 4074 | 4095 | Norse Realms Sign(jotunheim) |  |
-|  | 4075 | 4095 | Norse Realms Sign(Midgard) |  |
-|  | 4076 | 4095 | Norse Realms Sign |  |
-|  | 4077 | 4095 | Norse Realms Sign(Pickup point) |  |
-|  | 4078 | 4095 | Norse Realms Sign(Algheim) |  |
+|Norse Realms Mod | 4070 | 4095 | Norse Realms Sign(Market closed) |  |
+|Norse Realms Mod  | 4071 | 4095 | Norse Realms Sign(Market Open) |  |
+|Norse Realms Mod  | 4072 | 4095 | Norse Realms Sign(Asgard) |  |
+|Norse Realms Mod  | 4073 | 4095 | Norse Realms Sign(Helheim) |  |
+|Norse Realms Mod  | 4074 | 4095 | Norse Realms Sign(jotunheim) |  |
+|Norse Realms Mod  | 4075 | 4095 | Norse Realms Sign(Midgard) |  |
+|Norse Realms Mod  | 4076 | 4095 | Norse Realms Sign |  |
+|Norse Realms Mod  | 4077 | 4095 | Norse Realms Sign(Pickup point) |  |
+|Norse Realms Mod  | 4078 | 4095 | Norse Realms Sign(Algheim) |  |
 |  | 4079 |  |  |  |
 |  | 4080 |  |  |  |
 |  | 4081 |  |  |  |
@@ -4103,6 +4103,6 @@ has_toc: false
 |  | 4090 |  |  |  |
 |  | 4091 | 4094 | Easter Egg |  |
 |  | 4092 | 4094 | Xmas Gift |  |
-|  | 4093 | 60 | Norse Realms mod |  |
-|  | 4094 | 12 | Norse Realms cat |  |
+|Norse Realms Mod  | 4093 | 60 | Norse Realms mod |  |
+|Norse Realms Mod  | 4094 | 12 | Norse Realms cat |  |
 |  | 4095 | 12 | LiFx buildings Cat |  |
