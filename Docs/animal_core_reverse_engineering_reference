@@ -1,0 +1,933 @@
+# Animal System Documentation (Reverse Engineered)
+
+## Overview
+
+This document describes the probable design and runtime behavior of the Animal subsystem in the recovered game core.
+
+It is intended to help with:
+
+- understanding how animals are defined
+- understanding how animals are spawned
+- understanding how animal AI works
+- understanding how corpse / skinning / slaughter / taming logic is connected
+- understanding what can fail during modding or runtime
+- rebuilding a usable mental model of the animal gameplay system
+
+This document is written as a clean technical reference and not as a raw decompilation dump.
+
+The behavior described below should be treated as a highly grounded reconstruction of the original design.
+
+---
+
+## High-Level Design
+
+The recovered animal system appears to be split into several major layers:
+
+**AnimalData**  
+defines or resolves animal datablocks and preloaded type data
+
+**Animal runtime object**  
+represents the live animal entity in the world
+
+**Animals::Manager**  
+creates animals and selects their behavior tree
+
+**Animals::SpawnControl**  
+controls procedural or region-based spawning
+
+**Animal AI nodes**  
+implement behavior tree logic such as target acquisition, chasing, fleeing, attacking, and death
+
+**AnimalTracking**  
+creates and updates footprint path data
+
+**Animal-related abilities**  
+allow player interaction with animals through taming, trapping, checking snares, skinning, and slaughtering
+
+**Slash command support**  
+allows manual animal spawning for debugging or administrative use
+
+---
+
+# 1. Main Components
+
+## 1.1 Animal Runtime Object
+
+The runtime animal object appears to be the main in-world entity for all active animals.
+
+Recovered function names strongly suggest the following responsibilities:
+
+`Animals::Animal::createCorpse`  
+`Animals::Animal::endAttack`  
+`Animals::Animal::packUpdate`  
+`Animals::Animal::_getPhysicsTransform`  
+`Animals::Animal::onNewDataBlock`
+
+### Most probable role
+
+The Animal object appears to be responsible for:
+
+- existing as a live world entity
+- receiving and applying an animal datablock
+- participating in physics/world transform updates
+- attacking targets
+- ending attack state
+- generating a corpse on death
+- packing its state for network updates
+
+### Important interpretation
+
+This does **not** look like a passive data class.
+
+It looks like a full gameplay entity similar to a specialized server-side actor with world position, physics state, combat state, and replication state.
+
+---
+
+## 1.2 AnimalData
+
+Recovered functions:
+
+`AnimalData::GetDatablockByTypeID`  
+`AnimalData::preload`
+
+### Most probable role
+
+AnimalData appears to be the static type-definition layer for animals.
+
+It likely provides:
+
+- a mapping from animal type ID to datablock
+- startup preload of all registered animal datablocks
+- the lookup layer needed before runtime animal creation
+
+### Most probable behavior
+
+The system appears to preload all animal datablocks into a global lookup structure.
+
+Then animals can be spawned using type IDs rather than direct object references.
+
+### Important runtime rule
+
+If animal datablocks are not preloaded, runtime animal creation is unsafe.
+
+This is strongly supported by the recovered assert meaning:
+
+- no animal datablocks preloaded
+- animal datablock already preloaded / overwrite warning
+
+### Practical modding meaning
+
+If you add new animals or mod type IDs, datablock registration and preload behavior are probably one of the first things that must remain correct.
+
+---
+
+## 1.3 Animals::Manager
+
+Recovered functions:
+
+`Animals::Manager::_selectBehaviorTree`  
+`Animals::Manager::createAnimal`
+
+### Most probable role
+
+This appears to be the factory and high-level coordination layer for animals.
+
+### Most probable responsibilities
+
+- create a live animal from type data
+- assign behavior tree / AI logic
+- connect the animal instance to the rest of the game systems
+- act as the entry point between spawn logic and live runtime animal creation
+
+### Important interpretation
+
+This manager looks like the bridge between:
+
+**AnimalData / spawn pattern / AI setup**  
+and  
+**actual live animal objects in the world**
+
+---
+
+## 1.4 Animals::SpawnControl
+
+Recovered functions:
+
+`Animals::SpawnControl::_createPotentialAnimals`  
+`Animals::SpawnControl::_generateSpawnPoints`  
+`Animals::SpawnControl::getSpawnPosition`  
+`Animals::SpawnControl::printSpawnPointsInfo`  
+`Animals::SpawnControl::startStretchedMaintenance`  
+`Animals::SpawnControl::SpawnControl`  
+`Animals::SpawnControl::SpawnPoint::reset`  
+`Animals::SpawnControl::_fillSubstanceInfo`  
+`Animals::SpawnControl::_loadPatternsFromXML`  
+`Animals::SpawnControl::_removeAnimalFromSpawnPoint`  
+`Animals::SpawnControl::_selectRandomPattern`  
+`Animals::SpawnControl::SpawnPattern::loadFromXml`  
+`Animals::SpawnControl::SpawnPattern::AnimalFamilyInfo::loadFromXML`  
+`Animals::SpawnControl::processTick`
+
+### Most probable role
+
+This is the procedural or controlled animal spawning subsystem.
+
+### Most probable responsibilities
+
+- generate spawn points
+- load spawn patterns from XML
+- store family-based spawn definitions
+- choose random patterns
+- determine valid spawn positions
+- periodically process spawn logic
+- maintain active animal slots for spawn points
+- remove or reset spawn points when animals disappear or die
+
+### Important interpretation
+
+This does not look like simple hardcoded spawning.
+
+It looks like a **pattern-driven spawn controller**, likely supporting:
+
+- animal families
+- regional spawn rules
+- random selection
+- tick-based maintenance
+- spawn point lifecycle management
+
+### Practical modding meaning
+
+If you want to change ecosystem behavior, density, rarity, or composition of animal groups, this layer is probably more important than the live Animal object itself.
+
+---
+
+## 1.5 AnimalTracking
+
+Recovered function:
+
+`Animals::Track::_updateFootprintPathFromLastPos`
+
+### Most probable role
+
+This looks like a tracking subsystem that generates or updates footprint path data for animals.
+
+### Most probable responsibilities
+
+- remember last known animal movement state
+- generate path or footprint markers
+- provide data for hunting / tracking gameplay
+- interact with navigation/path systems
+
+### Important interpretation
+
+Animal tracking appears to be a separate feature, not just a cosmetic effect.
+
+This strongly suggests that animal movement may leave usable traces in the world.
+
+### Practical modding meaning
+
+If tracking or hunting is part of gameplay, this system may be where footprints, scent-like paths, or trail logic are generated.
+
+---
+
+# 2. AI / Behavior Tree Layer
+
+Recovered AI node names strongly suggest a behavior-tree-based animal AI.
+
+Recovered nodes include:
+
+`AI::Nodes::LastReceivedDamageCategory::process`  
+`AI::Nodes::DistanceToTargetLess::process`  
+`AI::Nodes::SetPlayerAsTarget::process`  
+`AI::Nodes::PlayAnimation::process`  
+`AI::Nodes::PlayAnimationTimed::process`  
+`AI::Nodes::Move::process`  
+`AI::Nodes::Move::interrupt`  
+`AI::Nodes::Attack::interrupt`  
+`AI::Nodes::ChaseEnemy::interrupt`  
+`AI::Nodes::Flee::interrupt`  
+`AI::Nodes::AggressionStateCheck::process`  
+`AI::Nodes::AimAtClosestEnemy::process`  
+`AI::Nodes::Attack::process`  
+`AI::Nodes::ChaseEnemy::process`  
+`AI::Nodes::ChaseEnemyNoAnimation::process`  
+`AI::Nodes::ClearEnemyInteractions::process`  
+`AI::Nodes::Damaged::process`  
+`AI::Nodes::Death::process`  
+`AI::Nodes::EnemyInAttackSector::process`  
+`AI::Nodes::EnemyInRange::process`  
+`AI::Nodes::EnemyOutOfReach::process`  
+`AI::Nodes::Flee::process`  
+`AI::Nodes::HasTarget::process`  
+`AI::Nodes::HpPercentageIsAbove::process`  
+`AI::Nodes::IsStandingOnProhibitedLand::process`  
+`AI::Nodes::LastReceivedDamageType::process`  
+`AI::Nodes::ResetAnimation::process`  
+`AI::Nodes::ResetTarget::process`  
+`AI::Nodes::ThreatValueChange::process`  
+`AI::Nodes::ThreatValueGreater::process`
+
+## Most probable AI model
+
+The AI appears to use:
+
+- target selection
+- threat state
+- aggression checks
+- attack range checks
+- movement/chase/flee branches
+- damage response branches
+- death branch
+- animation nodes
+- interrupt handling
+- environmental checks such as prohibited land
+
+### Strong interpretation
+
+This is not a simple “if player nearby attack” system.
+
+It appears to be a **real behavior tree or node graph**, where each node processes one condition or action and supports interruption.
+
+### Likely animal states
+
+Based on node names, animals probably switch through states such as:
+
+- idle / no target
+- aggro validation
+- acquire target
+- chase target
+- close-range attack
+- flee
+- damaged reaction
+- death
+- reset target / clear interaction
+- animation playback
+- environmental correction
+
+### Practical modding meaning
+
+If you want to alter animal aggressiveness, fear, chase range, attack logic, or target behavior, the AI node layer is likely where the actual behavior emerges.
+
+---
+
+# 3. Animal Lifecycle
+
+## 3.1 Static Definition Stage
+
+The first stage is likely datablock preload.
+
+### Probable order
+
+1. animal datablocks are registered
+2. `AnimalData::preload` loads them into a global lookup
+3. type IDs become usable for runtime spawning
+
+### Important rule
+
+No valid preload means no valid runtime type resolution.
+
+---
+
+## 3.2 Spawn Pattern Stage
+
+After type data exists, the spawn system appears to load pattern definitions.
+
+### Probable order
+
+1. spawn patterns load from XML
+2. family information loads from XML
+3. spawn points are generated
+4. world regions or spawn zones become active
+5. periodic maintenance starts
+
+### Important meaning
+
+Spawn logic appears data-driven and likely editable without rewriting runtime AI itself.
+
+---
+
+## 3.3 Runtime Spawn Stage
+
+At runtime, animal creation most likely follows this chain:
+
+1. spawn control decides a spawn point is eligible
+2. a spawn pattern is selected
+3. a spawn position is generated
+4. animal type/family information is chosen
+5. `Animals::Manager::createAnimal` creates the live object
+6. `_selectBehaviorTree` assigns AI behavior
+7. `Animal::onNewDataBlock` finalizes type-specific state
+8. the animal becomes active in the world
+
+### Important interpretation
+
+Animal creation is likely the combination of:
+
+**type definition + spawn rule + live object creation + behavior tree assignment**
+
+---
+
+## 3.4 Live Simulation Stage
+
+Once active, the animal likely participates in:
+
+- physics updates
+- transform calculation
+- AI processing
+- animation playback
+- threat and target evaluation
+- combat
+- movement/pathfinding
+- footprint tracking
+- network update packing
+
+Recovered clues suggest:
+
+- `_getPhysicsTransform` is important for world positioning
+- `packUpdate` handles replication
+- attack/chase/flee nodes run during AI processing
+- tracking updates may generate persistent traces
+
+---
+
+## 3.5 Death / Corpse Stage
+
+Recovered function:
+
+`Animals::Animal::createCorpse`
+
+### Most probable role
+
+On death, the animal creates a corpse object tied to its type/state.
+
+### Strong clues
+
+Recovered messages strongly suggest corpse creation depends on a valid animal corpse type ID and can fail with a corpse-type assertion.
+
+### Most probable death sequence
+
+1. animal enters death AI node
+2. attack/interaction state ends
+3. corpse type is resolved
+4. corpse object is created in world
+5. live animal is removed or deactivated
+6. corpse becomes target for skinning/slaughter/loot-type interactions
+
+### Practical modding meaning
+
+Corpse behavior is probably not just visual.  
+It appears to be the bridge into post-kill animal gameplay.
+
+---
+
+# 4. Player Interaction With Animals
+
+The recovered project contains a dedicated group of animal-related abilities.
+
+These strongly suggest that animals are part of a broader survival / hunting / taming loop.
+
+---
+
+## 4.1 Taming
+
+Recovered function:
+
+`AbilityImp::TameAnimals::_onDoPerform`
+
+### Most probable role
+
+Attempts to tame a valid target animal and convert it into a player-usable animal-related result.
+
+### Recovered failure meanings strongly suggest checks for:
+
+- valid GameConnection
+- valid Player
+- valid animal entity
+- valid animal type
+- target item correctness
+- inventory availability
+- animal doll item lookup
+
+### Strong interpretation
+
+Taming probably requires:
+
+1. a valid online player
+2. a valid target animal
+3. a recognized tameable animal type
+4. inventory access
+5. creation or transfer of some tamed-animal item or representation
+
+### Practical modding meaning
+
+Taming is probably not just a flag flip on the animal.  
+It appears to involve item/inventory integration.
+
+---
+
+## 4.2 Skinning
+
+Recovered function:
+
+`AbilityImp::Skin::_addProduct`
+
+### Most probable role
+
+Adds products obtained from skinning an animal corpse.
+
+### Most probable behavior
+
+Skinning likely:
+
+- derives one or more output products
+- uses item creation logic
+- may depend on quality or chance
+- inserts products into inventory or a related item container flow
+
+### Practical modding meaning
+
+If you want to rebalance hide/leather/fur outputs, product generation logic likely sits here or very close to it.
+
+---
+
+## 4.3 Slaughter
+
+Recovered function:
+
+`AbilityImp::SlaughterAnimalsInv::_onDoPerform`
+
+### Most probable role
+
+Processes slaughtering of an animal-related item/entity into inventory products.
+
+### Recovered failure meanings strongly suggest checks for:
+
+- valid GameConnection
+- valid Player
+- valid entity and item
+- ability lookup
+- char info lookup
+- skills / skill type lookup
+- player inventory existence
+- ability to consume the source item
+
+### Strong interpretation
+
+Slaughter appears more integrated than a simple corpse action.
+
+It likely combines:
+
+- validation of actor state
+- validation of source item/entity
+- inventory access
+- skill-based product generation
+- ability framework integration
+
+### Practical modding meaning
+
+Slaughter is a gameplay ability, not just a passive loot event.
+
+---
+
+## 4.4 Traps / Snares
+
+Recovered functions:
+
+`AbilityImp::BaseTrapImp::_onDoPerform`  
+`AbilityImp::BaseTrapImp::takeATrap`  
+`AbilityImp::CheckASnare::_onDoPerform`
+
+### Most probable role
+
+These functions likely support:
+
+- placing animal traps
+- consuming trap items
+- checking trap results
+- handling snare state and generated catches
+
+### Strong clues
+
+Recovered messages include references to:
+
+- snare quality
+- snare created durability
+- can’t find player inventory
+- GameConnection have no Player
+
+### Practical modding meaning
+
+Trap logic seems item-based and player-inventory-based, not just world-AI-based.
+
+This suggests the animal system is deeply integrated into player progression and crafting/survival loops.
+
+---
+
+# 5. Slash Command / Debug Spawn
+
+Recovered function:
+
+`SlashCommands::Animal::execute`
+
+## Most probable role
+
+Administrative or debug command for spawning animals manually.
+
+### Strong clues
+
+Recovered behavior strongly suggests the command:
+
+- checks whether nav mesh is enabled
+- defaults to something like `BoarData`
+- optionally accepts arguments
+- resolves an AnimalData object
+- uses animal type ID
+- creates an animal near the caller
+
+### Important interpretation
+
+This is a very useful clue for modding because it shows a direct entry point into runtime animal creation.
+
+### Practical modding meaning
+
+If you want to prototype animal behavior or test spawn paths, this command is likely one of the easiest places to hook into the system mentally.
+
+---
+
+# 6. Probable Full Animal Runtime Graph
+
+This is the most likely full lifecycle graph for animals.
+
+## Static setup
+
+**AnimalData preload**  
+→ animal type IDs become valid
+
+## Spawn setup
+
+**Spawn patterns loaded from XML**  
+→ family info loaded  
+→ spawn points generated  
+→ spawn maintenance enabled
+
+## Runtime creation
+
+**SpawnControl decides to spawn**  
+→ random pattern selected  
+→ spawn position generated  
+→ Animals::Manager::createAnimal  
+→ behavior tree selected  
+→ datablock applied  
+→ live animal enters world
+
+## Runtime behavior
+
+**AI node processing**  
+→ target acquisition / aggression / chase / flee / attack / death  
+→ movement and animation updates  
+→ physics transform updates  
+→ footprint tracking updates  
+→ replication via packUpdate
+
+## Post-death behavior
+
+**Death node**  
+→ createCorpse  
+→ corpse object available for skinning / slaughter / related abilities
+
+## Player interaction loop
+
+**Tame / trap / check snare / skin / slaughter**  
+→ inventory and skill logic  
+→ item outputs or state changes  
+→ progression/gameplay consequences
+
+---
+
+# 7. Error and Log Interpretation
+
+This section summarizes the most important recovered animal-related error meanings.
+
+## `No animal datablocks preloaded!`
+
+### Most probable meaning
+
+Animal type lookup is being used before datablock preload completed.
+
+### Consequence
+
+Animal creation by type ID becomes impossible or unsafe.
+
+---
+
+## `Animal datablock already preloaded! Overwriting!`
+
+### Most probable meaning
+
+Preload is running again or the same datablock set is being registered twice.
+
+### Consequence
+
+Possible duplicate setup, data overwrite, or unsafe initialization order.
+
+---
+
+## `Can't create animal corpse type id=%u`
+
+### Most probable meaning
+
+The animal died and attempted to create a corpse, but corpse type resolution failed.
+
+### Consequence
+
+Post-death gameplay may break, including skinning or slaughter.
+
+---
+
+## `animal %s without weapon tries to attack`
+
+### Most probable meaning
+
+Attack logic expects a valid attack-capable setup, but the current animal has no valid attack weapon or attack definition.
+
+### Consequence
+
+The animal can enter attack logic in an invalid state.
+
+### Modding implication
+
+Do not assume every animal type can safely attack unless all required attack data is configured.
+
+---
+
+## `Trying to spawn animals when nav mesh disabled`
+
+### Most probable meaning
+
+The system prevents manual or scripted animal spawn when navigation support is disabled.
+
+### Consequence
+
+Spawn command fails even if type data is valid.
+
+### Modding implication
+
+Nav mesh appears to be a hard dependency for proper animal spawning.
+
+---
+
+## `GameConnection have no Player`
+
+### Most probable meaning
+
+A player-driven animal ability was used without a valid active player bound to the connection.
+
+### Common contexts
+
+- tame
+- slaughter
+- trap/snare checks
+
+### Consequence
+
+The action is rejected because the actor state is incomplete.
+
+---
+
+## `Can't find inventory` / `Can't find player inventory`
+
+### Most probable meaning
+
+An animal-related ability requires inventory access and the player inventory is missing or not resolved.
+
+### Consequence
+
+Taming, snare checking, slaughter, or product generation may fail.
+
+---
+
+## `Bad animal entity`
+
+### Most probable meaning
+
+The target entity exists but is not a valid animal runtime object for the requested ability.
+
+### Consequence
+
+The action fails due to wrong target type or invalid casting.
+
+---
+
+## `Bad animal type`
+
+### Most probable meaning
+
+The target looks like an animal, but its type definition is missing, invalid, or unsupported by the current ability.
+
+### Consequence
+
+Taming or animal-specific processing is blocked.
+
+---
+
+## `Can't find animal type`
+
+### Most probable meaning
+
+The ability cannot resolve a valid animal type for the target.
+
+### Consequence
+
+Tame/product logic cannot continue.
+
+---
+
+## `Can't find animal's doll item`
+
+### Most probable meaning
+
+Taming likely depends on an item representation of the animal, and that mapping failed.
+
+### Consequence
+
+The tame action cannot produce the expected result item.
+
+---
+
+## `Can't slaughter`
+
+### Most probable meaning
+
+The target item/entity failed slaughter validation.
+
+### Consequence
+
+The slaughter action aborts before product generation.
+
+---
+
+## `Can not consume item`
+
+### Most probable meaning
+
+The action expected to consume a source item but failed to do so.
+
+### Consequence
+
+The action cannot safely finish product generation.
+
+---
+
+# 8. Practical Modding Rules
+
+## Rule 1
+
+Do not think of animals as just datablocks.
+
+The recovered system strongly suggests animals are:
+
+- typed
+- AI-driven
+- spawn-pattern-driven
+- post-death-interactive
+- tightly linked to player ability systems
+
+## Rule 2
+
+Do not break AnimalData preload.
+
+If type lookup fails, everything later becomes secondary error noise.
+
+## Rule 3
+
+Do not ignore nav mesh requirements.
+
+At least part of the spawn logic depends on navigation support being active.
+
+## Rule 4
+
+Do not change attack-capable animals casually.
+
+Attack logic appears to rely on configured combat state, and invalid attack setup can leave animals in broken behavior states.
+
+## Rule 5
+
+Do not treat corpse creation as cosmetic only.
+
+Corpse generation appears to be a core bridge into skinning and slaughter systems.
+
+## Rule 6
+
+Player-facing animal abilities depend heavily on normal player runtime validity.
+
+If connection, player, inventory, or skills are invalid, animal interaction abilities are likely to fail before any animal-specific logic matters.
+
+## Rule 7
+
+If you mod spawn ecology, focus on SpawnControl and pattern data first.
+
+If you mod individual behavior, focus on AI nodes and behavior-tree selection.
+
+If you mod post-kill economy, focus on skinning and slaughter logic.
+
+If you mod taming, focus on type lookup, inventory integration, and item conversion.
+
+---
+
+# 9. Most Probable Final Architectural Conclusion
+
+The recovered Animal subsystem appears to follow this layered model:
+
+**AnimalData**  
+defines what an animal type is
+
+**SpawnControl**  
+decides when and where animals should appear
+
+**Animals::Manager**  
+creates the live runtime animal and assigns AI
+
+**Animal runtime object**  
+executes movement, combat, transforms, replication, and death behavior
+
+**AnimalTracking**  
+records trace/footprint-like movement history
+
+**Player abilities**  
+connect animals to taming, trapping, skinning, slaughter, and survival/crafting systems
+
+This makes the animal subsystem look like a full gameplay pillar rather than an isolated enemy class.
+
+---
+
+# 10. Short Diagnostic Checklist
+
+When debugging an animal-related issue, check in this order:
+
+1. Are animal datablocks preloaded?  
+2. Is nav mesh enabled?  
+3. Is the target animal type valid?  
+4. Did spawn patterns and spawn points initialize correctly?  
+5. Did the manager create the runtime animal successfully?  
+6. Did the animal receive the correct datablock?  
+7. Did the behavior tree get assigned correctly?  
+8. Is AI entering an invalid attack or movement state?  
+9. Did corpse creation succeed on death?  
+10. Does the player-side ability have a valid GameConnection, Player, and inventory?  
+11. Are animal interaction items and type mappings valid?  
+
+---
+
+# 11. Final Summary
+
+The best mental model for the recovered animal system is:
+
+**preloaded animal type**  
+→ **spawn rule / family / pattern**  
+→ **live animal creation**  
+→ **behavior tree AI**  
+→ **movement / combat / tracking / replication**  
+→ **corpse creation on death**  
+→ **player interaction through taming, trapping, skinning, and slaughter**
+
+That is the most likely foundation for future maintenance, debugging, and modding work.
