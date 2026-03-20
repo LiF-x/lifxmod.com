@@ -1,30 +1,20 @@
-# Core Reverse Engineering Reference
-## Character Loading, Connection Binding, Inventory, Equipment, Spawn, and Error Model
+# Core Character Lifecycle Documentation
 
-## Document Purpose
+## Overview
 
-This document describes **externally observable runtime behavior** of the game core based on:
+This document describes the **externally observable** character lifecycle in the closed-core Life is Feudal server runtime.
 
-- recovered callable function names
+It is intended as a **reverse-engineering reference for modding**, not as an authoritative source-code description of the internal engine architecture.
+
+The content below is based on:
+
 - runtime logs
-- exposed scripting behavior
+- exposed script hooks
+- console/class dumps
 - practical modding experiments
-- known Torque3D runtime patterns
+- known Torque3D object and networking patterns
 
-It is intended as a **reverse-engineering reference**, not as authoritative source-level documentation of the original closed-core implementation.
-
-The goal is to help reconstruct a usable mental model of the system for:
-
-- debugging
-- maintenance
-- modding
-- future documentation work
-
-This document is not a raw decompilation dump.
-
-It is also not a claim of exact original internal architecture.
-
-It is a structured interpretation of observed runtime behavior.
+Because the core is closed, this document distinguishes between what is directly visible and what is only inferred.
 
 ---
 
@@ -32,20 +22,15 @@ It is a structured interpretation of observed runtime behavior.
 
 ### Confirmed
 
-Behavior directly observed in:
-
-- runtime logs
-- recovered callable functions
-- exposed script/runtime interfaces
-- practical experiments
+Behavior directly observed in logs, dumps, exposed scripting interfaces, or runtime experiments.
 
 ### Inferred
 
-Behavior strongly suggested by repeated observations and known Torque3D patterns, but not directly visible in original source code.
+Behavior strongly suggested by repeated runtime observations and known Torque3D patterns, but not directly visible in source.
 
 ### Unknown
 
-Internal implementation details, ownership boundaries, hidden manager relationships, and side effects that are not directly observable.
+Internal implementation details that remain hidden and must not be presented as established fact.
 
 ---
 
@@ -53,957 +38,550 @@ Internal implementation details, ownership boundaries, hidden manager relationsh
 
 This document does **not** claim full knowledge of:
 
-- original class ownership boundaries
-- hidden manager internals
-- exact internal data layouts
-- whether a recovered function is a primary implementation, helper, wrapper, or facade
-- all side effects triggered by deeply nested runtime calls
+- internal manager ownership
+- hidden data structures
+- class boundaries inside the closed C++ core
+- whether visible functions are primary implementations or wrappers/facades
 
-Where such details are not directly visible, they are described as inferred or unknown.
+Where those details are not directly visible, they are marked as inferred or unknown.
 
 ---
 
-# 1. Core Runtime Model
+## Confirmed Runtime Surface
+
+## Connection and client registry
+
+### Confirmed
+
+A live client exists as a `GameConnection`-like runtime object and active clients are stored under `ClientGroup`, which is a real `SimGroup` object in the runtime object hierarchy.
+
+### Practical meaning
+
+There is a real connection registry layer in the server runtime, and player-facing lifecycle actions happen relative to a live client object rather than purely in isolation.
+
+### Unknown
+
+It is not confirmed whether higher-level internal managers mirror or wrap `ClientGroup`.
+
+---
+
+## World/network object base
+
+### Confirmed
+
+Torque3D object hierarchy is present:
+
+`SimObject -> NetObject -> SceneObject -> Player`
+
+Observed dumps confirm:
+
+- `NetObject` supports ghosting and scope control
+- `SceneObject` provides transform/world presence
+- `Player` is a networked world object
+
+### Practical meaning
+
+A player is not just character data. It is also a real world/network object that must exist inside Torque3D runtime object and replication systems.
+
+### Unknown
+
+Exact internal coupling between `Player` and hidden character-state containers is not directly visible.
+
+---
+
+## Exposed modding hook surface
+
+### Confirmed
+
+LiFx exposes event-style callbacks such as:
+
+- `onConnectCallbacks`
+- `onSpawnCallbacks`
+- `onDisconnectCallbacks`
+
+### Practical meaning
+
+The modding layer exposes lifecycle observation and extension points, but this does **not** prove ownership of the actual internal spawn pipeline.
+
+### Unknown
+
+Whether these callbacks run before, during, or strictly after all internal manager work is not fully documented by the closed core.
+
+---
+
+## Character-Related Runtime Functions
+
+## CharacterInfo
+
+### Confirmed
+
+The following functions are directly visible in runtime logs:
+
+- `CmCharacterInfo::stopSim(charId)`
+- `CmCharacterInfo::startSim(charId)`
+- `CmCharacterInfo::sendFirstDataClient()`
+
+### Confirmed role
+
+`CmCharacterInfo` is definitely involved in:
+
+- simulation state transitions
+- client-facing initialization data
+- character-linked runtime activation
+
+### Inferred role
+
+`CmCharacterInfo` likely acts as a bridge between persistent character identity/state and the active runtime entity.
+
+### Unknown
+
+It is not directly proven whether `CmCharacterInfo` owns inventory, equipment, or all gameplay state itself, or whether it coordinates multiple hidden subsystems.
+
+---
+
+## CharacterParameters
+
+### Confirmed
+
+The following function is directly visible in logs:
+
+- `CharacterParameters::LoadPlayer()`
+
+It appears during player activation and again when control is restored to the original player.
+
+### Confirmed role
+
+`CharacterParameters::LoadPlayer()` is part of the real activation/load pipeline for a valid character.
+
+### Inferred role
+
+It likely performs the actual transfer of persistent character data into runtime state.
+
+### Unknown
+
+The exact boundaries between `CharacterParameters`, `CmCharacterInfo`, and the runtime `Player` object are not visible.
+
+---
+
+## Player
+
+### Confirmed
+
+A `Player` object is a real runtime object with:
+
+- a datablock
+- a transform/world position
+- a controlling client relationship
+- a character ID getter surface
+
+Observed experiments show that a newly spawned `Player` can exist with:
+
+- `DefaultPlayerData`
+- `getCharacterId() = 0`
+
+if the expected character backing is not present.
+
+### Practical meaning
+
+A `Player` object can be created even when character activation is not valid.
+
+This is extremely important:
+
+**world object creation does not by itself prove valid character initialization**
+
+### Unknown
+
+It is not proven that `Player` itself owns character state; it may instead be a world-side representation attached to hidden character systems.
+
+---
+
+## Practical Confirmed Spawn Sequence
+
+The following order is directly supported by logs from successful and failed runtime experiments.
+
+## Confirmed sequence during a normal valid character rebind
+
+Observed order:
+
+1. `CharacterParameters::LoadPlayer()`
+2. `CmCharacterInfo::startSim(charId)`
+3. `CmCharacterWounds::onSimStarted()`
+4. `CmCharacterInfo::sendFirstDataClient()`
+5. control object binding is finalized
+
+This sequence appears when control is restored to the original valid player.
+
+## Confirmed sequence during failed bridge attempt
+
+Observed order:
+
+1. connection character ID fields are overwritten
+2. `spawnPlayer(connection)` is called
+3. duplicate-player warning appears
+4. `Player::getPlayerDatablock() -- can't find CharacterInfo for player 2`
+5. fallback to default datablock occurs
+6. a new `Player` is created with `DefaultPlayerData`
+7. `Player::setControllingClient() -- can't find CharacterInfo for player 2`
+8. spawned target has `getCharacterId() = 0`
+9. target is judged invalid and deleted
+10. original player control is restored
+
+### Confirmed conclusion
+
+Simply changing connection-side character ID fields is **not sufficient** to produce a valid CharacterInfo-backed player.
+
+A valid character activation requires something more than just connection identity overwrite.
+
+---
+
+## What the bridge experiment actually proves
 
 ## Confirmed
 
-Observed runtime behavior shows that:
+A live connection for character 1 was captured successfully.
 
-- a live connection alone is not enough to guarantee a valid fully playable character
-- a runtime `Player` object alone is not enough to guarantee a valid fully playable character
-- some character-backed runtime state must exist before full activation succeeds
-- later runtime systems may still execute even after early character-state failure
+The connection initially reported:
 
-## Inferred
+- `charId=1`
+- `getCharacterId()=1`
+- valid live `player`
+- valid live `control object`
 
-A useful practical model of the core is:
+After overwriting the connection fields to character 2 and calling `spawnPlayer(connection)`, the runtime produced:
 
-**identity → character-backed runtime state → player world object → online/connection-facing systems**
+- duplicate creation warning
+- missing `CharacterInfo` for player 2
+- default datablock fallback
+- spawned `Player` with character ID `0`
 
-This suggests the runtime does **not** behave as a purely connection-driven system.
+### Confirmed meaning
 
-## Unknown
+The connection object alone is not the authoritative source of valid character runtime state.
 
-It is not fully proven how much of this model is implemented through direct ownership versus lookup/coordination between hidden subsystems.
+### Strong inference
 
----
+There must be an additional internal registration or backing-state lookup that resolves whether a character is valid for full activation.
 
-# 2. Main Systems and Their Probable Roles
-
-## 2.1 ConnectedPlayersManager
-
-### Confirmed
-
-Recovered callable functions include:
-
-`ConnectedPlayersManager::_notifyAll_sendInfo`  
-`ConnectedPlayersManager::_notifyAll_disconnect`  
-`ConnectedPlayersManager::onGmStatusChanged`  
-`ConnectedPlayersManager::kickPlayer`  
-`ConnectedPlayersManager::setGM`  
-`ConnectedPlayersManager::banPlayer`  
-`YoConnectedPlayerEvent::pack`  
-`YoConnectedPlayerEvent::unpack`
-
-### Inferred
-
-This system appears to be related to:
-
-- online player registry
-- online visibility or broadcast updates
-- GM/admin online actions
-- connect/disconnect style propagation
-
-### Safe interpretation
-
-This system does **not** appear to be the primary character creation system.
-
-It more likely behaves as a **post-activation online-state layer** that expects valid player state to already exist.
+That backing state is very likely related to `CharacterInfo`.
 
 ### Unknown
 
-The exact ownership relationship between this system and lower-level connection/registration structures is not directly visible.
+The exact internal lookup path and ownership chain remain hidden.
 
 ---
 
-## 2.2 CharacterInfo
+## Character Lifecycle Model
 
-### Confirmed
+## Confirmed minimum model
 
-Recovered callable functions include:
+A valid online character requires at least three things to line up:
 
-`CmCharacterInfo::_loadCharParamsFromDb`  
-`CmCharacterInfo::_loadCarriedMovableFromDb`  
-`CmCharacterInfo::~CmCharacterInfo`  
-`CmCharacterInfo::getConstitution`  
-`CmCharacterInfo::getWillpower`  
-`CmCharacterInfo::_setDirty`  
-`CmCharacterInfo::changeLockStat`  
-`CmCharacterInfo::changeStatValue`  
-`CmCharacterInfo::checkStat`  
-`CmCharacterInfo::getAgility`  
-`CmCharacterInfo::getEffects`  
-`CmCharacterInfo::getIntellect`  
-`CmCharacterInfo::getInventory`  
-`CmCharacterInfo::getNominalStrength`  
-`CmCharacterInfo::getStrength`  
-`CmCharacterInfo::getPlayer`  
-`CmCharacterInfo::getRealStatValue`  
-`CmCharacterInfo::getSkills`  
-`CmCharacterInfo::getValueByName`  
-`CmCharacterInfo::setStatValue`  
-`CmCharacterInfo::onTickSignal`  
-`CmCharacterInfo::sendFirstDataClient`  
-`CmCharacterInfo::startSim`
+1. a live connection object
+2. a valid character-backed runtime resolution path
+3. a valid world `Player` object bound to that state
 
-Runtime observations also support the existence of:
+## Inferred interpretation
 
-- `CmCharacterInfo::stopSim(...)`
-- `CmCharacterInfo::startSim(...)`
-- `CmCharacterInfo::sendFirstDataClient()`
-
-### Confirmed observed behavior
-
-CharacterInfo-related paths fail when accessed too early or when expected backing state is missing.
-
-This strongly indicates that CharacterInfo-backed state is part of valid character activation.
-
-### Inferred
-
-CharacterInfo appears to act as a bridge between:
-
-- character identity
-- persistent/runtime character state
-- simulation state
-- client-facing initialization
-- runtime player linkage
-
-### Safe interpretation
-
-CharacterInfo is one of the strongest visible candidates for the required character-backed runtime layer.
-
-### Unknown
-
-It is not directly proven whether CharacterInfo owns all gameplay state itself, or whether it coordinates access to other hidden systems.
-
-It is also not directly proven whether inventory/equipment are owned by CharacterInfo or only resolved through it.
-
----
-
-## 2.3 CharacterParameters
-
-### Confirmed
-
-Recovered callable functions include:
-
-`CharacterStatsAPI::CharacterParameters::_getObjectBindPoint`  
-`CharacterStatsAPI::CharacterParameters::_convertCarriedMovableToDeedAndDropItToBag`  
-`CharacterStatsAPI::CharacterParameters::Add_or_remove_character_listeners`  
-`CharacterStatsAPI::CharacterParameters::Calc_equipment_item_effective_quality`  
-`CharacterStatsAPI::CharacterParameters::Calc_hit_damage_distribution`  
-`CharacterStatsAPI::CharacterParameters::Current_stance`  
-`CharacterStatsAPI::CharacterParameters::LoadPlayer`  
-`CharacterParameters::LoadPlayer`  
-`CharacterStatsAPI::CharacterParameters::Apply_damage_to_this`  
-`CharacterStatsAPI::CharacterParameters::On_shield_hit_occured`  
-`CharacterStatsAPI::CharacterParameters::Ranged_time_scale`  
-`CharacterStatsAPI::CharacterParameters::UrgentlyDropCarriedMovable`  
-`CharacterStatsAPI::CharacterParameters::Warstance_required_by_current_ability`  
-`CharacterStatsAPI::CharacterParameters::getBindPoint`  
-`CharacterStatsAPI::CharacterParameters::getRallyPoint`  
-`CharacterStatsAPI::CharacterParameters::getShieldArmorType`  
-`CharacterStatsAPI::CharacterParameters::onArmNodeHit`  
-`CharacterStatsAPI::CharacterParameters::validateCurrentTitle`  
-`CharacterStatsAPI::CharacterParameters::getPossibleMountControls`  
-`CharacterStatsAPI::CharacterParameters::SavePlayer`  
-`CharacterParameters::SavePlayer`  
-`CharacterStatsAPI::CharacterParameters::getSaveableEffects`  
-`CharacterStatsAPI::CharacterParameters::isTitleValid`  
-`CharacterStatsAPI::CharacterParameters::GetHpDamageSkillEffect`
-
-Observed error/log strings include:
-
-- `CharacterParameters::LoadPlayer() - empty cpData`
-- `no character info for player %u`
-- `no player equipment`
-- `NetConnection have no GameConnection`
-- `GameConnection have no Player`
-
-### Confirmed observed behavior
-
-`LoadPlayer()` is part of real activation and load failure paths.
-
-It clearly depends on more than just a raw `Player` object.
-
-### Inferred
-
-CharacterParameters appears to be one of the main gameplay-state load layers used to populate runtime character state after valid character-backed resolution.
-
-### Safe interpretation
-
-A `Player` object may exist while CharacterParameters load still fails.
-
-That means:
-
-**player object existence != successful gameplay-state load**
-
-### Unknown
-
-The exact internal separation between CharacterParameters and CharacterInfo remains hidden.
-
----
-
-## 2.4 Player
-
-### Confirmed
-
-Recovered functions directly relevant here include:
-
-`Player::setControllingClient`  
-`Player::packGMFlags`
-
-Observed runtime behavior also shows that a `Player` can exist with:
-
-- fallback/default datablock
-- invalid or zero character ID
-- world presence without valid full character activation
-
-### Confirmed observed behavior
-
-`Player::setControllingClient()` is clearly not just a trivial input-binding helper.
-
-Observed messages include:
-
-- `Player::setControllingClient() - invalid player_id`
-- `Player::setControllingClient() -- can't find CharacterInfo for player %u`
-- `Loaded player data from DB...`
-- `can't load player`
-
-### Inferred
-
-`Player::setControllingClient()` appears to be one of the major activation gates where:
-
-- identity is validated
-- character-backed state is resolved
-- gameplay-state loading proceeds
-- the object becomes playable or fails
-
-### Safe interpretation
-
-A world `Player` object can exist without being a valid fully initialized character.
-
-### Unknown
-
-It is not proven whether the `Player` object stores all gameplay state itself or primarily acts as the world-side representation of character-backed state.
-
----
-
-## 2.5 Inventory Manager
-
-### Confirmed
-
-Recovered callable functions include:
-
-`CmPlayerManager::_loadObjectTypesFromDb`  
-`CmPlayerManager::ItemMove`  
-`CmPlayerManager::movePlayerInventoryTo`  
-`CmPlayerManager::onDataLoaded`
-
-Observed strings include:
-
-- `can't load objects conversions`
-- `empty object type ID`
-- `can't load object types`
-- duplicate object type ID validation
-- `Equipment not found`
-- `CmInventoryManager::ItemMove() - Can't replace item in equipment.`
-- `CmInventoryManager::ItemMove() - Unknown item move`
-- `CmInventoryManager::ItemMove() - Item limit in building container reached`
-- `object root container must be empty`
-
-### Confirmed observed behavior
-
-Inventory-related logic clearly includes:
-
-- object type loading
-- move dispatch
-- container restrictions
-- equipment-dependent move paths
-
-### Inferred
-
-Inventory appears to be a dependent subsystem that expects valid character-bound container context.
-
-### Safe interpretation
-
-Inventory should not currently be documented as a fully proven early foundational stage of activation unless direct trace evidence is added.
-
-### Unknown
-
-The exact point where inventory becomes valid during character activation is not directly proven.
-
----
-
-## 2.6 Equipment Manager
-
-### Confirmed
-
-Recovered callable functions include:
-
-`CmPlayerEquipment::_selectSlotsDB`  
-`CmEquipmentManager::_loadEquipmentTypes`  
-`CmEquipmentManager::_registerEquipmentType`  
-`CmEquipmentContainer::_setSlot`  
-`CmPlayerEquipment::applySlotChanges`  
-`CmPlayerEquipment::canSetSlot`  
-`CmPlayerEquipment::isSlotLocked`  
-`CmPlayerEquipment::removeItemQuantity`  
-`CmPlayerEquipment::setRootContainer`  
-`CmPlayerEquipment::_setSlotDB`  
-`CmEquipmentType::_getSkin`  
-`CmEquipmentType::createFromXmlNode`  
-`CmEquipmentManager::FindEquipmentTool`  
-`EquipmentEvent::SendUseSlot`  
-`CmEquipmentManager::_validateEquipmentType`  
-`CmPlayerEquipment::checkSkills`  
-`CmPlayerEquipment::getAgility`  
-`CmPlayerEquipment::getConstitution`  
-`CmPlayerEquipment::getMovementSoftStaminaRatio`  
-`CmPlayerEquipment::getWeaponSlotItem`  
-`CmPlayerEquipment::initialize`  
-`EquipmentEvent::pack`  
-`EquipmentEvent::unpack`  
-`CmPlayerEquipment::unuseWeaponSlot`  
-`CmPlayerEquipment::useWeaponSlot`
-
-Observed strings include:
-
-- `player_id is null`
-- `SELECT Slot, ItemID, SkinID FROM equipment_slots WHERE CharacterID=%u`
-
-### Confirmed observed behavior
-
-Equipment clearly has both:
-
-- database-backed per-character slot state
-- data-driven/static equipment type configuration
-
-### Inferred
-
-Equipment appears to depend on valid character identity and valid character-bound container state.
-
-### Safe interpretation
-
-Equipment currently looks more character-driven and container-driven than connection-driven.
-
-### Unknown
-
-The exact load boundary between equipment initialization and inventory/CharacterInfo/LoadPlayer remains unproven.
-
----
-
-## 2.7 CharacterTriggers
-
-### Confirmed
-
-Recovered callable functions include:
-
-`CharacterTriggers::NewItemInInventoryTriggerSignal::checkRequirements`  
-`CharacterTriggers::Trigger::testConditions`  
-`CharacterTriggers::Trigger::_loadActionFromXml`  
-`CharacterTriggers::FinishedBuildingTriggerSignal::checkRequirements`  
-`CharacterTriggers::EquipTriggerSignal::loadFromXml`  
-`CharacterTriggers::Manager::_createStaticData`  
-`CharacterTriggers::Manager::_loadTriggersXml`  
-`CharacterTriggers::EquipTriggerSignal::checkRequirements`  
-`CharacterTriggers::ShowHelpsTriggerAction::fireAction`  
-`CharacterTriggers::NewItemInInventoryTriggerSignal::loadFromXml`  
-`CharacterTriggers::Trigger::_loadSignalFromXml`
-
-Observed strings include:
-
-- `Can't find player inventory`
-- `Can't find player root container`
-- `Can't find player id=%u connection`
-- `Bad connection for player is=%u`
-
-### Confirmed observed behavior
-
-Different trigger paths can require:
-
-- valid inventory
-- valid root container
-- valid connection mapping
-
-### Inferred
-
-Triggers appear to be downstream consumers of already valid runtime state rather than foundational lifecycle systems.
-
-### Safe interpretation
-
-Some trigger paths are likely offline-safe while others are explicitly connection-dependent.
-
-### Unknown
-
-The exact boundary between offline-safe and online-only trigger behavior remains undocumented.
-
----
-
-# 3. Full Recovered Inventory of Lifecycle-Relevant Callable Functions
-
-This section groups the most relevant callable functions into a practical runtime graph.
-
-## Identity and Online Registration Layer
-
-`ConnectedPlayersManager::_notifyAll_sendInfo`  
-`ConnectedPlayersManager::_notifyAll_disconnect`  
-`ConnectedPlayersManager::onGmStatusChanged`  
-`ConnectedPlayersManager::kickPlayer`  
-`ConnectedPlayersManager::setGM`  
-`ConnectedPlayersManager::banPlayer`
-
-## Character State Layer
-
-`CmCharacterInfo::_loadCharParamsFromDb`  
-`CmCharacterInfo::_loadCarriedMovableFromDb`  
-`CmCharacterInfo::_setDirty`  
-`CmCharacterInfo::getInventory`  
-`CmCharacterInfo::getPlayer`  
-`CmCharacterInfo::sendFirstDataClient`  
-`CmCharacterInfo::startSim`  
-`CmCharacterInfo::onTickSignal`
-
-## Character Parameter Load Layer
-
-`CharacterStatsAPI::CharacterParameters::LoadPlayer`  
-`CharacterParameters::LoadPlayer`  
-`CharacterStatsAPI::CharacterParameters::SavePlayer`  
-`CharacterParameters::SavePlayer`  
-`CharacterStatsAPI::CharacterParameters::Add_or_remove_character_listeners`
-
-## Inventory and Container Layer
-
-`CmPlayerManager::_loadObjectTypesFromDb`  
-`CmPlayerManager::ItemMove`  
-`CmPlayerManager::movePlayerInventoryTo`  
-`CmPlayerManager::onDataLoaded`
-
-## Equipment Layer
-
-`CmPlayerEquipment::_selectSlotsDB`  
-`CmEquipmentManager::_loadEquipmentTypes`  
-`CmPlayerEquipment::setRootContainer`  
-`CmPlayerEquipment::applySlotChanges`  
-`CmPlayerEquipment::initialize`  
-`CmPlayerEquipment::useWeaponSlot`  
-`CmPlayerEquipment::unuseWeaponSlot`
-
-## Trigger and Event Layer
-
-`CharacterTriggers::Trigger::testConditions`  
-`CharacterTriggers::Trigger::_loadSignalFromXml`  
-`CharacterTriggers::Trigger::_loadActionFromXml`  
-`CharacterTriggers::NewItemInInventoryTriggerSignal::checkRequirements`  
-`CharacterTriggers::EquipTriggerSignal::checkRequirements`  
-`CharacterTriggers::FinishedBuildingTriggerSignal::checkRequirements`
-
-## Player Activation Layer
-
-`Player::setControllingClient`  
-`Player::packGMFlags`
-
----
-
-# 4. Practical Online Player Lifecycle
-
-This is a **practical runtime model**, not a source-level proof of exact internal call order.
-
-## Stage 1: A live connection exists
-
-A connection object is present.
-
-At this point the client may still have:
-
-- no valid runtime player
-- no valid character-backed activation
-- no fully loaded state
-
-## Stage 2: Identity is resolved
-
-Some player/character identity must be resolved.
-
-If identity is bad here, later stages may still run and produce misleading secondary failures.
-
-## Stage 3: Character-backed runtime state becomes available
-
-Successful activation strongly appears to require valid CharacterInfo-backed resolution.
-
-This is one of the strongest practical conclusions currently supported by logs and recovered errors.
-
-## Stage 4: Character parameter loading begins
-
-`CharacterParameters::LoadPlayer()` appears as part of successful activation and failure paths.
-
-This suggests runtime gameplay state is loaded only after valid backing exists.
-
-## Stage 5: Character simulation becomes active
-
-Observed valid activation behavior includes:
-
-- simulation start
-- dependent systems such as wounds becoming active
-
-This suggests simulation-related subsystems depend on successful activation progression.
-
-## Stage 6: Initial client sync occurs
-
-`CmCharacterInfo::sendFirstDataClient()` suggests that character state is pushed toward the client only after character-backed runtime state is valid enough to present.
-
-## Stage 7: Runtime player activation completes
-
-`Player::setControllingClient()` appears to be one of the final activation gates where loaded/runtime-valid character state becomes attached to the active world-side `Player`.
-
-## Stage 8: World/control state and online behavior stabilize
-
-Only after the previous stages succeed do later systems become safer:
-
-- online visibility/state propagation
-- connection-dependent triggers
-- replication/packing paths
-- GM/network flag behavior
-
----
-
-# 5. Most Probable Offline / NPC Lifecycle
-
-This section remains more tentative than the online lifecycle.
-
-## Inferred sequence
-
-A character-like entity may potentially follow a reduced path such as:
-
-1. create or obtain runtime player-like object  
-2. assign valid identity  
-3. resolve character-backed state  
-4. load character parameters  
-5. resolve inventory/equipment if needed  
-6. enter simulation  
-7. appear in world  
-
-## Safe conclusion
-
-A character-like runtime entity may exist without a live playable online connection.
-
-## Important limitation
-
-This does **not** mean all player systems are safe for NPC/offline entities.
-
-Recovered trigger errors strongly suggest that some systems explicitly require valid connection mapping.
-
----
-
-# 6. Reconstructed Load / Set / Init / Spawn Graph
-
-This graph is a **practical inferred dependency model**, not a source-level proof.
-
-## Practical dependency graph
-
-**Identity Resolution**  
-→ **Character-Backed Runtime Resolution**  
-→ **CharacterParameters::LoadPlayer**  
-→ **Simulation Start**  
-→ **Inventory/Equipment Validity**  
-→ **Initial Client Sync**  
-→ **Player::setControllingClient**  
-→ **Control Object / Spawn Completion**  
-→ **Connected Online State**  
-→ **Connection-Dependent Triggers and Replication**
-
-## Practical interpretation
-
-If one early stage fails, later stages may still attempt to run and produce secondary errors.
-
-That means:
-
-- missing CharacterInfo may later look like a spawn bug
-- invalid identity may later look like a trigger bug
-- missing connection may later look like a replication bug
-- missing equipment context may later look like an inventory bug
-
----
-
-# 7. Error and Log Index
-
-This section maps observed or recovered errors to their practical meaning.
-
-## `no player info found`
-
-### Inferred origin
-
-Likely online registry / connected-player state behavior
-
-### Safe interpretation
-
-A system tried to operate on a player as if it were fully registered, but earlier activation/registration was incomplete.
-
-### Unknown
-
-Exact internal manager ownership remains unproven.
-
----
-
-## `player not found (id=%u)`
-
-### Inferred origin
-
-Likely character-to-runtime-player resolution path
-
-### Safe interpretation
-
-Character-backed state expected a valid world-side player and could not resolve it.
-
----
-
-## `CmCharacterInfo not init` / `CmCharacterInfo not inited`
-
-### Confirmed practical meaning
-
-CharacterInfo API is being accessed before valid initialization has completed.
-
-### Safe interpretation
-
-Character-backed runtime state is foundational enough that early access causes hard failure.
-
----
-
-## `CharacterParameters::LoadPlayer() - empty cpData`
-
-### Confirmed practical meaning
-
-Runtime attempted to load character parameters from invalid or empty character parameter data.
-
-### Safe interpretation
-
-Activation/load was attempted without valid prepared input state.
-
----
-
-## `no character info for player %u`
-
-### Confirmed practical meaning
-
-A load path attempted to proceed without valid CharacterInfo-backed resolution.
-
-### Safe interpretation
-
-This is one of the strongest visible failure signals in the lifecycle.
-
----
-
-## `player_id is null`
-
-### Confirmed practical meaning
-
-An equipment-related path expected valid character identity and did not receive it.
-
----
-
-## `Equipment not found`
-
-### Confirmed practical meaning
-
-An inventory/equipment-related path required valid equipment context and did not find it.
-
----
-
-## `CmInventoryManager::ItemMove() - Can't replace item in equipment.`
-
-### Confirmed practical meaning
-
-An equipment replacement path failed because expected equipment/slot state was not valid for the requested operation.
-
----
-
-## `CmInventoryManager::ItemMove() - Unknown item move`
-
-### Confirmed practical meaning
-
-Inventory move dispatch encountered an unsupported or invalid movement scenario.
-
----
-
-## `CmInventoryManager::ItemMove() - Item limit in building container reached`
-
-### Confirmed practical meaning
-
-The move failed because of container capacity/limit rules.
-
----
-
-## `Can't find player inventory`
-
-### Confirmed practical meaning
-
-An inventory-dependent trigger or runtime path could not resolve player inventory.
-
-### Safe interpretation
-
-Inventory is not universally safe at all lifecycle stages.
-
----
-
-## `Can't find player root container`
-
-### Confirmed practical meaning
-
-A root-container-dependent path fired before valid container state was available.
-
----
-
-## `Can't find player id=%u connection`
-
-### Confirmed practical meaning
-
-A trigger or runtime path required valid connection mapping and did not find it.
-
-### Safe interpretation
-
-Some character systems are explicitly connection-dependent.
-
----
-
-## `Bad connection for player is=%u`
-
-### Confirmed practical meaning
-
-A connection reference existed but was invalid for the expected operation.
-
----
-
-## `Player::setControllingClient() - invalid player_id`
-
-### Confirmed practical meaning
-
-Player activation/control binding was attempted with invalid identity.
-
----
-
-## `Player::setControllingClient() -- can't find CharacterInfo for player %u`
-
-### Confirmed practical meaning
-
-Control binding could not proceed because valid CharacterInfo-backed resolution was missing.
-
-### Safe interpretation
-
-Control binding is part of the activation boundary, not merely a harmless helper.
-
----
-
-## `Loaded player data from DB...`
-
-### Confirmed practical meaning
-
-A valid activation/load path succeeded far enough to report real data load completion.
-
----
-
-## `can't load player`
-
-### Confirmed practical meaning
-
-Player activation/load was attempted but did not complete successfully.
-
----
-
-## `object root container must be empty`
-
-### Confirmed practical meaning
-
-A transfer/container operation expected a clean destination root container and failed that requirement.
-
----
-
-## `game connection already has a control object`
-
-### Confirmed practical meaning
-
-A new activation/spawn attempt was made while the connection still controlled another object.
-
----
-
-## `Attempting to create a player for a client that already has one!`
-
-### Confirmed practical meaning
-
-Spawn was invoked while the client already had an active player.
-
-### Practical implication
-
-Any respawn, bridge, or swap experiment must account for prior player ownership.
-
----
-
-## `Player::packGMFlags() -- missing GameConnection ...`
-
-### Confirmed practical meaning
-
-A replication/packing path expected a valid GameConnection and failed.
-
-### Safe interpretation
-
-A spawn that appears partially successful may still be network-invalid.
-
----
-
-## `NetConnection have no GameConnection`
-
-### Confirmed practical meaning
-
-A gameplay-specific connection-dependent path received insufficient valid connection backing.
-
----
-
-## `GameConnection have no Player`
-
-### Confirmed practical meaning
-
-A GameConnection existed but lacked an active Player object when gameplay logic expected one.
-
----
-
-# 8. Spawn and Respawn Model
-
-## Practical normal spawn model
-
-A likely successful activation path includes:
-
-1. valid connection state  
-2. valid identity  
-3. valid character-backed resolution  
-4. character parameter load  
-5. simulation start  
-6. inventory/equipment becoming valid  
-7. initial client sync  
-8. controlling-client activation  
-9. stable world/control state  
-10. later online/trigger-safe behavior  
-
-## Respawn dangers
-
-Observed behavior strongly suggests respawn is highly sensitive to stale state, especially when:
-
-- the connection already owns a player
-- tracking state still exists
-- simulation has already started
-- replication observes half-valid objects
-
-## Practical respawn rule
-
-Do not attempt to create or bind a new active player for a connection until old control/tracking/simulation state is fully cleared.
-
----
-
-# 9. Practical Modding Rules
-
-## Rule 1
-
-Do not treat connection existence as proof of valid character activation.
-
-## Rule 2
-
-Do not treat `Player` object existence as proof of valid playable character state.
-
-## Rule 3
-
-CharacterInfo-backed resolution is one of the most important currently visible lifecycle dependencies.
-
-## Rule 4
-
-Do not overstate inventory/equipment load order unless direct proof is available.
-
-## Rule 5
-
-Do not fire connection-dependent or inventory-dependent logic too early.
-
-## Rule 6
-
-Treat NPC/offline character validity separately from online/player validity.
-
-## Rule 7
-
-During respawn or character swap experiments, clear prior control/activation state before attempting new player creation.
-
----
-
-# 10. Most Probable Final Architectural Conclusion
-
-The safest current interpretation is that the recovered core behaves like a layered runtime model:
-
-**Connection Layer**  
-provides online presence, but not full character validity
-
-**Identity Layer**  
-determines which logical character is being targeted
-
-**Character-Backed Runtime Layer**  
-makes a character valid to activation logic
-
-**Gameplay Load Layer**  
-loads runtime gameplay state
-
-**Inventory / Equipment Layer**  
-attaches dependent item/slot/container state
-
-**Player Runtime Layer**  
-provides the live world object
-
-**Online / Replication Layer**  
-makes that object controllable and visible online
-
-**Trigger Layer**  
-becomes safe only after earlier dependencies are valid
-
-The strongest practical rule currently supported by evidence is:
-
-**valid identity must resolve to valid character-backed runtime state before a Player object can become a real fully initialized character**
-
-If that step fails, the system may still continue producing objects, logs, and side effects, but many of them are secondary symptoms rather than the root cause.
-
----
-
-# 11. Short Diagnostic Checklist
-
-When debugging a broken player lifecycle, check in this order:
-
-1. Does the player have a valid non-zero identity?  
-2. Does valid CharacterInfo-backed resolution exist for that identity?  
-3. Did `CharacterParameters::LoadPlayer` succeed?  
-4. Did simulation actually start?  
-5. Did inventory initialize or become valid where required?  
-6. Did equipment/root-container-dependent state become valid where required?  
-7. Did `sendFirstDataClient` run successfully?  
-8. Did `Player::setControllingClient` succeed?  
-9. Does the connection already control another player/object?  
-10. Are trigger paths firing before connection-dependent state is valid?  
-11. Is replication/GM packing observing stale or incomplete connection/player state?  
-
----
-
-# 12. Final Summary
-
-The recovered core is not best understood as:
-
-**connection → spawn**
+The runtime is not purely connection-driven and not purely player-object-driven.
 
 A more accurate practical model is:
 
-**identity → character-backed runtime resolution → gameplay-state load → simulation → player activation → stable online state**
+**connection context + hidden character backing + world player object**
 
-This document should therefore be read as a reverse-engineered runtime reference based on observable behavior, not as a full reconstruction of the original closed-core source architecture.
+rather than:
+
+**connection only**
+or
+**player object only**
+
+---
+
+## What can be stated safely about CharacterInfo
+
+## Confirmed
+
+`CharacterInfo`-related functions appear exactly at the point where real character activation succeeds.
+
+When backing is missing, the runtime explicitly reports:
+
+- `can't find CharacterInfo for player 2`
+
+### Safe conclusion
+
+`CharacterInfo` is not just cosmetic naming. It is part of the validation/activation path for a real playable character.
+
+### What should no longer be overstated
+
+It is too strong to claim, without qualification, that `CharacterInfo` is the sole center of all gameplay state.
+
+A safer phrasing is:
+
+**CharacterInfo appears to be a required part of valid character activation and simulation lifecycle.**
+
+---
+
+## Inventory and Equipment
+
+## Confirmed
+
+This document currently has **no direct proof** showing the exact load point of inventory and equipment within the activation sequence.
+
+## Inferred
+
+Inventory and equipment likely depend on successful character-backed initialization, because failed character activation falls back to a default player shell rather than a fully initialized target.
+
+## Unknown
+
+The following are not currently proven:
+
+- whether inventory is owned by `CharacterInfo`
+- whether equipment is attached before or after simulation start
+- whether inventory/equipment are loaded inside `LoadPlayer()` or by separate hidden managers
+
+### Practical documentation rule
+
+Until direct proof is collected, inventory/equipment should be documented as **dependent subsystems with unresolved load boundaries**.
+
+---
+
+## CharacterTriggers
+
+## Confirmed
+
+This document does not currently include direct trace evidence for trigger manager ownership or exact trigger execution order.
+
+## Inferred
+
+Some trigger paths likely depend on valid online connection mapping, because invalid player identity or missing backing state causes downstream failures in runtime behavior.
+
+## Unknown
+
+The exact boundary between offline-safe character logic and connection-dependent trigger logic remains unverified.
+
+---
+
+## ConnectedPlayersManager
+
+## Confirmed
+
+This document does not yet provide direct public API proof for `ConnectedPlayersManager`.
+
+The current understanding comes from error interpretation and runtime behavior patterns, not direct implementation visibility.
+
+## Inferred
+
+It likely participates in active-player registration and online visibility/broadcast state.
+
+## Unknown
+
+Its real ownership, timing, and relationship to connection and character activation remain hidden.
+
+### Documentation rule
+
+Until direct trace evidence is added, this system should not be described as if its internal responsibility were fully known.
+
+---
+
+## Revised Practical Spawn Model
+
+## What is directly supported by evidence
+
+For a valid character activation path, the runtime can be observed performing:
+
+- player/control reassignment work
+- `CharacterParameters::LoadPlayer()`
+- `CmCharacterInfo::startSim()`
+- `CmCharacterWounds::onSimStarted()`
+- `CmCharacterInfo::sendFirstDataClient()`
+
+For an invalid target character, the runtime can instead produce:
+
+- missing `CharacterInfo`
+- default datablock fallback
+- invalid `Player` shell with character ID `0`
+
+## Safe practical conclusion
+
+A correct spawn/activation path is not merely:
+
+**create player -> assign connection**
+
+It also requires:
+
+**successful hidden character-backed resolution**
+
+---
+
+## Error Interpretation Guide
+
+## Error: `can't find CharacterInfo for player X`
+
+### Confirmed meaning
+
+The runtime attempted to resolve a character-backed activation path for a player identity and failed.
+
+### Confirmed consequence
+
+The system may fall back to a default datablock and create an invalid player shell.
+
+### Safe conclusion
+
+This is one of the strongest currently visible indicators that character backing and world player creation are separate concerns.
+
+---
+
+## Error: `Player::getPlayerDatablock() -- can't find CharacterInfo ... Returning default datablock`
+
+### Confirmed meaning
+
+Datablock selection for a spawned player can depend on successful character backing resolution.
+
+### Confirmed consequence
+
+Failure produces `DefaultPlayerData` instead of the expected real character datablock.
+
+---
+
+## Error: `Player::setControllingClient() -- can't find CharacterInfo for player X`
+
+### Confirmed meaning
+
+Control binding alone is not enough to validate the player.
+
+The control-binding path still attempts to resolve character backing.
+
+### Confirmed consequence
+
+A control-bound player object may still be invalid as a real character.
+
+---
+
+## Error: `Attempting to create a player for a client that already has one!`
+
+### Confirmed meaning
+
+The spawn path was called while the client still had an active player object.
+
+### Practical meaning
+
+Any experiment that tries to bridge or swap characters through a live connection must account for the fact that the connection already owns a player.
+
+---
+
+## Error: `Simulation has already started (playerId X)`
+
+### Confirmed meaning
+
+Restoring or re-running activation logic on an already active valid character can cause duplicate simulation-start attempts.
+
+### Practical meaning
+
+The simulation lifecycle is stateful and not safely idempotent.
+
+---
+
+## Modding Guidance
+
+## Safe claims
+
+Modders can safely assume:
+
+- a live connection does not automatically imply valid character activation
+- a spawned `Player` object does not automatically imply valid character backing
+- `CharacterInfo` resolution matters in practice
+- `LoadPlayer()`, `startSim()`, and `sendFirstDataClient()` are part of the real activation path
+
+## Unsafe claims
+
+Modders should avoid claiming, without proof, that:
+
+- `CharacterInfo` owns all gameplay state
+- inventory always loads after `LoadPlayer()`
+- equipment always depends directly on `CharacterInfo`
+- a specific hidden manager owns player registration unless direct trace evidence is shown
+
+---
+
+## Practical Example
+
+## Example: bridge-spawn attempt through a live connection
+
+A practical experiment attempted to:
+
+1. capture a live client connected as character 1
+2. overwrite the connection-side character ID to 2
+3. call `spawnPlayer(connection)`
+4. inspect the resulting target player
+5. restore original control
+
+### Result
+
+The bridge failed.
+
+Observed outcome:
+
+- runtime could not find `CharacterInfo` for player 2
+- default datablock fallback occurred
+- spawned target had `getCharacterId() = 0`
+- target had to be deleted
+- restoring original control to character 1 re-ran the normal valid activation path
+
+### Why this example matters
+
+This is a concrete runtime demonstration that the visible connection fields are not enough to impersonate or fully activate another character through the same live connection.
+
+---
+
+## Architectural Conclusion
+
+The safest current interpretation is:
+
+### Confirmed practical model
+
+A valid playable character requires:
+
+- connection context
+- character-backed runtime resolution
+- world player object
+- simulation/client sync activation steps
+
+### Strong inference
+
+The core separates at least part of:
+
+- online connection state
+- hidden character backing/state
+- world entity state
+
+### Unknown
+
+The exact internal ownership boundaries between these layers are still not visible.
+
+---
+
+## Final Summary
+
+The old version of this document overstated some architectural conclusions.
+
+A more accurate and evidence-based summary is:
+
+**A live connection, a world Player object, and valid character-backed runtime resolution are separate concerns.**
+
+The strongest currently confirmed rule is:
+
+**if CharacterInfo-backed resolution fails, the runtime may still create a Player object, but that object is not a valid fully initialized character.**
+
+That is directly supported by practical experiments showing:
+
+- missing `CharacterInfo`
+- default datablock fallback
+- invalid target player with character ID `0`
+- successful reactivation only when returning to the original valid character
+
+This document should therefore be read as a reverse-engineered field guide based on observable behavior, not as a full reconstruction of the closed-core architecture.
 
 ---
 
 ## Footnote
 
-This document was assembled from reverse-engineering notes, runtime experiments, and edited technical drafting assistance. It should be judged by the included evidence and examples, not as official source-level documentation.
+This document was assembled from reverse-engineering notes, runtime experiments, and edited technical drafting assistance. It should be evaluated by the evidence and examples included, not as an official source-code document.
