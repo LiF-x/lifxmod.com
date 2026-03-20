@@ -9,7 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      issues: write   # required to comment + close
+      issues: write
+
+    # ✅ Only run for issues, not PRs
+    if: ${{ github.event.issue.pull_request == null }}
 
     steps:
       - name: Stop if bot made the comment (avoid loops)
