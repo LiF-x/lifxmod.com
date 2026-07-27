@@ -53,7 +53,7 @@ The Church from LIF:MMO recreated for LIF:YO [Download here](https://github.com/
 
 12. Ensure all you need is in the pack and insert files into the yo launcher folder that you need for your server, ensuring you do not overwrite the mod files
 
-13. Run the "createModpack.bat" included in this pack to generate a mod pack to upload to [Yo Launcher](https://www.yolauncher.app/)
+13. Run the "createModpack.bat" included in this pack to generate a mod pack to upload to [Yo Launcher](https://yolauncher.app/)
 
 14. Upload to Yo Launcher as normal
 
