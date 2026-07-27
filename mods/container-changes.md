@@ -57,7 +57,7 @@ last_modified_date:
 7. Ensure you have 7zip installed on your computer [Download here](https://7zip.dev/en/download/)
 
 8. Ensure all you need is in the pack and insert files into the yo launcher folder that you need for your server, ensuring you do not overwrite the mod files without checking your are moving a more up to date version with the correct information.<br><br>\*\*XMLS REQUIRED FOR THIS MOD\*\*<br>\- object\_types.xml (Built for you as mentioned on the server and can be found in the db export folder )
-9. ​​Run the "createModpack.bat" included in this pack to generate a mod pack to upload to [Yo Launcher](https://www.yolauncher.app/)
+9. ​​Run the "createModpack.bat" included in this pack to generate a mod pack to upload to [Yo Launcher](https://yolauncher.app/)
 10. Upload to Yo Launcher as normal&nbsp;
 
 11. Enjoy
