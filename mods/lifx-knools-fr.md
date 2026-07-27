@@ -74,7 +74,7 @@ Pré requis pour suivre le tuto:
 
 <br>\- skill\_types.xml (needs to be built as mentioned above).<br>\- cm\_equipTypes.xml (needs to be built as mentioned above).<br>\- cm\_objects.xml &nbsp;(needs to be built as mentioned above).<br>\- object\_types.xml (Built for you as mentioned on the server and can be found in the db export folder ).<br>\- recipe.xml (Built for you as mentioned on the server and can be found in the db export folder ).<br>\- recipe\_requirement.xml (Built for you as mentioned on the server and can be found in the db export folder ).​​​
 
-1. Lancez "createModpack.bat" inclus dans ce pack pour générer un .zip de modpack à envoyer sur votre serveur sur&nbsp;[Yo Launcher](https://www.yolauncher.app/)&nbsp;
+1. Lancez "createModpack.bat" inclus dans ce pack pour générer un .zip de modpack à envoyer sur votre serveur sur&nbsp;[Yo Launcher](https://yolauncher.app/)&nbsp;
 
 2. Envoyez vers Yo Launcher le site sans oublier de ce connecter&nbsp;
 
