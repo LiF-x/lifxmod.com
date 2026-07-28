@@ -57,7 +57,7 @@ Pre-requisite assumptions made:
 
 \- cm\_objects.xml &nbsp;(included in pack).<br>\- object\_types.xml (Built for you as mentioned on the server and can be found in the db export folder ).<br>\- recipe.xml (Built for you as mentioned on the server and can be found in the db export folder ).<br>\- recipe\_requirement.xml (Built for you as mentioned on the server and can be found in the db export folder ).​​​
 
-1. ​​Run the "createModpack.bat" included in this pack to generate a modpack .zip to upload to your server on&nbsp;[Yo Launcher](https://www.yolauncher.app/)&nbsp;
+1. ​​Run the "createModpack.bat" included in this pack to generate a modpack .zip to upload to your server on&nbsp;[Yo Launcher](https://yolauncher.app/)&nbsp;
 
 2. Upload to Yo Launcher as normal&nbsp;
 
