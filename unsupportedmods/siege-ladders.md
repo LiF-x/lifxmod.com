@@ -24,6 +24,6 @@ last_modified_date: 2024-01-09 18:37:00
 6. Start the server
 7. Ensure you have 7zip installed on your computer [Download here](https://7zip.dev/en/download/)
 8. Ensure all you need is in the pack and insert files into the yo launcher folder that you need for your server, ensuring you do not overwrite the mod files
-9. Run the "createModpack.bat" included in this pack to generate a mod pack to upload to [Yo Launcher](https://www.yolauncher.app/)
+9. Run the "createModpack.bat" included in this pack to generate a mod pack to upload to [Yo Launcher](https://yolauncher.app/)
 10. Upload to Yo Launcher as normal
 11. Enjoy
